@@ -2,25 +2,21 @@
 
 ## 流程概览
 
-1. **App 内**：用户点击「微信」→ 调起微信选择聊天对象 → 分享出去的是**链接卡片**（标题 + 缩略图），缩略图使用当前分享页的插画图。
-2. **对方**：在微信里收到卡片，**点击卡片**会打开你配置的 H5 落地页（如设计图中的「共同计划事项提醒」页面）。
-3. **落地页**：展示插画 + 文案 + **「加入计划事项」**按钮。
-4. **点击「加入计划事项」**：
+1. **App 内**：用户点击「微信」→ 调起微信选择聊天对象 → 分享出去的是**一张图片**（与分享页完全一致：`assets/icons/share_default.png` + 标题、日期、时间、主文案叠加）。
+2. **落地页 H5**：与 App 使用**同一张图** `share_default.png`，通过 URL 参数（`title`、`mainText`、`date`、`time`、`tag`、`subtitle`）控制叠加内容，与 `ShareLinkPage` 展示一致；页上另有「加入计划事项」按钮。
+3. **点击「加入计划事项」**：
    - 若**已安装**本 App：通过自定义 Scheme 或 Universal Link 唤起 App。
-   - 若**未安装**：跳转到应用市场（iOS App Store / Android 应用宝等）或官网下载页。
-
-上述功能**可以实现**，需完成以下配置与部署。
+   - 若**未安装**：跳转到应用市场或官网下载页。
 
 ---
 
 ## 1. App 端已实现内容
 
-- **微信分享**：已支持「分享链接 + 缩略图」。当在 `ShareLinkPage` 中传入 `shareLandingUrl`（或在 `app_constants.dart` 中配置 `shareLandingPageBaseUrl` 并由各详情页传入）时，分享到微信的是**网页链接**，缩略图为分享卡片图，对方点击即打开该 URL。
+- **分享图片**：点击微信分享的是「带叠加文字的卡片图」（`share_default.png` + 标题、日期、时间、主文案），与 `ShareLinkPage` 页面展示**完全一致**；通过构造参数 `title`、`mainText`、`date`、`time`（可选）、`tag`、`subtitle` 控制内容。
+- **H5 落地页**：`docs/index.html` 使用同一张图，通过 query 参数（`title`、`mainText`、`date`、`time`、`tag`、`subtitle`）展示相同布局与文案。
 - **常量配置**：在 `lib/core/constants/app_constants.dart` 中已预留：
-  - `shareLandingPageBaseUrl`：落地页基础 URL（需改为你实际部署的域名）
-  - `appStoreDownloadUrl`：iOS App Store 链接
-  - `androidStoreDownloadUrl`：Android 应用市场链接
-  - `officialWebsiteUrl`：官网（兜底）
+  - `shareLandingPageBaseUrl`：落地页基础 URL（用于需要打开 H5 的场景）
+  - `appStoreDownloadUrl` / `androidStoreDownloadUrl` / `officialWebsiteUrl`：未安装时跳转
 
 ---
 
@@ -28,8 +24,9 @@
 
 ### 2.1 部署 H5 落地页
 
-- 将落地页部署到**与微信分享域名一致**的 HTTPS 域名下（微信要求分享链接为 HTTPS）。
-- 落地页 URL 应与 `shareLandingPageBaseUrl` 一致（例如 `https://yourdomain.com/share`），这样 App 分享出去的链接才会正确打开该页。
+- 将 `docs/index.html` 部署到你的 HTTPS 域名（如 `shareLandingPageBaseUrl`）。
+- **必须将 `assets/icons/share_default.png` 一并部署到同目录或同源**，H5 中图片地址为 `share_default.png`（或通过 query `img=` 指定）。
+- 打开 H5 时可通过 query 传参与 App 一致：`?title=xxx&mainText=18天&date=2026-02-17 星期二&time=24:00&tag=重要时刻&subtitle=xxx`。
 
 ### 2.2 落地页「加入计划事项」逻辑（判断是否安装并跳转）
 
@@ -76,15 +73,13 @@ Universal Link（iOS）需在服务端配置 `apple-app-site-association`，并�
 
 ---
 
-## 3. 示例落地页 HTML
+## 3. 落地页 HTML（docs/index.html）
 
-项目在 `docs/share_landing_page_example.html` 中提供了一份最小示例，包含：
+- 与 App 一致：使用 **share_default.png** 作为卡片背景，叠加**标题、日期、时间、主文案**，由 URL 参数控制。
+- 参数与 `ShareLinkPage` 构造一致：`title`、`mainText`、`date`、`time`、`tag`、`subtitle`。
+- 含「加入计划事项」按钮（唤端 / 未安装跳应用市场或官网）。
 
-- 标题「共同计划事项提醒」
-- 插画占位区域与说明文案
-- 「加入计划事项」按钮及上述唤端 + 未安装跳转应用市场/官网的逻辑
-
-你可基于该文件修改样式与文案，部署到自己的域名后，将 `app_constants.dart` 中的 `shareLandingPageBaseUrl` 改为该页面 URL 即可。
+部署时请将 `assets/icons/share_default.png` 复制到与 `index.html` 同目录（或配置 `img=` 指向该图），并配置 `shareLandingPageBaseUrl`。
 
 ---
 
@@ -92,9 +87,7 @@ Universal Link（iOS）需在服务端配置 `apple-app-site-association`，并�
 
 | 能力 | 说明 |
 |------|------|
-| 点击「微信」分享 | ✅ 已实现：分享链接+缩略图，对方看到卡片 |
-| 对方点击卡片打开落地页 | ✅ 需你部署 H5 并配置 `shareLandingPageBaseUrl` |
-| 「加入计划事项」唤起 App | ✅ 需在 H5 中写唤端逻辑，并在 App 配置 Scheme/Universal Link |
-| 未安装跳转应用市场/官网 | ✅ 需在 H5 中写跳转逻辑，并填写 `appStoreDownloadUrl` / `androidStoreDownloadUrl` |
-
-整体流程可以实现，按上述步骤配置并部署即可。
+| 点击「微信」分享 | ✅ 已实现：分享**图片**（share_default + 标题/日期/时间/主文案），与页面一致 |
+| H5 展示同一张图+参数 | ✅ 已实现：`docs/index.html` 使用 share_default.png + query 参数 |
+| 「加入计划事项」唤起 App | ✅ 需在 App 配置 Scheme/Universal Link，H5 已含唤端逻辑 |
+| 未安装跳转应用市场/官网 | ✅ 需在 H5 或常量中填写实际下载链接 |
