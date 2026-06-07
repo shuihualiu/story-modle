@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "T48U397GVU.com.haloutongxue.reminder",
+        "paths": [
+          "/h5/global/*",
+          "/h5/*",
+          "/functions/v1/global-share-og*"
+        ]
+      }
+    ]
+  }
+}
