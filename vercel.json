@@ -10,7 +10,7 @@
   "rewrites": [
     {
       "source": "/functions/v1/global-share-og",
-      "destination": "https://mkzmxtnqkvwqbkvcrmeu.supabase.co/functions/v1/global-share-og"
+      "destination": "/api/global-share-og"
     }
   ],
   "headers": [
