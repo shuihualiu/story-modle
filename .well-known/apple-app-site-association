@@ -3,9 +3,11 @@
     "apps": [],
     "details": [
       {
-        "appID": "TEAMID.com.example.reminderApp",
+        "appID": "T48U397GVU.com.haloutongxue.reminder",
         "paths": [
-          "/h5/*"
+          "/h5/global/*",
+          "/h5/*",
+          "/functions/v1/global-share-og*"
         ]
       }
     ]

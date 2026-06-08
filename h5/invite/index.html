@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>一起做计划</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      padding: 24px 20px 40px;
+      background: #f8f6f3;
+      color: #333;
+      line-height: 1.5;
+    }
+    h1 { font-size: 20px; font-weight: 600; margin: 0 0 12px; }
+    p { margin: 0 0 16px; font-size: 15px; color: #555; }
+    .btn {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 14px 16px;
+      margin-bottom: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn-primary { background: #32abfd; color: #fff; }
+    .btn-secondary { background: #fff; color: #32abfd; border: 1px solid #32abfd; }
+    .hint { font-size: 13px; color: #888; margin-top: 24px; }
+    #launch-slot { min-height: 52px; margin-bottom: 12px; }
+  </style>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+</head>
+<body>
+  <h1>邀请你一起做计划</h1>
+  <p id="desc">正在打开 App…若未安装请前往应用商店下载。</p>
+
+  <div id="launch-slot"></div>
+
+  <a id="store-ios" class="btn btn-secondary" href="#" style="display:none;">前往 App Store 下载</a>
+  <a id="store-android" class="btn btn-secondary" href="#" style="display:none;">前往应用商店下载</a>
+
+  <p class="hint">
+    在微信内请点击下方按钮使用「打开 App」。若已安装仍无法唤起，请复制链接到系统浏览器打开或联系客服。
+  </p>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var inviteCode = (params.get('invite_code') || '').trim();
+      if (!inviteCode) {
+        document.getElementById('desc').textContent = '缺少邀请参数，请使用好友发来的完整链接打开。';
+      }
+
+      var extinfo = 'scene=invite&invite_code=' + encodeURIComponent(inviteCode);
+      var appId = 'wxbd63620e37fab476';
+
+      var ua = navigator.userAgent || '';
+      var isWeChat = /MicroMessenger/i.test(ua);
+      var isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+      var iosStore = 'https://apps.apple.com/app/idYOUR_APP_ID';
+      var androidStore = 'market://details?id=com.haloutongxue.reminder';
+
+      var elIos = document.getElementById('store-ios');
+      var elAnd = document.getElementById('store-android');
+      elIos.href = iosStore;
+      elAnd.href = androidStore;
+      if (isIOS) {
+        elIos.style.display = 'block';
+      } else {
+        elAnd.style.display = 'block';
+      }
+
+      var slot = document.getElementById('launch-slot');
+
+      if (isWeChat && inviteCode) {
+        var wxBtn = document.createElement('wx-open-launch-app');
+        wxBtn.setAttribute('appid', appId);
+        wxBtn.setAttribute('extinfo', extinfo);
+        wxBtn.innerHTML =
+          '<template><style>.wx-btn{padding:14px 16px;background:#32abfd;color:#fff;border-radius:10px;text-align:center;font-size:16px;}</style>' +
+          '<div class="wx-btn">打开 App</div></template>';
+        slot.appendChild(wxBtn);
+      } else if (inviteCode) {
+        var deep = 'https://www.haloutongxue.com/h5/invite/index.html?invite_code=' + encodeURIComponent(inviteCode);
+        var a = document.createElement('a');
+        a.className = 'btn btn-primary';
+        a.href = deep;
+        a.textContent = '打开 App（系统浏览器）';
+        slot.appendChild(a);
+      }
+
+      document.getElementById('desc').textContent =
+        inviteCode
+          ? (isWeChat ? '请在下方点击「打开 App」完成邀请绑定。' : '点击下方按钮尝试唤起 App 完成邀请绑定。')
+          : document.getElementById('desc').textContent;
+    })();
+  </script>
+</body>
+</html>
