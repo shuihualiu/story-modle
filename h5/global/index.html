@@ -40,6 +40,39 @@
     .card-header.is-memorial {
       justify-content: center;
     }
+    /* 日常类型：设计稿 375×812，左 60px / 右 100px，均斜向上 30° */
+    .card-header.is-daily {
+      top: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      min-height: 0;
+    }
+    .card-header.is-daily .header-side {
+      position: absolute;
+      flex: none;
+      width: auto;
+      max-width: none;
+      white-space: nowrap;
+      overflow: visible;
+      font-size: clamp(18px, 6.4vw, 26px);
+      line-height: 1;
+    }
+    .card-header.is-daily #headerLeft {
+      top: calc(60 / 812 * 100dvh);
+      left: 6.4%;
+      transform: rotate(-30deg);
+      transform-origin: left bottom;
+      text-align: left;
+    }
+    .card-header.is-daily #headerRight {
+      top: calc(100 / 812 * 100dvh);
+      right: 6.4%;
+      left: auto;
+      transform: rotate(-30deg);
+      transform-origin: right bottom;
+      text-align: right;
+    }
     .header-side,
     .header-center {
       color: #fff;
@@ -249,12 +282,32 @@
         }
       }
 
+      function fitTextDaily(el, maxPx, minPx) {
+        if (!el) return;
+        var size = maxPx;
+        el.style.fontSize = size + 'px';
+        var guard = 0;
+        var limit = window.innerWidth * 0.42;
+        while (el.scrollWidth > limit && size > minPx && guard < 24) {
+          size -= 1;
+          el.style.fontSize = size + 'px';
+          guard += 1;
+        }
+      }
+
       function applyHeader(copy, taskType) {
         var header = document.getElementById('cardHeader');
         var left = document.getElementById('headerLeft');
         var right = document.getElementById('headerRight');
         var center = document.getElementById('headerCenter');
-        var isMemorial = (taskType || '').toLowerCase() === 'memorial';
+        var type = (taskType || 'daily').toLowerCase();
+        var isMemorial = type === 'memorial';
+        var isDaily = type === 'daily';
+
+        header.classList.remove('is-memorial', 'is-daily');
+        left.style.fontSize = '';
+        right.style.fontSize = '';
+        center.style.fontSize = '';
 
         if (isMemorial) {
           header.classList.add('is-memorial');
@@ -266,12 +319,19 @@
           return;
         }
 
-        header.classList.remove('is-memorial');
         left.style.display = '';
         right.style.display = '';
         center.hidden = true;
         left.textContent = copy.headerLeft;
         right.textContent = copy.headerRight;
+
+        if (isDaily) {
+          header.classList.add('is-daily');
+          fitTextDaily(left, 26, 14);
+          fitTextDaily(right, 26, 14);
+          return;
+        }
+
         fitText(left, 24, 12);
         fitText(right, 24, 12);
       }
@@ -296,8 +356,8 @@
       var img = q.img ? './' + q.img : './default.png';
       var ogImage = q.ogImage || CONFIG.defaultOg;
 
-      document.getElementById('cardWrap').style.backgroundImage =
-        'url("' + resolvePaperBg(taskType) + '")';
+      var cardWrap = document.getElementById('cardWrap');
+      cardWrap.style.backgroundImage = 'url("' + resolvePaperBg(taskType) + '")';
       applyHeader(copy, taskType);
 
       document.getElementById('illustration').src = img;
