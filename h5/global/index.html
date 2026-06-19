@@ -40,7 +40,7 @@
     .card-header.is-memorial {
       justify-content: center;
     }
-    /* 日常类型：设计稿 375×812，左 60px / 右 100px，均斜向上 30° */
+    /* 日常类型：设计稿 375×812，左 80px / 右 100px，均斜向上 10° */
     .card-header.is-daily {
       top: 0;
       left: 0;
@@ -55,13 +55,13 @@
       max-width: none;
       white-space: nowrap;
       overflow: visible;
-      font-size: clamp(18px, 6.4vw, 26px);
+      font-size: clamp(22px, 7.5vw, 32px);
       line-height: 1;
     }
     .card-header.is-daily #headerLeft {
-      top: calc(60 / 812 * 100dvh);
+      top: calc(80 / 812 * 100dvh);
       left: 6.4%;
-      transform: rotate(-30deg);
+      transform: rotate(-10deg);
       transform-origin: left bottom;
       text-align: left;
     }
@@ -69,7 +69,7 @@
       top: calc(100 / 812 * 100dvh);
       right: 6.4%;
       left: auto;
-      transform: rotate(-30deg);
+      transform: rotate(-10deg);
       transform-origin: right bottom;
       text-align: right;
     }
@@ -327,8 +327,8 @@
 
         if (isDaily) {
           header.classList.add('is-daily');
-          fitTextDaily(left, 26, 14);
-          fitTextDaily(right, 26, 14);
+          fitTextDaily(left, 32, 16);
+          fitTextDaily(right, 32, 16);
           return;
         }
 
