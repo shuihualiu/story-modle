@@ -40,15 +40,17 @@
     .card-header.is-memorial {
       justify-content: center;
     }
-    /* 日常类型：设计稿 375×812，左 100px，均斜向上 5° */
-    .card-header.is-daily {
+    /* 日常 / 习惯顶栏：设计稿 375×812，布局一致；习惯右侧文案斜向上 2° */
+    .card-header.is-daily,
+    .card-header.is-habit {
       top: 0;
       left: 0;
       right: 0;
       display: block;
       min-height: 0;
     }
-    .card-header.is-daily .header-side {
+    .card-header.is-daily .header-side,
+    .card-header.is-habit .header-side {
       position: absolute;
       flex: none;
       width: auto;
@@ -58,20 +60,27 @@
       font-size: clamp(28px, 9.5vw, 42px);
       line-height: 1;
     }
-    .card-header.is-daily #headerLeft {
+    .card-header.is-daily #headerLeft,
+    .card-header.is-habit #headerLeft {
       top: calc(80 / 812 * 100dvh);
       left: 6.4%;
       transform: rotate(-5deg);
       transform-origin: left bottom;
       text-align: left;
     }
-    .card-header.is-daily #headerRight {
+    .card-header.is-daily #headerRight,
+    .card-header.is-habit #headerRight {
       top: calc(140 / 812 * 100dvh);
       right: 2.5%;
       left: auto;
-      transform: rotate(-5deg);
       transform-origin: right bottom;
       text-align: right;
+    }
+    .card-header.is-daily #headerRight {
+      transform: rotate(-5deg);
+    }
+    .card-header.is-habit #headerRight {
+      transform: rotate(-2deg);
     }
     .header-side,
     .header-center {
@@ -303,8 +312,9 @@
         var type = (taskType || 'daily').toLowerCase();
         var isMemorial = type === 'memorial';
         var isDaily = type === 'daily';
+        var isHabit = type === 'habit';
 
-        header.classList.remove('is-memorial', 'is-daily');
+        header.classList.remove('is-memorial', 'is-daily', 'is-habit');
         left.style.fontSize = '';
         right.style.fontSize = '';
         center.style.fontSize = '';
@@ -327,6 +337,13 @@
 
         if (isDaily) {
           header.classList.add('is-daily');
+          fitTextDaily(left, 42, 18);
+          fitTextDaily(right, 42, 18);
+          return;
+        }
+
+        if (isHabit) {
+          header.classList.add('is-habit');
           fitTextDaily(left, 42, 18);
           fitTextDaily(right, 42, 18);
           return;
