@@ -55,7 +55,7 @@
       max-width: none;
       white-space: nowrap;
       overflow: visible;
-      font-size: clamp(24px, 8.5vw, 36px);
+      font-size: clamp(28px, 9.5vw, 42px);
       line-height: 1;
     }
     .card-header.is-daily #headerLeft {
@@ -66,7 +66,7 @@
       text-align: left;
     }
     .card-header.is-daily #headerRight {
-      top: calc(100 / 812 * 100dvh);
+      top: calc(120 / 812 * 100dvh);
       right: 2.5%;
       left: auto;
       transform: rotate(-5deg);
@@ -327,8 +327,8 @@
 
         if (isDaily) {
           header.classList.add('is-daily');
-          fitTextDaily(left, 36, 18);
-          fitTextDaily(right, 36, 18);
+          fitTextDaily(left, 42, 18);
+          fitTextDaily(right, 42, 18);
           return;
         }
 
