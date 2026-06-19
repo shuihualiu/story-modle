@@ -62,11 +62,16 @@
     }
     .card-header.is-daily #headerLeft,
     .card-header.is-habit #headerLeft {
-      top: calc(80 / 812 * 100dvh);
       left: 6.4%;
       transform: rotate(-5deg);
       transform-origin: left bottom;
       text-align: left;
+    }
+    .card-header.is-daily #headerLeft {
+      top: calc(80 / 812 * 100dvh);
+    }
+    .card-header.is-habit #headerLeft {
+      top: calc(100 / 812 * 100dvh);
     }
     .card-header.is-daily #headerRight,
     .card-header.is-habit #headerRight {
