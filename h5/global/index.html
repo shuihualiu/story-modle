@@ -38,7 +38,44 @@
       min-height: 32px;
     }
     .card-header.is-memorial {
+      top: calc(100 / 812 * 100dvh);
+      left: 50%;
+      right: auto;
+      width: auto;
+      max-width: 94vw;
+      transform: translateX(-50%);
       justify-content: center;
+      align-items: flex-end;
+      min-height: 0;
+      overflow: visible;
+      padding: 0 12px;
+    }
+    .card-wrap.is-memorial {
+      overflow-x: hidden;
+      overflow-y: visible;
+    }
+    .card-header.is-memorial .header-center {
+      display: inline-flex;
+      align-items: flex-end;
+      justify-content: center;
+      flex-wrap: nowrap;
+      max-width: 100%;
+      overflow: visible;
+      white-space: nowrap;
+      font-size: clamp(22px, 7.5vw, 32px);
+      line-height: 1;
+      word-break: keep-all;
+      text-align: center;
+    }
+    .card-header.is-memorial .header-arc-char {
+      display: inline-block;
+      flex: 0 0 auto;
+      transform-origin: center bottom;
+      line-height: 1;
+      will-change: transform;
+    }
+    html[lang="zh"] .card-header.is-memorial .header-arc-char {
+      margin: 0 0.06em;
     }
     /* 日常 / 习惯顶栏：设计稿 375×812，布局一致；习惯右侧文案斜向上 2° */
     .card-header.is-daily,
@@ -309,6 +346,62 @@
         }
       }
 
+      function splitGraphemes(text) {
+        if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+          var seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' });
+          return Array.from(seg.segment(text), function (s) { return s.segment; });
+        }
+        return Array.from(text);
+      }
+
+      function applyArcHeader(el, text) {
+        if (!el) return;
+        el.textContent = '';
+        var chars = splitGraphemes(text);
+        var n = chars.length;
+        if (n === 0) return;
+        if (n === 1) {
+          el.textContent = text;
+          return;
+        }
+        var fs = parseFloat(window.getComputedStyle(el).fontSize) || 32;
+        var arcHeight = fs * (n > 14 ? 0.28 : n > 9 ? 0.36 : 0.52);
+        var spreadDeg = Math.min(36, 14 + n * 2.4);
+        var spreadRad = (spreadDeg / 2) * Math.PI / 180;
+        var cosEdge = Math.cos(spreadRad);
+        var denom = 1 - cosEdge;
+        chars.forEach(function (ch, i) {
+          var t = (i / (n - 1)) * 2 - 1;
+          var angleRad = t * spreadRad;
+          var y = denom > 0
+            ? -arcHeight * (Math.cos(angleRad) - cosEdge) / denom
+            : 0;
+          var rot = t * (spreadDeg / 2);
+          var span = document.createElement('span');
+          span.className = 'header-arc-char';
+          span.textContent = ch;
+          span.style.transform =
+            'translateY(' + y.toFixed(2) + 'px) rotate(' + rot.toFixed(2) + 'deg)';
+          el.appendChild(span);
+        });
+      }
+
+      function renderMemorialHeader(el, text) {
+        if (!el) return;
+        var size = 32;
+        var minPx = 13;
+        var limit = window.innerWidth * 0.88;
+        el.style.fontSize = size + 'px';
+        applyArcHeader(el, text);
+        var guard = 0;
+        while (el.scrollWidth > limit && size > minPx && guard < 28) {
+          size -= 1;
+          el.style.fontSize = size + 'px';
+          applyArcHeader(el, text);
+          guard += 1;
+        }
+      }
+
       function applyHeader(copy, taskType) {
         var header = document.getElementById('cardHeader');
         var left = document.getElementById('headerLeft');
@@ -319,18 +412,21 @@
         var isDaily = type === 'daily';
         var isHabit = type === 'habit';
 
+        var cardWrap = document.getElementById('cardWrap');
         header.classList.remove('is-memorial', 'is-daily', 'is-habit');
+        if (cardWrap) cardWrap.classList.remove('is-memorial');
         left.style.fontSize = '';
         right.style.fontSize = '';
         center.style.fontSize = '';
+        center.textContent = '';
 
         if (isMemorial) {
           header.classList.add('is-memorial');
+          if (cardWrap) cardWrap.classList.add('is-memorial');
           left.style.display = 'none';
           right.style.display = 'none';
           center.hidden = false;
-          center.textContent = copy.headerCenter;
-          fitText(center, 26, 13);
+          renderMemorialHeader(center, copy.headerCenter);
           return;
         }
 
