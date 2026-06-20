@@ -56,7 +56,7 @@
     }
     .card-header.is-memorial .header-center {
       display: inline-flex;
-      align-items: flex-end;
+      align-items: baseline;
       justify-content: center;
       flex-wrap: nowrap;
       max-width: 100%;
@@ -67,15 +67,9 @@
       word-break: keep-all;
       text-align: center;
     }
-    .card-header.is-memorial .header-arc-char {
+    .card-header.is-memorial .header-em-char {
       display: inline-block;
-      flex: 0 0 auto;
-      transform-origin: center bottom;
       line-height: 1;
-      will-change: transform;
-    }
-    html[lang="zh"] .card-header.is-memorial .header-arc-char {
-      margin: 0 0.06em;
     }
     /* 日常 / 习惯顶栏：设计稿 375×812，布局一致；习惯右侧文案斜向上 2° */
     .card-header.is-daily,
@@ -354,7 +348,7 @@
         return Array.from(text);
       }
 
-      function applyArcHeader(el, text) {
+      function renderMemorialHeader(el, text) {
         if (!el) return;
         el.textContent = '';
         var chars = splitGraphemes(text);
@@ -362,42 +356,27 @@
         if (n === 0) return;
         if (n === 1) {
           el.textContent = text;
+          fitText(el, 32, 13);
           return;
         }
-        var fs = parseFloat(window.getComputedStyle(el).fontSize) || 32;
-        var arcHeight = fs * (n > 14 ? 0.18 : n > 9 ? 0.24 : 0.32);
-        var spreadDeg = Math.min(24, 8 + n * 1.5);
-        var spreadRad = (spreadDeg / 2) * Math.PI / 180;
-        var cosEdge = Math.cos(spreadRad);
-        var denom = 1 - cosEdge;
+        var mid = (n - 1) / 2;
         chars.forEach(function (ch, i) {
-          var t = (i / (n - 1)) * 2 - 1;
-          var angleRad = t * spreadRad;
-          var y = denom > 0
-            ? -arcHeight * (Math.cos(angleRad) - cosEdge) / denom
-            : 0;
-          var rot = t * (spreadDeg / 2);
           var span = document.createElement('span');
-          span.className = 'header-arc-char';
+          span.className = 'header-em-char';
           span.textContent = ch;
-          span.style.transform =
-            'translateY(' + y.toFixed(2) + 'px) rotate(' + rot.toFixed(2) + 'deg)';
+          var dist = mid > 0 ? Math.abs(i - mid) / mid : 0;
+          var scale = 1 + 0.12 * (1 - dist);
+          span.style.fontSize = (scale * 100).toFixed(1) + '%';
           el.appendChild(span);
         });
-      }
-
-      function renderMemorialHeader(el, text) {
-        if (!el) return;
         var size = 32;
         var minPx = 13;
         var limit = window.innerWidth * 0.88;
         el.style.fontSize = size + 'px';
-        applyArcHeader(el, text);
         var guard = 0;
         while (el.scrollWidth > limit && size > minPx && guard < 28) {
           size -= 1;
           el.style.fontSize = size + 'px';
-          applyArcHeader(el, text);
           guard += 1;
         }
       }
