@@ -38,7 +38,7 @@
       min-height: 32px;
     }
     .card-header.is-memorial {
-      top: calc(100 / 812 * 100dvh);
+      top: calc(120 / 812 * 100dvh);
       left: 50%;
       right: auto;
       width: auto;
@@ -365,8 +365,8 @@
           return;
         }
         var fs = parseFloat(window.getComputedStyle(el).fontSize) || 32;
-        var arcHeight = fs * (n > 14 ? 0.28 : n > 9 ? 0.36 : 0.52);
-        var spreadDeg = Math.min(36, 14 + n * 2.4);
+        var arcHeight = fs * (n > 14 ? 0.18 : n > 9 ? 0.24 : 0.32);
+        var spreadDeg = Math.min(24, 8 + n * 1.5);
         var spreadRad = (spreadDeg / 2) * Math.PI / 180;
         var cosEdge = Math.cos(spreadRad);
         var denom = 1 - cosEdge;
