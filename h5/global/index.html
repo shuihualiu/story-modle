@@ -251,9 +251,13 @@
       var CONFIG = {
         iosStore: 'https://apps.apple.com/app/idYOUR_APP_ID',
         androidStore: 'https://play.google.com/store/apps/details?id=com.haloutongxue.reminder',
+        androidPackage: 'com.haloutongxue.reminder',
+        customScheme: 'haloutongxue',
+        customSchemeHost: 'h5',
         officialSite: 'https://global.haloutongxue.com',
         defaultOg: 'https://global.haloutongxue.com/h5/global/default-og.png',
-        landingBase: 'https://global.haloutongxue.com/h5/global/index.html'
+        landingBase: 'https://global.haloutongxue.com/h5/global/index.html',
+        appOpenTimeoutMs: 2500
       };
 
       var PASSTHROUGH_KEYS = [
@@ -499,7 +503,99 @@
       }
 
       function buildCustomSchemeUrl() {
-        return buildShareUrl('haloutongxue://h5');
+        return buildShareUrl(
+          CONFIG.customScheme + '://' + CONFIG.customSchemeHost
+        );
+      }
+
+      function detectPlatform() {
+        var ua = navigator.userAgent || '';
+        return {
+          isIOS: /iPhone|iPad|iPod/i.test(ua),
+          isAndroid: /Android/i.test(ua)
+        };
+      }
+
+      function resolveStoreUrl(platform) {
+        if (platform.isIOS) {
+          if (CONFIG.iosStore.indexOf('YOUR_APP_ID') >= 0) {
+            return CONFIG.officialSite;
+          }
+          return CONFIG.iosStore;
+        }
+        return CONFIG.androidStore;
+      }
+
+      function buildAndroidIntentUrl(customSchemeUrl, fallbackStoreUrl) {
+        var pathAndQuery = customSchemeUrl.replace(
+          new RegExp('^' + CONFIG.customScheme + '://'),
+          ''
+        );
+        return (
+          'intent://' + pathAndQuery +
+          '#Intent;scheme=' + CONFIG.customScheme +
+          ';package=' + CONFIG.androidPackage +
+          ';S.browser_fallback_url=' + encodeURIComponent(fallbackStoreUrl) +
+          ';end'
+        );
+      }
+
+      /**
+       * 从 H5 落地页内唤起 App：必须用 custom scheme / Android Intent。
+       * 同页再跳 Universal Link 只会刷新当前页，且 iOS 同域 JS 无法打开 App。
+       * 未安装时用 visibility 检测 + 商店兜底（Android Intent 自带 fallback）。
+       */
+      function openAppOrStore(customSchemeUrl, storeUrl, platform) {
+        var appOpened = false;
+        var timer = null;
+
+        function markAppOpened() {
+          appOpened = true;
+        }
+
+        function cleanup() {
+          document.removeEventListener('visibilitychange', onVisibilityChange);
+          window.removeEventListener('pagehide', markAppOpened);
+          window.removeEventListener('blur', markAppOpened);
+          if (timer) {
+            clearTimeout(timer);
+            timer = null;
+          }
+        }
+
+        function onVisibilityChange() {
+          if (document.hidden) markAppOpened();
+        }
+
+        document.addEventListener('visibilitychange', onVisibilityChange);
+        window.addEventListener('pagehide', markAppOpened);
+        window.addEventListener('blur', markAppOpened);
+
+        timer = setTimeout(function () {
+          cleanup();
+          if (!appOpened) {
+            window.location.replace(storeUrl);
+          }
+        }, CONFIG.appOpenTimeoutMs);
+
+        if (platform.isAndroid) {
+          window.location.href = buildAndroidIntentUrl(customSchemeUrl, storeUrl);
+          return;
+        }
+
+        if (platform.isIOS) {
+          var iframe = document.createElement('iframe');
+          iframe.style.cssText = 'display:none;width:0;height:0;border:0';
+          iframe.src = customSchemeUrl;
+          document.body.appendChild(iframe);
+          setTimeout(function () {
+            if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+          }, 1500);
+          return;
+        }
+
+        cleanup();
+        window.location.href = storeUrl;
       }
 
       function copyToClipboard(text) {
@@ -517,24 +613,28 @@
         return Promise.resolve();
       }
 
+      var joining = false;
+
       function joinPlan() {
+        if (joining) return;
+        joining = true;
+
         var universalLinkUrl = buildUniversalLinkUrl();
         var customSchemeUrl = buildCustomSchemeUrl();
-        var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-        var storeUrl = isIOS ? CONFIG.iosStore : CONFIG.androidStore;
+        var platform = detectPlatform();
+        var storeUrl = resolveStoreUrl(platform);
+        var btn = document.getElementById('btnJoin');
 
         copyToClipboard(universalLinkUrl).finally(function () {
           document.getElementById('hint').textContent = copy.hint;
         });
 
-        var beforeOpen = Date.now();
-        window.location.href = isIOS ? universalLinkUrl : customSchemeUrl;
+        openAppOrStore(customSchemeUrl, storeUrl, platform);
 
         setTimeout(function () {
-          if (Date.now() - beforeOpen < 3000) {
-            window.location.href = storeUrl;
-          }
-        }, 2500);
+          joining = false;
+          if (btn) btn.disabled = false;
+        }, CONFIG.appOpenTimeoutMs + 500);
       }
 
       document.getElementById('btnJoin').addEventListener('click', joinPlan);
