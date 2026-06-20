@@ -254,10 +254,10 @@
         androidPackage: 'com.haloutongxue.reminder',
         customScheme: 'haloutongxue',
         customSchemeHost: 'h5',
-        officialSite: 'https://global.haloutongxue.com',
         defaultOg: 'https://global.haloutongxue.com/h5/global/default-og.png',
         landingBase: 'https://global.haloutongxue.com/h5/global/index.html',
-        appOpenTimeoutMs: 2500
+        appOpenTimeoutMs: 2800,
+        iosOpenTimeoutMs: 3200
       };
 
       var PASSTHROUGH_KEYS = [
@@ -516,12 +516,13 @@
         };
       }
 
+      function hasValidIosStoreUrl() {
+        return CONFIG.iosStore.indexOf('YOUR_APP_ID') < 0;
+      }
+
       function resolveStoreUrl(platform) {
         if (platform.isIOS) {
-          if (CONFIG.iosStore.indexOf('YOUR_APP_ID') >= 0) {
-            return CONFIG.officialSite;
-          }
-          return CONFIG.iosStore;
+          return hasValidIosStoreUrl() ? CONFIG.iosStore : null;
         }
         return CONFIG.androidStore;
       }
@@ -540,6 +541,11 @@
         );
       }
 
+      function openCustomSchemeFromGesture(url) {
+        // iOS Safari 必须在用户点击的同一调用栈内同步跳转；iframe 已无法可靠唤端。
+        window.location.href = url;
+      }
+
       /**
        * 从 H5 落地页内唤起 App：必须用 custom scheme / Android Intent。
        * 同页再跳 Universal Link 只会刷新当前页，且 iOS 同域 JS 无法打开 App。
@@ -548,6 +554,9 @@
       function openAppOrStore(customSchemeUrl, storeUrl, platform) {
         var appOpened = false;
         var timer = null;
+        var timeoutMs = platform.isIOS
+          ? CONFIG.iosOpenTimeoutMs
+          : CONFIG.appOpenTimeoutMs;
 
         function markAppOpened() {
           appOpened = true;
@@ -567,35 +576,37 @@
           if (document.hidden) markAppOpened();
         }
 
+        function onOpenTimeout() {
+          cleanup();
+          if (appOpened) return;
+          if (storeUrl) {
+            window.location.replace(storeUrl);
+          }
+        }
+
         document.addEventListener('visibilitychange', onVisibilityChange);
         window.addEventListener('pagehide', markAppOpened);
         window.addEventListener('blur', markAppOpened);
 
-        timer = setTimeout(function () {
-          cleanup();
-          if (!appOpened) {
-            window.location.replace(storeUrl);
-          }
-        }, CONFIG.appOpenTimeoutMs);
+        timer = setTimeout(onOpenTimeout, timeoutMs);
 
         if (platform.isAndroid) {
-          window.location.href = buildAndroidIntentUrl(customSchemeUrl, storeUrl);
+          window.location.href = buildAndroidIntentUrl(
+            customSchemeUrl,
+            storeUrl || CONFIG.androidStore
+          );
           return;
         }
 
         if (platform.isIOS) {
-          var iframe = document.createElement('iframe');
-          iframe.style.cssText = 'display:none;width:0;height:0;border:0';
-          iframe.src = customSchemeUrl;
-          document.body.appendChild(iframe);
-          setTimeout(function () {
-            if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-          }, 1500);
+          openCustomSchemeFromGesture(customSchemeUrl);
           return;
         }
 
         cleanup();
-        window.location.href = storeUrl;
+        if (storeUrl) {
+          window.location.href = storeUrl;
+        }
       }
 
       function copyToClipboard(text) {
@@ -619,22 +630,27 @@
         if (joining) return;
         joining = true;
 
-        var universalLinkUrl = buildUniversalLinkUrl();
         var customSchemeUrl = buildCustomSchemeUrl();
+        var universalLinkUrl = buildUniversalLinkUrl();
         var platform = detectPlatform();
         var storeUrl = resolveStoreUrl(platform);
         var btn = document.getElementById('btnJoin');
+        var hintEl = document.getElementById('hint');
+        var resetMs = (platform.isIOS
+          ? CONFIG.iosOpenTimeoutMs
+          : CONFIG.appOpenTimeoutMs) + 800;
 
-        copyToClipboard(universalLinkUrl).finally(function () {
-          document.getElementById('hint').textContent = copy.hint;
-        });
+        if (hintEl) hintEl.textContent = copy.hint;
 
+        // 必须在 click 同步栈内先尝试唤端，再异步写剪贴板，避免 iOS 丢失用户手势。
         openAppOrStore(customSchemeUrl, storeUrl, platform);
+
+        copyToClipboard(universalLinkUrl).catch(function () {});
 
         setTimeout(function () {
           joining = false;
           if (btn) btn.disabled = false;
-        }, CONFIG.appOpenTimeoutMs + 500);
+        }, resetMs);
       }
 
       document.getElementById('btnJoin').addEventListener('click', joinPlan);
