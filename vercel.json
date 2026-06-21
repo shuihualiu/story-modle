@@ -9,6 +9,14 @@
   ],
   "rewrites": [
     {
+      "source": "/privacy",
+      "destination": "/h5/global/global-privacy-policy.html"
+    },
+    {
+      "source": "/privacy/",
+      "destination": "/h5/global/global-privacy-policy.html"
+    },
+    {
       "source": "/functions/v1/global-share-og",
       "destination": "/api/global-share-og"
     }
