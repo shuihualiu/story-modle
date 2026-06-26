@@ -5,6 +5,11 @@
       "source": "/h5/h5/global/:path*",
       "destination": "/h5/global/:path*",
       "permanent": true
+    },
+    {
+      "source": "/company",
+      "destination": "/company.html",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -15,6 +20,10 @@
     {
       "source": "/privacy/",
       "destination": "/h5/global/global-privacy-policy.html"
+    },
+    {
+      "source": "/company.html",
+      "destination": "/h5/global/company.html"
     },
     {
       "source": "/functions/v1/global-share-og",

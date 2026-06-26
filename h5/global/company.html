@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Plan Together – Plan life, together</title>
+  <meta name="description" content="Plan Together helps you manage daily plans, build habits, cherish memorial days, and stay focused — with the people who matter.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://global.haloutongxue.com/company.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Plan Together">
+  <meta property="og:title" content="Plan Together – Plan life, together">
+  <meta property="og:description" content="Daily plans, habits, memorial days, and focus — shared with the people who matter.">
+  <meta property="og:url" content="https://global.haloutongxue.com/company.html">
+  <meta property="og:image" content="https://global.haloutongxue.com/h5/global/default-og.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <link rel="alternate" hreflang="en" href="https://global.haloutongxue.com/company.html?lang=en">
+  <link rel="alternate" hreflang="zh-CN" href="https://global.haloutongxue.com/company.html?lang=zh">
+  <link rel="alternate" hreflang="x-default" href="https://global.haloutongxue.com/company.html">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f2ee;
+      --surface: #ffffff;
+      --text: #2d2a32;
+      --muted: #61596a;
+      --accent: #32abfd;
+      --accent-soft: rgba(50, 171, 253, 0.12);
+      --accent-deep: #1a8fd4;
+      --warm: #ffb86c;
+      --warm-soft: rgba(255, 184, 108, 0.18);
+      --border: rgba(97, 89, 106, 0.12);
+      --shadow: 0 12px 40px rgba(45, 42, 50, 0.08);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 24px;
+      background: rgba(246, 242, 238, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand:hover { text-decoration: none; }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent) 0%, #5ec4ff 100%);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 14px rgba(50, 171, 253, 0.35);
+    }
+
+    .brand-mark svg { display: block; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      padding: 3px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(45, 42, 50, 0.04);
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .lang-btn.is-active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .hero {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 24px 40px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-deep);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      margin: 0 0 16px;
+      font-size: clamp(36px, 6vw, 52px);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-lead {
+      margin: 0 0 28px;
+      font-size: clamp(17px, 2.5vw, 19px);
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 14px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .btn:hover { text-decoration: none; transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, #5ec4ff 100%);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(50, 171, 253, 0.35);
+    }
+
+    .btn-primary:hover { box-shadow: 0 12px 28px rgba(50, 171, 253, 0.42); }
+
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 360px;
+    }
+
+    .hero-card {
+      position: absolute;
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      padding: 18px 20px;
+    }
+
+    .hero-card-main {
+      inset: 0 0 0 0;
+      padding: 24px;
+    }
+
+    .hero-card-float {
+      right: -8px;
+      bottom: 24px;
+      width: 58%;
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .hero-card-top {
+      top: -12px;
+      left: -8px;
+      width: 52%;
+      animation: float 4.5s ease-in-out infinite reverse;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .mock-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .mock-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin: 0 0 4px;
+    }
+
+    .mock-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .mock-days {
+      margin-top: 16px;
+      font-size: 42px;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent), var(--warm));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .mock-avatars {
+      display: flex;
+      margin-top: 14px;
+    }
+
+    .mock-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--surface);
+      margin-left: -8px;
+      background: linear-gradient(135deg, #e8e0f0, #d4e8f8);
+    }
+
+    .mock-avatar:first-child { margin-left: 0; }
+
+    .section {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 24px 56px;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 40px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 36px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(45, 42, 50, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .feature-icon.blue { background: var(--accent-soft); }
+    .feature-icon.warm { background: var(--warm-soft); }
+    .feature-icon.green { background: rgba(92, 201, 140, 0.16); }
+
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .feature p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .philosophy {
+      margin-top: 24px;
+      background: linear-gradient(135deg, rgba(50, 171, 253, 0.08) 0%, rgba(255, 184, 108, 0.1) 100%);
+      border-radius: calc(var(--radius) + 4px);
+      padding: 48px 40px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .philosophy blockquote {
+      margin: 0 auto;
+      max-width: 680px;
+      font-size: clamp(22px, 3.5vw, 28px);
+      font-weight: 700;
+      line-height: 1.45;
+      color: var(--text);
+    }
+
+    .philosophy cite {
+      display: block;
+      margin-top: 20px;
+      font-style: normal;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .value {
+      text-align: center;
+      padding: 20px 16px;
+    }
+
+    .value-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .value-label {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .about {
+      margin-top: 48px;
+      background: var(--surface);
+      border-radius: calc(var(--radius) + 4px);
+      padding: 36px 40px;
+      border: 1px solid var(--border);
+    }
+
+    .about h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .about > p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 720px;
+    }
+
+    .about-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 32px;
+      margin: 0;
+    }
+
+    .about-meta div {
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .about-meta dt {
+      margin: 0 0 4px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+    }
+
+    .about-meta dd {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      word-break: break-word;
+    }
+
+    .download {
+      margin-top: 32px;
+      background: var(--surface);
+      border-radius: calc(var(--radius) + 4px);
+      padding: 40px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .download-text h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .download-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .store-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .store-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 14px;
+      background: var(--text);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+
+    .store-btn:hover {
+      text-decoration: none;
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+
+    .store-btn small {
+      display: block;
+      font-size: 10px;
+      font-weight: 600;
+      opacity: 0.75;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 24px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 36px;
+        gap: 32px;
+      }
+
+      .hero-visual { min-height: 280px; }
+
+      .features,
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .philosophy { padding: 32px 24px; }
+
+      .about { padding: 28px 24px; }
+
+      .about-meta { grid-template-columns: 1fr; }
+
+      .download {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav { padding: 12px 16px; }
+      .hero, .section { padding-left: 16px; padding-right: 16px; }
+      .hero-card-top { left: 0; width: 58%; }
+      .hero-card-float { right: 0; width: 62%; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3C8.5 3 6 5.5 6 9v2.5L4 14v2h16v-2l-2-2.5V9c0-3.5-2.5-6-6-6z" fill="white" opacity="0.95"/>
+          <path d="M10 19a2 2 0 004 0" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span data-i18n="brand">Plan Together</span>
+    </a>
+    <div class="nav-actions">
+      <div class="lang-toggle" role="group" aria-label="Language" data-i18n-aria="lang_group_label">
+        <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false">中文</button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="hero-badge">
+          <span class="hero-badge-dot"></span>
+          <span data-i18n="badge">Life planning, made together</span>
+        </div>
+        <h1 data-i18n="hero_title">Plan life,<br>together.</h1>
+        <p class="hero-lead" data-i18n="hero_lead">
+          Count down to what matters, build habits with friends, and cherish every memorial day —
+          all in one calm, beautiful app.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#download" data-i18n="cta_download">Get the app</a>
+          <a class="btn btn-ghost" href="#features" data-i18n="cta_explore">Explore features</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-card hero-card-main">
+          <div class="mock-label" data-i18n="mock_daily">Daily</div>
+          <p class="mock-title" data-i18n="mock_daily_title">Trip to Paris</p>
+          <p class="mock-sub" data-i18n="mock_daily_sub">Book flights together</p>
+          <div class="mock-days">18<span data-i18n="mock_days_unit"> days</span></div>
+          <div class="mock-avatars">
+            <span class="mock-avatar"></span>
+            <span class="mock-avatar"></span>
+            <span class="mock-avatar"></span>
+          </div>
+        </div>
+        <div class="hero-card hero-card-top">
+          <div class="mock-label" data-i18n="mock_habit">Habit</div>
+          <p class="mock-title" data-i18n="mock_habit_title">Morning run</p>
+          <p class="mock-sub">12 / 30</p>
+        </div>
+        <div class="hero-card hero-card-float">
+          <div class="mock-label" data-i18n="mock_memorial">Memorial</div>
+          <p class="mock-title" data-i18n="mock_memorial_title">Together for</p>
+          <div class="mock-days">520<span data-i18n="mock_days_unit2"> days</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-head">
+        <h2 data-i18n="features_title">Everything you plan, in one place</h2>
+        <p data-i18n="features_sub">Daily countdowns, shared habits, memorial milestones, and focus sessions — designed for real life with the people you care about.</p>
+      </div>
+
+      <div class="features">
+        <article class="feature">
+          <div class="feature-icon blue">📅</div>
+          <h3 data-i18n="f1_title">Daily plans</h3>
+          <p data-i18n="f1_desc">Track countdowns to birthdays, trips, and milestones. Invite friends to plan and depart together.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon green">🌱</div>
+          <h3 data-i18n="f2_title">Shared habits</h3>
+          <p data-i18n="f2_desc">Build routines with accountability partners. Check in daily and celebrate progress as a team.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon warm">💛</div>
+          <h3 data-i18n="f3_title">Memorial days</h3>
+          <p data-i18n="f3_desc">Remember the days that define your story — anniversaries, first meetings, and moments worth keeping.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon blue">⏱</div>
+          <h3 data-i18n="f4_title">Focus mode</h3>
+          <p data-i18n="f4_desc">Stay present with built-in focus timers. Turn intentions into uninterrupted time for what matters.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon warm">🔔</div>
+          <h3 data-i18n="f5_title">Smart reminders</h3>
+          <p data-i18n="f5_desc">Never miss a deadline or check-in. Gentle nudges keep you and your group on track.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon green">🤝</div>
+          <h3 data-i18n="f6_title">Plan together</h3>
+          <p data-i18n="f6_desc">Share plans via link, join with one tap, and sync progress across devices — wherever you are.</p>
+        </article>
+      </div>
+
+      <div class="philosophy">
+        <blockquote data-i18n="quote">
+          "Life is not a solo checklist. The best plans are made together — with reminders, rituals, and people who show up."
+        </blockquote>
+        <cite data-i18n="quote_cite">— The Plan Together team</cite>
+
+        <div class="values">
+          <div class="value">
+            <div class="value-num">01</div>
+            <div class="value-label" data-i18n="v1">Warm &amp; human</div>
+          </div>
+          <div class="value">
+            <div class="value-num">02</div>
+            <div class="value-label" data-i18n="v2">Simple by design</div>
+          </div>
+          <div class="value">
+            <div class="value-num">03</div>
+            <div class="value-label" data-i18n="v3">Built for togetherness</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="download">
+      <div class="about">
+        <h2 data-i18n="about_title">About Plan Together</h2>
+        <p data-i18n="about_desc">
+          Plan Together is a cross-platform planning app for daily countdowns, shared habits,
+          memorial milestones, and focus — built so meaningful life moments are never planned alone.
+        </p>
+        <dl class="about-meta">
+          <div>
+            <dt data-i18n="about_app_label">App</dt>
+            <dd>Plan Together</dd>
+          </div>
+          <div>
+            <dt data-i18n="about_pkg_label">Package</dt>
+            <dd id="pkgName">com.haloutongxue.reminder</dd>
+          </div>
+          <div>
+            <dt data-i18n="about_contact_label">Contact</dt>
+            <dd><a href="mailto:login@haloutongxue.com">login@haloutongxue.com</a></dd>
+          </div>
+          <div>
+            <dt data-i18n="about_region_label">Edition</dt>
+            <dd data-i18n="about_region_value">Global (outside mainland China)</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="download">
+        <div class="download-text">
+          <h2 data-i18n="download_title">Start planning together</h2>
+          <p data-i18n="download_sub">Available on iOS and Android. Free to download.</p>
+        </div>
+        <div class="store-links">
+          <a class="store-btn" id="iosStoreLink" href="https://apps.apple.com/app/idYOUR_APP_ID" target="_blank" rel="noopener noreferrer">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            <span><small data-i18n="store_ios_small">Download on the</small><span data-i18n="store_ios_name">App Store</span></span>
+          </a>
+          <a class="store-btn" id="androidStoreLink" href="https://play.google.com/store/apps/details?id=com.haloutongxue.reminder" target="_blank" rel="noopener noreferrer">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3.609 1.814L13.792 12 3.61 22.186a1.7 1.7 0 01-.065-.062 1.964 1.964 0 01-.327-1.101V3.177A1.964 1.964 0 013.61 1.814zM14.5 12.707l2.302 2.302-10.937 6.32a1.978 1.978 0 001.135.358 1.997 1.997 0 001.327-.505l7.173-7.173-1-1.602zM17.898 9.31l2.807 1.621a1.996 1.996 0 010 3.138l-2.807 1.621L15.5 13.707 17.898 9.31zM5.864 2.658L16.801 8.978 14.5 11.293 3.545 4.973a1.978 1.978 0 011.319-.315z"/></svg>
+            <span><small data-i18n="store_android_small">Get it on</small><span data-i18n="store_android_name">Google Play</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span data-i18n="footer_copy">&copy; 2026 Plan Together. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="mailto:login@haloutongxue.com" data-i18n="footer_contact">Contact us</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var CONFIG = {
+        iosStore: 'https://apps.apple.com/app/idYOUR_APP_ID',
+        androidStore: 'https://play.google.com/store/apps/details?id=com.haloutongxue.reminder',
+        androidPackage: 'com.haloutongxue.reminder',
+        contactEmail: 'login@haloutongxue.com'
+      };
+
+      var STRINGS = {
+        en: {
+          lang_group_label: 'Language',
+          brand: 'Plan Together',
+          badge: 'Life planning, made together',
+          hero_title: 'Plan life,<br>together.',
+          hero_lead: 'Count down to what matters, build habits with friends, and cherish every memorial day — all in one calm, beautiful app.',
+          cta_download: 'Get the app',
+          cta_explore: 'Explore features',
+          mock_daily: 'Daily',
+          mock_daily_title: 'Trip to Paris',
+          mock_daily_sub: 'Book flights together',
+          mock_days_unit: ' days',
+          mock_days_unit2: ' days',
+          mock_habit: 'Habit',
+          mock_habit_title: 'Morning run',
+          mock_memorial: 'Memorial',
+          mock_memorial_title: 'Together for',
+          features_title: 'Everything you plan, in one place',
+          features_sub: 'Daily countdowns, shared habits, memorial milestones, and focus sessions — designed for real life with the people you care about.',
+          f1_title: 'Daily plans',
+          f1_desc: 'Track countdowns to birthdays, trips, and milestones. Invite friends to plan and depart together.',
+          f2_title: 'Shared habits',
+          f2_desc: 'Build routines with accountability partners. Check in daily and celebrate progress as a team.',
+          f3_title: 'Memorial days',
+          f3_desc: 'Remember the days that define your story — anniversaries, first meetings, and moments worth keeping.',
+          f4_title: 'Focus mode',
+          f4_desc: 'Stay present with built-in focus timers. Turn intentions into uninterrupted time for what matters.',
+          f5_title: 'Smart reminders',
+          f5_desc: 'Never miss a deadline or check-in. Gentle nudges keep you and your group on track.',
+          f6_title: 'Plan together',
+          f6_desc: 'Share plans via link, join with one tap, and sync progress across devices — wherever you are.',
+          quote: '"Life is not a solo checklist. The best plans are made together — with reminders, rituals, and people who show up."',
+          quote_cite: '— The Plan Together team',
+          v1: 'Warm & human',
+          v2: 'Simple by design',
+          v3: 'Built for togetherness',
+          about_title: 'About Plan Together',
+          about_desc: 'Plan Together is a cross-platform planning app for daily countdowns, shared habits, memorial milestones, and focus — built so meaningful life moments are never planned alone.',
+          about_app_label: 'App',
+          about_pkg_label: 'Package',
+          about_contact_label: 'Contact',
+          about_region_label: 'Edition',
+          about_region_value: 'Global (outside mainland China)',
+          store_ios_small: 'Download on the',
+          store_ios_name: 'App Store',
+          store_android_small: 'Get it on',
+          store_android_name: 'Google Play',
+          download_title: 'Start planning together',
+          download_sub: 'Available on iOS and Android. Free to download.',
+          footer_copy: '© 2026 Plan Together. All rights reserved.',
+          footer_privacy: 'Privacy Policy',
+          footer_contact: 'Contact us',
+          page_title: 'Plan Together – Plan life, together',
+          page_desc: 'Plan Together helps you manage daily plans, build habits, cherish memorial days, and stay focused — with the people who matter.'
+        },
+        zh: {
+          lang_group_label: '语言',
+          brand: 'Plan Together',
+          badge: '与生活有关的事，一起做计划',
+          hero_title: '一起计划，<br>一起生活。',
+          hero_lead: '倒数重要日子、与好友养成习惯、珍藏每一个纪念日 —— 在一个简洁温暖的 App 里，把计划变成陪伴。',
+          cta_download: '下载 App',
+          cta_explore: '了解功能',
+          mock_daily: '日常',
+          mock_daily_title: '巴黎旅行',
+          mock_daily_sub: '一起订机票',
+          mock_days_unit: ' 天',
+          mock_days_unit2: ' 天',
+          mock_habit: '习惯',
+          mock_habit_title: '晨跑打卡',
+          mock_memorial: '纪念日',
+          mock_memorial_title: '在一起已经',
+          features_title: '你关心的一切，都在这里',
+          features_sub: '日常倒数、共同习惯、纪念里程碑与专注计时 —— 为真实生活、为你在乎的人而设计。',
+          f1_title: '日常计划',
+          f1_desc: '倒数生日、旅行与重要节点。邀请好友一起计划、一起出发，不再独自赶路。',
+          f2_title: '共同习惯',
+          f2_desc: '与伙伴互相督促，每日打卡。把坚持变成可以分享、可以庆祝的进度。',
+          f3_title: '纪念日',
+          f3_desc: '记住那些定义你故事的日子 —— 相识、在一起、初为父母，每一个值得被记住的瞬间。',
+          f4_title: '专注模式',
+          f4_desc: '内置专注计时，帮你从意图走向行动，为真正重要的事留出不被打扰的时间。',
+          f5_title: '智能提醒',
+          f5_desc: '不错过截止日与打卡。温和提醒，让你和同伴始终保持在同一节奏。',
+          f6_title: '一起做计划',
+          f6_desc: '链接分享、一键加入、多端同步 —— 无论身在何处，计划始终在一起。',
+          quote: '「生活不是一个人的待办清单。最好的计划，是有人提醒、有仪式、有人同行。」',
+          quote_cite: '—— Plan Together 团队',
+          v1: '温暖、有人情味',
+          v2: '简洁、不打扰',
+          v3: '为「在一起」而生',
+          about_title: '关于 Plan Together',
+          about_desc: 'Plan Together 是一款跨平台计划 App，涵盖日常倒数、共同习惯、纪念里程碑与专注计时 —— 让人生中真正重要的事，不再独自计划。',
+          about_app_label: '应用名称',
+          about_pkg_label: '包名',
+          about_contact_label: '联系邮箱',
+          about_region_label: '版本',
+          about_region_value: '国际版（中国大陆以外）',
+          store_ios_small: '前往',
+          store_ios_name: 'App Store 下载',
+          store_android_small: '前往',
+          store_android_name: 'Google Play 下载',
+          download_title: '开始一起做计划',
+          download_sub: '支持 iOS 与 Android，免费下载。',
+          footer_copy: '© 2026 Plan Together. 保留所有权利。',
+          footer_privacy: '隐私政策',
+          footer_contact: '联系我们',
+          page_title: 'Plan Together – 一起计划，一起生活',
+          page_desc: 'Plan Together 帮你管理日常计划、养成习惯、珍藏纪念日并保持专注 —— 与你在乎的人一起。'
+        }
+      };
+
+      var STORAGE_KEY = 'plan_together_company_lang';
+      var currentLang = 'en';
+
+      function readQueryLang() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var q = params.get('lang');
+          if (q === 'en' || q === 'zh') return q;
+        } catch (e) { /* ignore */ }
+        return null;
+      }
+
+      function detectLang() {
+        var fromQuery = readQueryLang();
+        if (fromQuery) return fromQuery;
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          if (saved === 'en' || saved === 'zh') return saved;
+        } catch (e) { /* ignore */ }
+        return 'en';
+      }
+
+      function bindStoreLinks() {
+        var ios = document.getElementById('iosStoreLink');
+        var android = document.getElementById('androidStoreLink');
+        var pkg = document.getElementById('pkgName');
+        if (ios) ios.href = CONFIG.iosStore;
+        if (android) android.href = CONFIG.androidStore;
+        if (pkg) pkg.textContent = CONFIG.androidPackage;
+      }
+
+      function applyLang(lang) {
+        currentLang = lang;
+        var dict = STRINGS[lang] || STRINGS.en;
+        document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+        document.title = dict.page_title;
+
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', dict.page_desc);
+
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', dict.page_title);
+
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) {
+          ogDesc.setAttribute('content', lang === 'zh'
+            ? '日常计划、共同习惯、纪念日与专注 —— 与你在乎的人一起。'
+            : 'Daily plans, habits, memorial days, and focus — shared with the people who matter.');
+        }
+
+        var ogLocale = document.querySelector('meta[property="og:locale"]');
+        if (ogLocale) ogLocale.setAttribute('content', lang === 'zh' ? 'zh_CN' : 'en_US');
+
+        document.querySelectorAll('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (!dict[key]) return;
+          if (dict[key].indexOf('<') !== -1) {
+            el.innerHTML = dict[key];
+          } else {
+            el.textContent = dict[key];
+          }
+        });
+
+        document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n-aria');
+          if (dict[key]) el.setAttribute('aria-label', dict[key]);
+        });
+
+        document.querySelectorAll('.lang-btn').forEach(function (btn) {
+          var active = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
+      }
+
+      document.querySelectorAll('.lang-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyLang(btn.getAttribute('data-lang'));
+        });
+      });
+
+      bindStoreLinks();
+      applyLang(detectLang());
+    })();
+  </script>
+</body>
+</html>
