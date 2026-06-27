@@ -486,6 +486,39 @@
       setMeta('og:image', ogImage);
       setMeta('og:url', window.location.href);
 
+      function appendTaskDetailParams(params) {
+        var reserved = {
+          scene: true,
+          title: true,
+          mainText: true,
+          date: true,
+          time: true,
+          tag: true,
+          subtitle: true,
+          sharerName: true,
+          sharerId: true,
+          sharerAvatar: true,
+          taskId: true,
+          taskType: true,
+          img: true,
+          ogImage: true,
+          country: true,
+          lang: true
+        };
+
+        for (var key in q) {
+          if (!Object.prototype.hasOwnProperty.call(q, key)) continue;
+          if (reserved[key]) continue;
+          var lowerKey = String(key).toLowerCase();
+          if (lowerKey === 'created_at' || lowerKey === 'updated_at') continue;
+          var val = q[key];
+          if (val === undefined || val === null || val === '') continue;
+          params.push(
+            encodeURIComponent(key) + '=' + encodeURIComponent(val)
+          );
+        }
+      }
+
       function buildShareUrl(base) {
         var params = ['scene=share_join'];
         PASSTHROUGH_KEYS.forEach(function (key) {
@@ -495,6 +528,7 @@
             );
           }
         });
+        appendTaskDetailParams(params);
         return base + '?' + params.join('&');
       }
 
