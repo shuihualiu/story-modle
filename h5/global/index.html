@@ -239,7 +239,7 @@
       <span class="header-center" id="headerCenter" hidden></span>
     </div>
     <div class="card-inner">
-      <img id="illustration" src="./default.png" alt="">
+      <img id="illustration" src="./default.webp" alt="">
       <p class="card-title" id="headline"></p>
       <p class="card-datetime" id="datetime"></p>
     </div>
@@ -254,7 +254,7 @@
         androidPackage: 'com.haloutongxue.reminder',
         customScheme: 'haloutongxue',
         customSchemeHost: 'h5',
-        defaultOg: 'https://global.haloutongxue.com/h5/global/default-og.png',
+        defaultOg: 'https://global.haloutongxue.com/h5/global/default-og.webp',
         landingBase: 'https://global.haloutongxue.com/h5/global/index.html',
         appOpenTimeoutMs: 2800,
         iosOpenTimeoutMs: 3200
@@ -295,11 +295,35 @@
         return text.replace(/(\d+(?:\.\d+)?)/g, '<span class="main-number">$1</span>');
       }
 
+      var ILLUSTRATION_DEFAULT = './default.webp';
+      var IMAGE_FILE_RE = /^[a-zA-Z0-9_.-]+\.(webp|png)$/i;
+
+      function normalizeIllustrationFileName(fileName) {
+        var name = String(fileName || '').trim();
+        if (!IMAGE_FILE_RE.test(name)) return '';
+        // 海外静态资源已统一为 webp；兼容旧链接仍带 .png 的文件名
+        return name.replace(/\.png$/i, '.webp');
+      }
+
+      function resolveIllustrationSrc(rawImg) {
+        var name = normalizeIllustrationFileName(rawImg);
+        return name ? './' + name : ILLUSTRATION_DEFAULT;
+      }
+
+      function normalizeOgImageUrl(url) {
+        var value = String(url || '').trim();
+        if (!value) return CONFIG.defaultOg;
+        if (/\/h5\/global\//i.test(value)) {
+          return value.replace(/\.png(\?|#|$)/i, '.webp$1');
+        }
+        return value;
+      }
+
       function resolvePaperBg(taskType) {
         var type = (taskType || 'daily').toLowerCase();
-        if (type === 'habit') return './paper_link1.png';
-        if (type === 'memorial') return './paper_link2.png';
-        return './paper_link.png';
+        if (type === 'habit') return './paper_link1.webp';
+        if (type === 'memorial') return './paper_link2.webp';
+        return './paper_link.webp';
       }
 
       function fitText(el, maxPx, minPx) {
@@ -454,14 +478,19 @@
       var mainText = q.mainText || '';
       var date = q.date || '';
       var time = q.time || '';
-      var img = q.img ? './' + q.img : './default.png';
-      var ogImage = q.ogImage || CONFIG.defaultOg;
+      var ogImage = normalizeOgImageUrl(q.ogImage || CONFIG.defaultOg);
 
       var cardWrap = document.getElementById('cardWrap');
       cardWrap.style.backgroundImage = 'url("' + resolvePaperBg(taskType) + '")';
       applyHeader(copy, taskType);
 
-      document.getElementById('illustration').src = img;
+      var illustrationEl = document.getElementById('illustration');
+      illustrationEl.onerror = function () {
+        if (illustrationEl.src.indexOf('default.webp') >= 0) return;
+        illustrationEl.onerror = null;
+        illustrationEl.src = ILLUSTRATION_DEFAULT;
+      };
+      illustrationEl.src = resolveIllustrationSrc(q.img);
       document.getElementById('headline').innerHTML = emphasizeNumbers(
         (title + (mainText ? ' ' + mainText : '')).trim()
       );
