@@ -181,7 +181,7 @@
       font-size: 32px;
       font-weight: 700;
     }
-    /* 日期：主文案下方 18px；标题占 2 行时再下移 20px */
+    /* 日期：主文案下方 18px；标题超过 2 行时再下移 40px */
     .card-datetime {
       position: absolute;
       left: 16px;
@@ -193,7 +193,7 @@
       margin: 0;
     }
     body.title-two-lines .card-datetime {
-      top: calc(67.7% + 62px);
+      top: calc(67.7% + 82px);
     }
     /* 按钮：设计稿 bottom 140px / 812 ≈ 17.2%，下移 20px ≈ 120px */
     .btn-join {
@@ -226,7 +226,7 @@
     }
     .btn-join:active { opacity: 0.9; }
     body.title-two-lines .btn-join {
-      bottom: calc(17.2% - 40px);
+      bottom: calc(17.2% - 60px);
     }
     .hint {
       position: fixed;
@@ -373,25 +373,14 @@
           document.body.classList.remove('title-two-lines');
           return;
         }
-        var width = el.clientWidth;
-        if (!width) return;
-        var clone = el.cloneNode(true);
-        clone.removeAttribute('id');
-        clone.style.cssText =
-          'position:absolute;visibility:hidden;pointer-events:none;left:-9999px;' +
-          'width:' + width + 'px;display:block;overflow:visible;max-height:none;' +
-          '-webkit-line-clamp:unset;-webkit-box-orient:unset;';
-        document.body.appendChild(clone);
-        var style = window.getComputedStyle(el);
-        var lineHeight = parseFloat(style.lineHeight);
-        if (!lineHeight || isNaN(lineHeight)) {
-          lineHeight = parseFloat(style.fontSize) * 1.2;
+        if (!el.clientWidth) {
+          requestAnimationFrame(syncTitleLayout);
+          return;
         }
-        var fullHeight = clone.getBoundingClientRect().height;
-        document.body.removeChild(clone);
+        // line-clamp:2 下 scrollHeight > clientHeight 表示内容超过 2 行被截断
         document.body.classList.toggle(
           'title-two-lines',
-          fullHeight > lineHeight * 2 + 1
+          el.scrollHeight > el.clientHeight + 1
         );
       }
 
