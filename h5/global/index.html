@@ -278,6 +278,11 @@
         'ogImage', 'img', 'country', 'lang'
       ];
 
+      function decodeQueryParam(value) {
+        // query 中空格可能是 +（form-urlencoded），decodeURIComponent 不会处理 +
+        return decodeURIComponent(String(value || '').replace(/\+/g, ' '));
+      }
+
       function getParams() {
         var params = {};
         var search = window.location.search.replace(/^\?/, '');
@@ -285,8 +290,8 @@
           search.split('&').forEach(function (pair) {
             var idx = pair.indexOf('=');
             if (idx < 0) return;
-            params[decodeURIComponent(pair.slice(0, idx))] =
-              decodeURIComponent(pair.slice(idx + 1));
+            params[decodeQueryParam(pair.slice(0, idx))] =
+              decodeQueryParam(pair.slice(idx + 1));
           });
         }
         var hash = window.location.hash.replace(/^#/, '');
@@ -294,9 +299,9 @@
           hash.split('&').forEach(function (pair) {
             var idx = pair.indexOf('=');
             if (idx < 0) return;
-            var k = decodeURIComponent(pair.slice(0, idx));
+            var k = decodeQueryParam(pair.slice(0, idx));
             if (!params[k]) {
-              params[k] = decodeURIComponent(pair.slice(idx + 1));
+              params[k] = decodeQueryParam(pair.slice(idx + 1));
             }
           });
         }
