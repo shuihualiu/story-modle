@@ -159,7 +159,7 @@
       object-fit: contain;
       z-index: 2;
     }
-    /* 主文案：设计稿 top 550px / 812 ≈ 67.7% */
+    /* 主文案：设计稿 top 550px / 812 ≈ 67.7%，最多 2 行省略 */
     .card-title {
       position: absolute;
       left: 16px;
@@ -170,12 +170,18 @@
       font-weight: 500;
       margin: 0;
       line-height: 1.2;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
     }
     .card-title .main-number {
       font-size: 32px;
       font-weight: 700;
     }
-    /* 日期：主文案下方 18px */
+    /* 日期：主文案下方 18px；标题占 2 行时再下移 20px */
     .card-datetime {
       position: absolute;
       left: 16px;
@@ -185,6 +191,9 @@
       font-size: 12px;
       color: #8a8a8a;
       margin: 0;
+    }
+    body.title-two-lines .card-datetime {
+      top: calc(67.7% + 62px);
     }
     /* 按钮：设计稿 bottom 140px / 812 ≈ 17.2%，下移 20px ≈ 120px */
     .btn-join {
@@ -216,6 +225,9 @@
       text-overflow: ellipsis;
     }
     .btn-join:active { opacity: 0.9; }
+    body.title-two-lines .btn-join {
+      bottom: calc(17.2% - 40px);
+    }
     .hint {
       position: fixed;
       left: 16px;
@@ -353,6 +365,34 @@
           el.style.fontSize = size + 'px';
           guard += 1;
         }
+      }
+
+      function syncTitleLayout() {
+        var el = document.getElementById('headline');
+        if (!el || !el.textContent.trim()) {
+          document.body.classList.remove('title-two-lines');
+          return;
+        }
+        var width = el.clientWidth;
+        if (!width) return;
+        var clone = el.cloneNode(true);
+        clone.removeAttribute('id');
+        clone.style.cssText =
+          'position:absolute;visibility:hidden;pointer-events:none;left:-9999px;' +
+          'width:' + width + 'px;display:block;overflow:visible;max-height:none;' +
+          '-webkit-line-clamp:unset;-webkit-box-orient:unset;';
+        document.body.appendChild(clone);
+        var style = window.getComputedStyle(el);
+        var lineHeight = parseFloat(style.lineHeight);
+        if (!lineHeight || isNaN(lineHeight)) {
+          lineHeight = parseFloat(style.fontSize) * 1.2;
+        }
+        var fullHeight = clone.getBoundingClientRect().height;
+        document.body.removeChild(clone);
+        document.body.classList.toggle(
+          'title-two-lines',
+          fullHeight > lineHeight * 2 + 1
+        );
       }
 
       function fitTextDaily(el, maxPx, minPx) {
@@ -496,6 +536,8 @@
       );
       document.getElementById('datetime').textContent =
         date ? ('- ' + date + (time ? ' ' + time : '') + ' -') : '';
+      requestAnimationFrame(syncTitleLayout);
+      window.addEventListener('resize', syncTitleLayout);
 
       var btnJoinText = document.getElementById('btnJoinText');
       btnJoinText.textContent = copy.button;
