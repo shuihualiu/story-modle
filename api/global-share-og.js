@@ -7,15 +7,28 @@ const LANDING_BASE =
 const STATIC_ILLUSTRATION_BASE =
   'https://global.haloutongxue.com/h5/global/';
 const DEFAULT_OG_IMAGE =
-  'https://global.haloutongxue.com/h5/global/default-og.png';
+  'https://global.haloutongxue.com/h5/global/default-og.webp';
+
+function resolveStaticIllustrationUrl(fileName) {
+  const normalized = fileName.replace(/\.png$/i, '.webp');
+  if (!/^[\w.-]+\.webp$/i.test(normalized)) {
+    return DEFAULT_OG_IMAGE;
+  }
+  return `${STATIC_ILLUSTRATION_BASE}${normalized}`;
+}
 
 function resolveOgImage(params) {
   const explicit = (params.ogImage || '').trim();
-  if (explicit) return explicit;
+  if (explicit) {
+    if (/\/h5\/global\//i.test(explicit)) {
+      return explicit.replace(/\.png(\?|#|$)/i, '.webp$1');
+    }
+    return explicit;
+  }
 
   const img = (params.img || '').trim();
-  if (img && /^[\w.-]+\.png$/i.test(img)) {
-    return `${STATIC_ILLUSTRATION_BASE}${img}`;
+  if (img) {
+    return resolveStaticIllustrationUrl(img);
   }
 
   return DEFAULT_OG_IMAGE;
