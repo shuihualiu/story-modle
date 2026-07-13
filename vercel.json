@@ -22,6 +22,14 @@
       "destination": "/h5/global/global-privacy-policy.html"
     },
     {
+      "source": "/terms",
+      "destination": "/h5/global/global-terms-of-use.html"
+    },
+    {
+      "source": "/terms/",
+      "destination": "/h5/global/global-terms-of-use.html"
+    },
+    {
       "source": "/company.html",
       "destination": "/h5/global/company.html"
     },
