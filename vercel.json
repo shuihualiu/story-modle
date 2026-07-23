@@ -34,6 +34,10 @@
       "destination": "/h5/global/company.html"
     },
     {
+      "source": "/discipline.html",
+      "destination": "/h5/global/discipline.html"
+    },
+    {
       "source": "/functions/v1/global-share-og",
       "destination": "/api/global-share-og"
     }
