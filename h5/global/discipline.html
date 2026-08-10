@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>手机限时锁 – 熬夜玩手机就用自律锁</title>
+  <title>手机限时锁 – 熬夜玩手机就用手机限时锁</title>
   <meta name="description" content="手机限时锁：锁定娱乐应用、添加应用限制、设置时长额度与周期定时，监督人管理锁密码，培养健康数字习惯。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://global.haloutongxue.com/discipline.html">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="手机限时锁">
-  <meta property="og:title" content="手机限时锁 – 熬夜玩手机就用自律锁">
+  <meta property="og:title" content="手机限时锁 – 熬夜玩手机就用手机限时锁">
   <meta property="og:description" content="锁定娱乐应用、添加应用限制、监督人共管，专注学习与健康作息。">
   <meta property="og:url" content="https://global.haloutongxue.com/discipline.html">
   <meta property="og:image" content="https://global.haloutongxue.com/h5/global/discipline-lock-list.webp">
@@ -694,7 +694,7 @@
   <header class="hero" id="top">
     <div class="hero-copy">
       <h1 class="hero-brand" data-i18n="brand">手机限时锁</h1>
-      <p class="hero-slogan" data-i18n="slogan">熬夜玩手机就用自律锁</p>
+      <p class="hero-slogan" data-i18n="slogan">熬夜玩手机就用手机限时锁</p>
       <p class="hero-lead" data-i18n="hero_lead">
         一键添加要锁的 App，设置周期定时、使用限时或日期范围锁；
         监督人掌管锁密码，帮你锁住娱乐、守住专注。
@@ -861,12 +861,8 @@
           <dd data-i18n="brand">手机限时锁</dd>
         </div>
         <div>
-          <dt data-i18n="about_pkg_label">包名</dt>
-          <dd id="pkgName">com.haloutongxue.reminder</dd>
-        </div>
-        <div>
           <dt data-i18n="about_contact_label">联系邮箱</dt>
-          <dd><a href="mailto:login@haloutongxue.com">login@haloutongxue.com</a></dd>
+          <dd><a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a></dd>
         </div>
         <div>
           <dt data-i18n="about_region_label">版本</dt>
@@ -900,7 +896,7 @@
     <div class="footer-links">
       <a href="/privacy" data-i18n="footer_privacy">隐私政策</a>
       <a href="/terms" data-i18n="footer_terms">使用条款</a>
-      <a href="mailto:login@haloutongxue.com" data-i18n="footer_contact">联系我们</a>
+      <a href="mailto:server@haloutongxue.com" data-i18n="footer_contact">联系我们</a>
     </div>
   </footer>
 
@@ -908,15 +904,14 @@
     (function () {
       var CONFIG = {
         iosStore: 'https://apps.apple.com/app/idYOUR_APP_ID',
-        androidStore: 'https://play.google.com/store/apps/details?id=com.haloutongxue.reminder',
-        androidPackage: 'com.haloutongxue.reminder'
+        androidStore: 'https://play.google.com/store/apps/details?id=com.haloutongxue.reminder'
       };
 
       var STRINGS = {
         zh: {
           lang_group_label: '语言',
           brand: '手机限时锁',
-          slogan: '熬夜玩手机就用自律锁',
+          slogan: '熬夜玩手机就用手机限时锁',
           hero_lead: '一键添加要锁的 App，设置周期定时、使用限时或日期范围锁；监督人掌管锁密码，帮你锁住娱乐、守住专注。',
           cta_download: '立即下载',
           cta_explore: '看看怎么用',
@@ -968,7 +963,6 @@
           about_title: '关于手机限时锁',
           about_desc: '手机限时锁帮助你（或家长）管理设备上的娱乐时间：添加并锁定指定 App，用周期定时、使用限时、日期范围三种方式培养健康数字习惯，专注学习与作息。',
           about_app_label: '应用名称',
-          about_pkg_label: '包名',
           about_contact_label: '联系邮箱',
           about_region_label: '版本',
           about_region_value: '国际版（中国大陆以外）',
@@ -982,7 +976,7 @@
           footer_privacy: '隐私政策',
           footer_terms: '使用条款',
           footer_contact: '联系我们',
-          page_title: '手机限时锁 – 熬夜玩手机就用自律锁',
+          page_title: '手机限时锁 – 熬夜玩手机就用手机限时锁',
           page_desc: '手机限时锁：锁定娱乐应用、添加应用限制、设置时长额度与周期定时，监督人管理锁密码，培养健康数字习惯。',
           og_desc: '锁定娱乐应用、添加应用限制、监督人共管，专注学习与健康作息。'
         },
@@ -1041,7 +1035,6 @@
           about_title: 'About 手机限时锁',
           about_desc: '手机限时锁 helps you (or parents) manage entertainment time: add and lock apps with periodic, usage-limit, and date-range rules for healthier digital habits.',
           about_app_label: 'App',
-          about_pkg_label: 'Package',
           about_contact_label: 'Contact',
           about_region_label: 'Edition',
           about_region_value: 'Global (outside mainland China)',
@@ -1085,10 +1078,8 @@
       function bindStoreLinks() {
         var ios = document.getElementById('iosStoreLink');
         var android = document.getElementById('androidStoreLink');
-        var pkg = document.getElementById('pkgName');
         if (ios) ios.href = CONFIG.iosStore;
         if (android) android.href = CONFIG.androidStore;
-        if (pkg) pkg.textContent = CONFIG.androidPackage;
       }
 
       function applyLang(lang) {
