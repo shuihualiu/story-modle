@@ -38,6 +38,14 @@
       "destination": "/h5/global/discipline.html"
     },
     {
+      "source": "/flowora-privacy",
+      "destination": "/h5/global/flowora-privacy.html"
+    },
+    {
+      "source": "/flowora-privacy/",
+      "destination": "/h5/global/flowora-privacy.html"
+    },
+    {
       "source": "/functions/v1/global-share-og",
       "destination": "/api/global-share-og"
     }
