@@ -4,15 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Privacy Policy for 手机限时锁 (Flowora) — how we collect, use, store, and share your information.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://global.haloutongxue.com/flowora-privacy">
-  <link rel="alternate" hreflang="zh-CN" href="https://global.haloutongxue.com/flowora-privacy?lang=zh">
-  <link rel="alternate" hreflang="en" href="https://global.haloutongxue.com/flowora-privacy?lang=en">
-  <link rel="alternate" hreflang="x-default" href="https://global.haloutongxue.com/flowora-privacy">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Privacy Policy — Flowora">
-  <meta property="og:description" content="Privacy Policy for 手机限时锁 (Flowora) — how we collect, use, store, and share your information.">
-  <meta property="og:url" content="https://global.haloutongxue.com/flowora-privacy">
   <title>Privacy Policy — Flowora</title>
   <style>
     :root {
@@ -177,7 +168,7 @@
     </nav>
     <h1 id="page-title">Privacy Policy</h1>
     <p class="subtitle" id="page-subtitle">手机限时锁 (Flowora)</p>
-    <p class="updated" id="page-updated">Last updated: August 9, 2026</p>
+    <p class="updated" id="page-updated">Last updated: September 11, 2026</p>
   </header>
 
   <main>
@@ -220,12 +211,17 @@
           <p>Flowora 仅在功能需要时申请系统权限。您可在系统设置中拒绝或撤销权限；部分功能届时将不可用。</p>
           <ul>
             <li>Screen Time / FamilyControls（iOS）：选择应用/类别，并为时间限制与锁定施加屏蔽。</li>
-            <li>无障碍与使用情况访问（Android）：检测应用使用情况，并在后台持续执行锁定。</li>
-            <li>照片图库：选择监督人头像；将媒体导入私人相册；在确认导入后可选择从系统相册删除原件。</li>
+            <li>无障碍与使用情况访问（Android）：检测前台应用并持续执行锁定。</li>
+            <li>悬浮窗（Android）：在部分机型上展示锁定遮罩页。</li>
+            <li>忽略电池优化（Android）：保障锁定拦截在后台持续生效。</li>
+            <li>开机相关（Android）：开机后检测无障碍服务是否仍开启。</li>
+            <li>前台服务与精确闹钟（Android）：有锁规则时保活进程，并准时执行锁定。</li>
+            <li>通知与全屏通知（Android）：提醒锁定状态，并在需要时拉起锁定/解锁页。</li>
+            <li>照片与视频图库：选择监督人头像；将照片/视频导入 Safebox；确认后可删除图库原件。</li>
             <li>麦克风与语音识别：在应用选择器中按名称语音搜索应用。</li>
-            <li>通知：提醒您锁定状态，并帮助打开解锁流程。</li>
-            <li>跟踪（iOS ATT，如适用）：在激励广告功能中展示更相关的广告。拒绝跟踪不会移除核心锁定功能。</li>
-            <li>主屏幕小组件 / App Groups：使用共享本地数据展示 Flowora 小组件内容。</li>
+            <li>网络访问：登录、数据同步与激励广告等联网功能。</li>
+            <li>跟踪（iOS ATT，如适用）：在激励广告中展示更相关的广告。拒绝跟踪不影响核心锁定功能。</li>
+            <li>主屏幕小组件 / App Groups：使用共享本地数据展示小组件内容。</li>
           </ul>
         </section>
 
@@ -257,7 +253,7 @@
           <h2>6. 共享与第三方</h2>
           <p>我们仅在有限情形下共享信息：</p>
           <ul>
-            <li>服务提供商：托管、支付处理、崩溃/诊断工具，以及在合同约束下代表我们处理数据的广告聚合合作伙伴。</li>
+            <li>服务提供商：托管、支付处理，以及在合同约束下代表我们处理数据的广告合作伙伴。</li>
             <li>微信：若您使用微信登录，微信将依据其条款与隐私政策提供身份验证数据。</li>
             <li>您邀请的监督人：通过监督码连接的人员，可看到监督/解锁流程所需的关系信息与参与情况。请谨慎选择监督人。</li>
             <li>法律要求：在适用法律、法规、法律程序要求下，或为保护权利与安全，我们可能披露信息。</li>
@@ -265,26 +261,65 @@
         </section>
 
         <section>
-          <h2>7. Safebox、媒体与敏感内容</h2>
+          <h2>7. 第三方 SDK 清单</h2>
+          <p>
+            为实现登录、分享与激励广告等功能，本应用集成下列第三方 SDK。相关 SDK 名称、开发者及隐私政策链接与
+            <a href="https://sdk.caict.ac.cn/official/#/home" rel="noopener noreferrer">全国 SDK 管理服务平台</a>
+            登记信息保持一致。我们仅在您同意本隐私政策后初始化广告相关 SDK。
+          </p>
+
+          <h3>7.1 微信OpenSDK Android</h3>
+          <ul>
+            <li>SDK名称：微信OpenSDK Android</li>
+            <li>开发者：深圳市腾讯计算机系统有限公司</li>
+            <li>SDK包名：com.tencent.mm.opensdk</li>
+            <li>收集信息范围：用户主动选择的图片或内容；用户主动选择的微信头像、昵称信息；在 Android 系统中验证设备是否安装微信 APP（本应用不使用微信支付相关能力；具体以该 SDK 隐私政策为准）</li>
+            <li>使用目的：实现微信登录、微信分享与收藏等相关能力</li>
+            <li>SDK隐私政策链接：<a href="https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8" rel="noopener noreferrer">https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8</a></li>
+          </ul>
+
+          <h3>7.2 抖音SDK（安卓版）</h3>
+          <ul>
+            <li>SDK名称：抖音SDK（安卓版）</li>
+            <li>开发者：北京微播视界科技有限公司</li>
+            <li>SDK包名：com.bytedance.android.dy.sdk</li>
+            <li>收集信息范围：一般信息（头像、昵称、手机号）、位置信息（如国家/区域信息）、设备信息（如设备品牌、设备型号、操作系统、屏幕分辨率）、系统或网络识别信息（运营商信息、MCC、MNC、WIFI状态）、传感器信息（如加速度传感器）、应用信息（如应用版本、应用发布渠道、应用程序包名）（具体以该 SDK 隐私政策为准）</li>
+            <li>使用目的：随广告相关组件一并集成；该 SDK 可能用于授权登录、分享、短视频、直播等服务（本应用未主动启用上述抖音业务功能）</li>
+            <li>SDK隐私政策链接：<a href="https://developer.open-douyin.com/docs/resource/zh-CN/dop/operation-standard/service-protocol/douyinsdk_pingtaiyinsizhengce" rel="noopener noreferrer">https://developer.open-douyin.com/docs/resource/zh-CN/dop/operation-standard/service-protocol/douyinsdk_pingtaiyinsizhengce</a></li>
+          </ul>
+
+          <h3>7.3 穿山甲广告SDK</h3>
+          <ul>
+            <li>SDK名称：穿山甲广告SDK</li>
+            <li>开发者：北京巨量引擎网络技术有限公司</li>
+            <li>SDK包名：com.bytedance.sdk.openadsdk</li>
+            <li>收集信息范围：设备标识符（如Android ID、OAID、GAID、IDFV、IDFA、ODID），IP地址，精确位置信息、粗略位置信息（WiFi列表、WLAN接入点（如SSID、BSSID）），设备传感器信息（加速度传感器、陀螺仪传感器、线性加速度传感器、磁场传感器、旋转矢量传感器），设备品牌、型号、软件系统版本、屏幕密度、屏幕分辨率、设备语言、设备时区、sim卡信息（mcc&amp;mnc）、CPU信息、可用存储空间大小、手机系统重启时间、磁盘总空间、系统总内存空间、运营商信息、Wi-Fi状态、网络信号强度、软件列表、应用包名、运行中的进程信息、版本号、应用前后台状态（具体以该 SDK 隐私政策为准）</li>
+            <li>使用目的：广告投放及监测归因、反作弊、统计分析、减少App崩溃、提供可靠稳定的服务</li>
+            <li>SDK隐私政策链接：<a href="https://www.csjplatform.com/privacy" rel="noopener noreferrer">https://www.csjplatform.com/privacy</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>8. Safebox、媒体与敏感内容</h2>
           <p>Safebox 用于存放个人私密内容。您自行决定导入内容。请勿存储您无权合法持有的内容。</p>
           <p>若您授权在导入后从系统相册删除原件，该操作将按您的请求执行。确认删除前请备份重要媒体。</p>
           <p>Safebox 密码保护是产品安全功能，并不能保证在设备被入侵、越狱/Root、取证提取，或他人已知您的解锁方式时仍绝对安全。</p>
         </section>
 
         <section>
-          <h2>8. 儿童与家庭使用</h2>
+          <h2>9. 儿童与家庭使用</h2>
           <p>Flowora 可用于个人自律或相互监督。若您与儿童一起或为儿童使用本应用，您有责任依据适用法律取得所需同意，并合理配置监督。</p>
           <p>我们不会在知情情况下将本应用营销为以广告为目的收集儿童个人数据的服务。家长或监护人应在儿童设备上启用锁定或媒体功能前审阅权限。</p>
         </section>
 
         <section>
-          <h2>9. 数据保留</h2>
+          <h2>10. 数据保留</h2>
           <p>在您的账号保持有效且为提供服务所需期间，我们保留账号与关系数据。本地 Safebox 与锁定配置会保留在您的设备上，直至您删除、清除应用数据或卸载本应用（受操作系统备份行为影响）。</p>
           <p>在法律、会计或安全原因要求时，我们可能更长时间保留有限记录（例如购买历史、防欺诈日志或反馈）。</p>
         </section>
 
         <section>
-          <h2>10. 您的选择与权利</h2>
+          <h2>11. 您的选择与权利</h2>
           <p>您可以：</p>
           <ul>
             <li>在 iOS/Android 设置中撤销平台权限。</li>
@@ -296,22 +331,22 @@
         </section>
 
         <section>
-          <h2>11. 安全</h2>
+          <h2>12. 安全</h2>
           <p>我们采取与数据性质相适应的合理管理、技术与组织措施（例如经验证的 API 访问，以及 Safebox 的端侧访问控制）。任何传输或存储方式都无法做到百分之百安全。</p>
         </section>
 
         <section>
-          <h2>12. 国际用户</h2>
+          <h2>13. 国际用户</h2>
           <p>服务器与服务提供商可能在与您居住地不同的司法管辖区处理数据。使用本应用即表示您理解，您的信息可能被传输至隐私法律不同的地点。</p>
         </section>
 
         <section>
-          <h2>13. 本政策的变更</h2>
+          <h2>14. 本政策的变更</h2>
           <p>我们可能更新本隐私政策，以反映产品、法律或运营变化。我们将修订「最近更新」日期，并在适当时就重大变更提供应用内通知。</p>
         </section>
 
         <section>
-          <h2>14. 联系方式</h2>
+          <h2>15. 联系方式</h2>
           <p>
             隐私咨询：请使用应用内「设置 → 反馈」，发送邮件至
             <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>，或访问
@@ -359,12 +394,17 @@
           <p>Flowora requests system permissions only when a feature needs them. You can deny or revoke permissions in system settings; some features will then be unavailable.</p>
           <ul>
             <li>Screen Time / FamilyControls (iOS): select apps/categories and apply shields for time limits and locks.</li>
-            <li>Accessibility &amp; Usage Access (Android): detect app usage and enforce locks consistently in the background.</li>
-            <li>Photo Library: choose a supervisor avatar; import media into the private album; optionally remove originals from the system gallery after a confirmed import.</li>
+            <li>Accessibility &amp; Usage Access (Android): detect foreground apps and enforce locks in the background.</li>
+            <li>Display over other apps (Android): show the lock overlay on some devices.</li>
+            <li>Ignore battery optimizations (Android): keep lock enforcement reliable in the background.</li>
+            <li>Boot-related (Android): after reboot, check whether Accessibility remains enabled.</li>
+            <li>Foreground service &amp; exact alarms (Android): keep the process alive when locks are active and run locks on schedule.</li>
+            <li>Notifications &amp; full-screen intents (Android): remind you about lock state and open lock/unlock screens when needed.</li>
+            <li>Photo &amp; video library: choose a supervisor avatar; import photos/videos into Safebox; optionally delete originals after confirmed import.</li>
             <li>Microphone &amp; Speech Recognition: voice search when looking up app names in the app picker.</li>
-            <li>Notifications: remind you about lock state and help open the unlock flow.</li>
+            <li>Network access: login, sync, and rewarded ads.</li>
             <li>Tracking (iOS ATT, where applicable): show more relevant ads in rewarded-ad features. Declining tracking does not remove core locking features.</li>
-            <li>Home-screen widgets / App Groups: show Flowora widget content using shared local data.</li>
+            <li>Home-screen widgets / App Groups: show widget content using shared local data.</li>
           </ul>
         </section>
 
@@ -396,7 +436,7 @@
           <h2>6. Sharing &amp; Third Parties</h2>
           <p>We share information only in limited situations:</p>
           <ul>
-            <li>Service providers: hosting, payment processing, crash/diagnostic tooling, and ad mediation partners that process data on our behalf under contractual controls.</li>
+            <li>Service providers: hosting, payment processing, and ad partners that process data on our behalf under contractual controls.</li>
             <li>WeChat: if you sign in with WeChat, WeChat provides authentication data according to WeChat’s terms and privacy policy.</li>
             <li>Supervisors you invite: people you connect via supervise codes can see relationship information and participation needed for supervision/unlock flows you enable. Choose supervisors carefully.</li>
             <li>Legal requirements: we may disclose information if required by applicable law, regulation, legal process, or to protect rights and safety.</li>
@@ -404,26 +444,65 @@
         </section>
 
         <section>
-          <h2>7. Safebox, Media &amp; Sensitive Content</h2>
+          <h2>7. Third-Party SDK List</h2>
+          <p>
+            To provide login, sharing, and rewarded ads, the App integrates the third-party SDKs below. SDK names, developers, and privacy-policy URLs are aligned with the
+            <a href="https://sdk.caict.ac.cn/official/#/home" rel="noopener noreferrer">National SDK Management Service Platform</a>
+            registrations. Ad-related SDKs are initialized only after you agree to this Privacy Policy.
+          </p>
+
+          <h3>7.1 WeChat OpenSDK Android</h3>
+          <ul>
+            <li>SDK名称：微信OpenSDK Android</li>
+            <li>开发者：深圳市腾讯计算机系统有限公司</li>
+            <li>SDK包名：com.tencent.mm.opensdk</li>
+            <li>收集信息范围：用户主动选择的图片或内容；用户主动选择的微信头像、昵称信息；在 Android 系统中验证设备是否安装微信 APP（本应用不使用微信支付相关能力；具体以该 SDK 隐私政策为准）</li>
+            <li>使用目的：实现微信登录、微信分享与收藏等相关能力</li>
+            <li>SDK隐私政策链接：<a href="https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8" rel="noopener noreferrer">https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8</a></li>
+          </ul>
+
+          <h3>7.2 Douyin SDK (Android)</h3>
+          <ul>
+            <li>SDK名称：抖音SDK（安卓版）</li>
+            <li>开发者：北京微播视界科技有限公司</li>
+            <li>SDK包名：com.bytedance.android.dy.sdk</li>
+            <li>收集信息范围：一般信息（头像、昵称、手机号）、位置信息（如国家/区域信息）、设备信息（如设备品牌、设备型号、操作系统、屏幕分辨率）、系统或网络识别信息（运营商信息、MCC、MNC、WIFI状态）、传感器信息（如加速度传感器）、应用信息（如应用版本、应用发布渠道、应用程序包名）（具体以该 SDK 隐私政策为准）</li>
+            <li>使用目的：随广告相关组件一并集成；该 SDK 可能用于授权登录、分享、短视频、直播等服务（本应用未主动启用上述抖音业务功能）</li>
+            <li>SDK隐私政策链接：<a href="https://developer.open-douyin.com/docs/resource/zh-CN/dop/operation-standard/service-protocol/douyinsdk_pingtaiyinsizhengce" rel="noopener noreferrer">https://developer.open-douyin.com/docs/resource/zh-CN/dop/operation-standard/service-protocol/douyinsdk_pingtaiyinsizhengce</a></li>
+          </ul>
+
+          <h3>7.3 Pangle Ads SDK</h3>
+          <ul>
+            <li>SDK名称：穿山甲广告SDK</li>
+            <li>开发者：北京巨量引擎网络技术有限公司</li>
+            <li>SDK包名：com.bytedance.sdk.openadsdk</li>
+            <li>收集信息范围：设备标识符（如Android ID、OAID、GAID、IDFV、IDFA、ODID），IP地址，精确位置信息、粗略位置信息（WiFi列表、WLAN接入点（如SSID、BSSID）），设备传感器信息（加速度传感器、陀螺仪传感器、线性加速度传感器、磁场传感器、旋转矢量传感器），设备品牌、型号、软件系统版本、屏幕密度、屏幕分辨率、设备语言、设备时区、sim卡信息（mcc&amp;mnc）、CPU信息、可用存储空间大小、手机系统重启时间、磁盘总空间、系统总内存空间、运营商信息、Wi-Fi状态、网络信号强度、软件列表、应用包名、运行中的进程信息、版本号、应用前后台状态（具体以该 SDK 隐私政策为准）</li>
+            <li>使用目的：广告投放及监测归因、反作弊、统计分析、减少App崩溃、提供可靠稳定的服务</li>
+            <li>SDK隐私政策链接：<a href="https://www.csjplatform.com/privacy" rel="noopener noreferrer">https://www.csjplatform.com/privacy</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>8. Safebox, Media &amp; Sensitive Content</h2>
           <p>Safebox is intended for personal private content. You control what you import. Do not store content you are not legally allowed to possess.</p>
           <p>If you authorize deletion of originals from the system photo library after import, that action is performed at your request. Back up important media before confirming deletion.</p>
           <p>Safebox password protection is a product security feature, not a guarantee against a compromised device, jailbreak/root, forensic extraction, or someone who already knows your unlock method.</p>
         </section>
 
         <section>
-          <h2>8. Children &amp; Family Use</h2>
+          <h2>9. Children &amp; Family Use</h2>
           <p>Flowora can be used for personal discipline or mutual supervision. If you use the App with or for a child, you are responsible for obtaining any consent required under applicable law and for configuring supervision appropriately.</p>
           <p>We do not knowingly market the App as a service that collects personal data from children for advertising purposes. Parents or guardians should review permissions before enabling locking or media features on a child’s device.</p>
         </section>
 
         <section>
-          <h2>9. Data Retention</h2>
+          <h2>10. Data Retention</h2>
           <p>We retain account and relationship data while your account remains active and as needed to provide the service. Local Safebox and lock configurations remain on your device until you delete them, clear app data, or uninstall the App (subject to OS backup behavior).</p>
           <p>We may retain limited records (for example, purchase history, fraud-prevention logs, or feedback) for longer when required for legal, accounting, or security reasons.</p>
         </section>
 
         <section>
-          <h2>10. Your Choices &amp; Rights</h2>
+          <h2>11. Your Choices &amp; Rights</h2>
           <p>You may:</p>
           <ul>
             <li>Revoke platform permissions in iOS/Android settings.</li>
@@ -435,22 +514,22 @@
         </section>
 
         <section>
-          <h2>11. Security</h2>
+          <h2>12. Security</h2>
           <p>We use reasonable administrative, technical, and organizational measures appropriate to the nature of the data (for example, authenticated API access and on-device access controls for Safebox). No method of transmission or storage is 100% secure.</p>
         </section>
 
         <section>
-          <h2>12. International Users</h2>
+          <h2>13. International Users</h2>
           <p>Servers and service providers may process data in jurisdictions different from where you live. By using the App, you understand that your information may be transferred to locations where privacy laws differ.</p>
         </section>
 
         <section>
-          <h2>13. Changes to This Policy</h2>
+          <h2>14. Changes to This Policy</h2>
           <p>We may update this Privacy Policy to reflect product, legal, or operational changes. We will revise the “Last updated” date and, where appropriate, provide in-app notice for material changes.</p>
         </section>
 
         <section>
-          <h2>14. Contact</h2>
+          <h2>15. Contact</h2>
           <p>
             For privacy inquiries: use Settings → Feedback in the App, email
             <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>, or visit
@@ -479,7 +558,7 @@
           description: '手机限时锁（Flowora）隐私政策 — 说明我们如何收集、使用、存储与共享您的信息。',
           pageTitle: '隐私政策',
           subtitle: '手机限时锁（Flowora）',
-          updated: '最近更新：2026年8月9日',
+          updated: '最近更新：2026年9月11日',
           footerCopy: '© 手机限时锁（Flowora）· 自律与监督工具',
           footerLink: '官方网站'
         },
@@ -489,7 +568,7 @@
           description: 'Privacy Policy for 手机限时锁 (Flowora) — how we collect, use, store, and share your information.',
           pageTitle: 'Privacy Policy',
           subtitle: '手机限时锁 (Flowora)',
-          updated: 'Last updated: August 9, 2026',
+          updated: 'Last updated: September 11, 2026',
           footerCopy: '© Flowora · Self-discipline & supervision tool',
           footerLink: 'Official website'
         }
