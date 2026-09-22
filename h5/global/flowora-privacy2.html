@@ -168,7 +168,7 @@
     </nav>
     <h1 id="page-title">Privacy Policy</h1>
     <p class="subtitle" id="page-subtitle">手机限时锁 (Flowora)</p>
-    <p class="updated" id="page-updated">Last updated: September 22, 2026</p>
+    <p class="updated" id="page-updated">Last updated: September 11, 2026</p>
   </header>
 
   <main>
@@ -199,7 +199,7 @@
             <li>您创建的 Safebox 内容：私人笔记、私人联系人（您输入的姓名/电话/邮箱），以及您导入的私人照片/视频。上述内容主要为您使用 Safebox 功能而存储。</li>
             <li>锁定所需的使用与设备信号：在 iOS 上，Screen Time / FamilyControls、DeviceActivity 与 ManagedSettings 授权及相关令牌；在 Android 上，无障碍服务事件与使用情况访问（PACKAGE_USAGE_STATS），用于检测前台应用并施加屏蔽。</li>
             <li>会员与商业数据：VIP/会员状态、到期时间，以及通过应用内支付流程处理的购买相关记录。</li>
-            <li>广告互动数据：当您通过广告聚合合作伙伴（GroMore / Pangle 技术栈）观看激励广告（例如免费锁定时长奖励）时，可能处理广告投放所需的设备与广告事件信号。本应用不请求 App Tracking Transparency，亦不将数据用于跨其他公司的 App 或网站跟踪用户。</li>
+            <li>广告互动数据：当您通过广告聚合合作伙伴（GroMore / Pangle 技术栈）观看激励广告（例如免费锁定时长奖励）时，可能在适用的同意框架下处理广告标识符与广告事件信号，包括在 iOS 上按要求适用的 App Tracking Transparency（ATT）。</li>
             <li>您提交的反馈：消息内容、可选联系方式与时间戳。</li>
             <li>本地偏好：语言、小组件配置等存储于设备本地的设置（例如通过本地数据库 / SharedPreferences）。</li>
             <li>技术日志：有助于保障服务稳定的基本诊断信息，例如 API 错误或执行失败。此类信息不会用于广告画像。</li>
@@ -220,6 +220,7 @@
             <li>照片与视频图库：选择个人头像与监督人头像；为意见反馈添加图片。</li>
             <li>照片与视频图库（Android）：将照片/视频导入 Safebox；确认后可删除图库原件。</li>
             <li>网络访问：登录、数据同步与激励广告等联网功能。</li>
+            <li>跟踪（iOS ATT，如适用）：在激励广告中展示更相关的广告。拒绝跟踪不影响核心锁定功能。</li>
             <li>主屏幕小组件 / App Groups：使用共享本地数据展示小组件内容。</li>
           </ul>
         </section>
@@ -301,7 +302,7 @@
           </ul>
 
           <h3>7.B iOS 端</h3>
-          <p>iOS 端广告相关 SDK 仅在您主动进入激励广告流程时初始化。本应用不请求 App Tracking Transparency，亦不将广告相关数据用于跨其他公司的 App 或网站跟踪用户；核心锁定功能不依赖跟踪授权。iOS 端不集成抖音 Android SDK。</p>
+          <p>iOS 端广告相关 SDK 仅在您主动进入激励广告流程时初始化，并按系统要求申请 App Tracking Transparency（ATT）。拒绝跟踪不影响核心锁定功能。iOS 端不集成抖音 Android SDK。</p>
 
           <h4>7.B.1 微信 Open SDK for iOS</h4>
           <ul>
@@ -317,8 +318,8 @@
           <ul>
             <li>SDK名称：穿山甲广告 SDK（含 GroMore 聚合）</li>
             <li>开发者：北京巨量引擎网络技术有限公司</li>
-            <li>收集信息范围：设备标识符（如 IDFV；本应用不请求 ATT / 不获取用于跨 App 跟踪的 IDFA），IP 地址，设备品牌/型号/系统版本，屏幕信息，设备语言与时区，网络与运营商相关信息，应用包名/版本与前后台状态，以及广告投放、SKAdNetwork 等归因与反作弊所需的其他设备与使用信号（具体以该 SDK 隐私政策为准）</li>
-            <li>使用目的：激励广告投放、反作弊、统计分析、保障广告服务稳定（不用于跨其他公司 App/网站跟踪用户）</li>
+            <li>收集信息范围：设备标识符（如 IDFA、IDFV，以系统授权与 ATT 结果为准），IP 地址，设备品牌/型号/系统版本，屏幕信息，设备语言与时区，网络与运营商相关信息，应用包名/版本与前后台状态，以及广告投放、监测归因与反作弊所需的其他设备与使用信号（具体以该 SDK 隐私政策为准）</li>
+            <li>使用目的：激励广告投放及监测归因、反作弊、统计分析、保障广告服务稳定</li>
             <li>SDK隐私政策链接：<a href="https://www.csjplatform.com/privacy" rel="noopener noreferrer">https://www.csjplatform.com/privacy</a></li>
           </ul>
         </section>
@@ -406,7 +407,7 @@
             <li>Safebox content you create: private notes, private contacts (name/phone/email you enter), and private photos/videos you import. These are stored primarily for your use of the Safebox feature.</li>
             <li>Usage &amp; device signals needed for locking: on iOS, Screen Time / FamilyControls, DeviceActivity, and ManagedSettings authorizations and related tokens; on Android, Accessibility Service events and Usage Access (PACKAGE_USAGE_STATS) needed to detect foreground apps and apply shields.</li>
             <li>Membership &amp; commercial data: VIP/membership status, expiry, and purchase-related records processed through the App’s payment flow.</li>
-            <li>Advertising interaction data: when you watch rewarded ads (for example, free lock-time rewards) via our ad mediation partner (GroMore / Pangle stack), device and ad event signals needed for ad delivery may be processed. This app does not request App Tracking Transparency and does not use data to track users across other companies’ apps or websites.</li>
+            <li>Advertising interaction data: when you watch rewarded ads (for example, free lock-time rewards) via our ad mediation partner (GroMore / Pangle stack), advertising identifiers and ad event signals may be processed under applicable consent frameworks, including App Tracking Transparency on iOS when required.</li>
             <li>Feedback you submit: message content, optional contact details, and timestamps.</li>
             <li>Local preferences: language, widget configuration, and similar settings stored on device (for example via local database / SharedPreferences).</li>
             <li>Technical logs: basic diagnostics such as API errors or enforcement failures that help us keep the service reliable. These are not used for advertising profiling.</li>
@@ -427,6 +428,7 @@
             <li>Photo &amp; video library: choose a profile or supervisor avatar; attach images to feedback.</li>
             <li>Photo &amp; video library (Android): import photos/videos into Safebox; optionally delete originals after confirmed import.</li>
             <li>Network access: login, sync, and rewarded ads.</li>
+            <li>Tracking (iOS ATT, where applicable): show more relevant ads in rewarded-ad features. Declining tracking does not remove core locking features.</li>
             <li>Home-screen widgets / App Groups: show widget content using shared local data.</li>
           </ul>
         </section>
@@ -508,7 +510,7 @@
           </ul>
 
           <h3>7.B iOS</h3>
-          <p>On iOS, ad-related SDKs initialize only when you enter a rewarded-ad flow. This app does not request App Tracking Transparency and does not use ad-related data to track users across other companies’ apps or websites; core locking features do not depend on tracking authorization. The Douyin Android SDK is not integrated on iOS.</p>
+          <p>On iOS, ad-related SDKs initialize only when you enter a rewarded-ad flow, and App Tracking Transparency (ATT) is requested as required. Declining tracking does not remove core locking features. The Douyin Android SDK is not integrated on iOS.</p>
 
           <h4>7.B.1 WeChat Open SDK for iOS</h4>
           <ul>
@@ -524,8 +526,8 @@
           <ul>
             <li>SDK name: Pangle Ads SDK (including GroMore mediation)</li>
             <li>Developer: Beijing Ocean Engine Network Technology Co., Ltd. (as registered)</li>
-            <li>Data processed: device identifiers (such as IDFV; this app does not request ATT / does not obtain IDFA for cross-app tracking), IP address, device brand/model/OS version, screen information, device language and time zone, network/carrier-related signals, app package/version and foreground/background state, and other device/usage signals needed for ad delivery, SKAdNetwork-style attribution, and anti-fraud (details per the SDK privacy policy)</li>
-            <li>Purpose: rewarded-ad delivery, anti-fraud, analytics, and stable ad service (not used to track users across other companies’ apps or websites)</li>
+            <li>Data processed: device identifiers (such as IDFA and IDFV, subject to system permission and ATT), IP address, device brand/model/OS version, screen information, device language and time zone, network/carrier-related signals, app package/version and foreground/background state, and other device/usage signals needed for ad delivery, attribution, and anti-fraud (details per the SDK privacy policy)</li>
+            <li>Purpose: rewarded-ad delivery and attribution, anti-fraud, analytics, and stable ad service</li>
             <li>SDK privacy policy: <a href="https://www.csjplatform.com/privacy" rel="noopener noreferrer">https://www.csjplatform.com/privacy</a></li>
           </ul>
         </section>
@@ -606,7 +608,7 @@
           description: '手机限时锁（Flowora）隐私政策 — 说明我们如何收集、使用、存储与共享您的信息。',
           pageTitle: '隐私政策',
           subtitle: '手机限时锁（Flowora）',
-          updated: '最近更新：2026年9月22日',
+          updated: '最近更新：2026年9月11日',
           footerCopy: '© 手机限时锁（Flowora）· 自律与监督工具',
           footerLink: '官方网站'
         },
@@ -616,7 +618,7 @@
           description: 'Privacy Policy for 手机限时锁 (Flowora) — how we collect, use, store, and share your information.',
           pageTitle: 'Privacy Policy',
           subtitle: '手机限时锁 (Flowora)',
-          updated: 'Last updated: September 22, 2026',
+          updated: 'Last updated: September 11, 2026',
           footerCopy: '© Flowora · Self-discipline & supervision tool',
           footerLink: 'Official website'
         }
