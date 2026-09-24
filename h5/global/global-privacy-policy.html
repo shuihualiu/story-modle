@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Privacy Policy – Plan Together</title>
-  <meta name="description" content="Privacy Policy for Plan Together (global edition). Learn how we collect, use, store, and protect your personal information.">
+  <title>隐私政策 – 一起做计划</title>
+  <meta name="description" content="「一起做计划」隐私政策：说明我们如何收集、使用、存储和保护您的个人信息。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://global.haloutongxue.com/privacy">
+  <link rel="alternate" hreflang="zh-CN" href="https://global.haloutongxue.com/privacy?lang=zh">
+  <link rel="alternate" hreflang="en" href="https://global.haloutongxue.com/privacy?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://global.haloutongxue.com/privacy">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -20,7 +23,8 @@
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -35,6 +39,33 @@
       margin-bottom: 28px;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--border);
+    }
+    .lang-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      margin-bottom: 16px;
+      background: rgba(50, 171, 253, 0.1);
+      border-radius: 999px;
+    }
+    .lang-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.is-active {
+      background: var(--surface);
+      color: var(--accent);
+      box-shadow: 0 1px 4px rgba(45, 42, 50, 0.08);
     }
     .app-name {
       display: inline-block;
@@ -62,6 +93,8 @@
       padding: 28px 24px;
       box-shadow: 0 8px 32px rgba(45, 42, 50, 0.06);
     }
+    .lang-panel { display: none; }
+    .lang-panel.is-visible { display: block; }
     .intro {
       margin: 0 0 24px;
       font-size: 16px;
@@ -116,213 +149,473 @@
     }
   </style>
 </head>
-<body>
+<body data-lang="zh">
   <main class="page">
     <header>
-      <span class="app-name">Plan Together</span>
-      <h1>Privacy Policy</h1>
-      <p class="meta">
-        Global edition &middot; Package: com.haloutongxue.reminder<br>
-        Last updated: June 21, 2025
+      <nav class="lang-switch" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+      </nav>
+      <span class="app-name" id="app-name">一起做计划</span>
+      <h1 id="page-title">隐私政策</h1>
+      <p class="meta" id="page-meta">
+        国内版 · 包名：com.haloutongxue.reminder<br>
+        最近更新：2025年6月21日
       </p>
     </header>
 
     <article class="card">
-      <p class="intro">
-        Welcome to Plan Together! We take your privacy seriously. This Privacy Policy explains how we collect,
-        use, store, and protect your personal information when you use Plan Together outside mainland China.
-        By using the app, you agree to the practices described in this policy.
-      </p>
-
-      <section id="information-we-collect">
-        <h2>1. Information We Collect</h2>
-        <p><strong>1.1 Account information</strong></p>
-        <p>
-          When you register or sign in, we may collect your email address, nickname, avatar, and authorized
-          third-party account information from Google Sign-In or Sign in with Apple (where available). Guest
-          identifiers may be used before you link an account.
-        </p>
-        <p><strong>1.2 Feature data</strong></p>
-        <p>
-          Plans, tasks, schedules, anniversaries, habits, focus sessions, reminders, statistics, preferences,
-          and other content you create or use in the app.
-        </p>
-        <p><strong>1.3 Device and log data</strong></p>
-        <p>
-          Device model, OS version, app version, network status, push token, and diagnostic logs used to secure
-          the service and improve stability.
-        </p>
-        <p><strong>1.4 Shipping information</strong></p>
-        <p>
-          Recipient name, phone number, and shipping address, only when you submit them for blind-box prizes or
-          delivery.
-        </p>
-      </section>
-
-      <section id="how-we-use">
-        <h2>2. How We Use Information</h2>
-        <ul>
-          <li>Provide core app services, including synchronization, reminders, and analytics.</li>
-          <li>Improve the product and user experience through analysis of non-identifiable usage data.</li>
-          <li>Security and compliance: to prevent abuse, detect anomalies, and protect accounts and data.</li>
-          <li>
-            Notifications: with your authorization, we may send service-related notifications through Firebase
-            Cloud Messaging (FCM).
-          </li>
-        </ul>
-      </section>
-
-      <section id="storage">
-        <h2>3. Storage and Protection</h2>
-        <p>
-          We store personal information with appropriate security measures such as encryption and access controls.
-          Data is primarily processed through our international cloud infrastructure (Supabase). We retain information
-          only for as long as necessary for the purposes described in this policy and as required by applicable law.
-        </p>
-      </section>
-
-      <section id="sharing">
-        <h2>4. Sharing</h2>
-        <p>
-          We do not sell your personal information. We may share information with trusted providers to operate the app
-          under lawful and necessary purposes. See Section 9 below for third-party details.
-        </p>
-      </section>
-
-      <section id="your-rights">
-        <h2>5. Your Rights</h2>
-        <p>
-          Depending on applicable law, you may have rights such as access, correction, deletion, data portability,
-          and withdrawing consent where applicable. You may close your account through in-app options or by
-          contacting us.
-        </p>
-      </section>
-
-      <section id="children">
-        <h2>6. Children</h2>
-        <p>
-          Plan Together is not directed to children under the age required in your jurisdiction to consent to online
-          services without parental approval.
-        </p>
-      </section>
-
-      <section id="changes">
-        <h2>7. Changes to This Policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time. Material changes will be communicated in the app.
-          Continued use after an update constitutes acceptance.
-        </p>
-      </section>
-
-      <section id="contact">
-        <h2>8. Contact</h2>
-        <p>
-          If you have questions or concerns about this Privacy Policy, contact us via in-app <strong>Feedback</strong>
-          in Plan Together.
-        </p>
-      </section>
-
-      <section id="personal-info-list">
-        <h2>9. Personal Information Collection List</h2>
-        <p>
-          This list describes the types of personal information that Plan Together may collect when providing planning,
-          reminders, statistics, and related features outside mainland China. We only collect information necessary for
-          our services.
-        </p>
-        <p><strong>Account &amp; identity</strong></p>
-        <ul>
-          <li>Email address: sign-in, verification, and account recovery.</li>
-          <li>Google / Apple account identifiers and authorized profile data (e.g. nickname, avatar, email): third-party sign-in and account linking.</li>
-          <li>Anonymous user identifier: guest identity and data association before you link email or a third-party account.</li>
-          <li>Server user identifier: authentication and cloud sync.</li>
-        </ul>
-        <p><strong>Feature data</strong></p>
-        <ul>
-          <li>Plans, tasks, schedules, anniversaries, habits, focus sessions, and other content you create.</li>
-          <li>Reminder rules, notification preferences, language and UI settings.</li>
-          <li>Membership status and entitlement records.</li>
-          <li>Recipient name, phone number, and shipping address: only when you submit them for blind-box prizes or delivery.</li>
-        </ul>
-        <p><strong>Device &amp; logs</strong></p>
-        <ul>
-          <li>Device model, OS version, app version, network status, and push token.</li>
-          <li>Crash and diagnostic logs to improve stability.</li>
-          <li>Local notification, alarm, and home-screen widget settings.</li>
-        </ul>
-        <p><strong>Images &amp; media</strong></p>
-        <ul>
-          <li>Avatars, plan images, and memorial-board photos you upload or pick from the gallery with your permission.</li>
-        </ul>
-        <p><strong>Information we do not actively collect</strong></p>
-        <p>
-          We do not actively collect contacts, SMS, call logs, precise location trails, or biometrics unrelated to
-          core features unless we obtain your explicit consent for a new feature.
-        </p>
-        <p><strong>How information is collected</strong></p>
-        <ul>
-          <li>Information you enter or upload.</li>
-          <li>Data obtained after you grant permissions (e.g. photo library, notifications).</li>
-          <li>Technical logs required for secure and stable operation.</li>
-        </ul>
-      </section>
-
-      <section id="third-party">
-        <h2>10. Third-Party Data Sharing</h2>
-        <p>
-          To operate Plan Together securely and reliably outside mainland China, we may integrate third-party SDKs or
-          share necessary information with partners. We share data only for lawful, legitimate, and necessary purposes
-          and require third parties to protect it appropriately.
+      <!-- 中文：国内版（微信登录 / 极光推送 / 中国大陆服务） -->
+      <div class="lang-panel is-visible" id="panel-zh" lang="zh-CN">
+        <p class="intro">
+          欢迎使用「一起做计划」！我们非常重视您的个人信息和隐私保护。本隐私政策旨在向您说明我们如何收集、使用、存储和保护您的个人信息，以及您所享有的相关权利。请在使用本应用前，仔细阅读并充分理解本政策的全部内容。本页中文内容适用于中国大陆地区产品与服务。
         </p>
 
-        <div class="third-party-item">
-          <strong>Supabase</strong>
-          Purpose: account authentication (anonymous / email / Google / Apple), profile sync, and cloud data storage.<br>
-          Shared data: user identifiers, email, nickname, avatar, and business data you sync.<br>
-          Privacy: <a href="https://supabase.com/privacy" rel="noopener noreferrer" target="_blank">https://supabase.com/privacy</a>
-        </div>
+        <section id="zh-collect">
+          <h2>一、我们收集的信息</h2>
+          <p><strong>1. 账号信息</strong></p>
+          <p>
+            当您通过微信授权注册或登录时，我们可能会收集您的昵称、头像、OpenID、UnionID 等微信授权信息，用于创建账号、识别用户身份及展示个人资料。
+          </p>
+          <p><strong>2. 使用数据</strong></p>
+          <p>
+            包括您在应用中的使用情况，如创建的计划、任务、日程、习惯打卡、专注记录、偏好设置、常用功能等，用于为您提供核心功能和个性化服务。
+          </p>
+          <p><strong>3. 设备信息</strong></p>
+          <p>
+            包括设备型号、操作系统版本、唯一设备标识符、网络状态、应用版本号等，用于保障服务安全、适配界面展示以及统计分析。
+          </p>
+          <p><strong>4. 日志信息</strong></p>
+          <p>
+            当您使用本应用时，我们可能会记录相关日志信息，例如访问时间、错误崩溃信息等，用于优化产品和排查问题。
+          </p>
+          <p><strong>5. 收货信息</strong></p>
+          <p>
+            当您填写收货地址或领取实物奖品时，我们可能收集收货人姓名、联系电话、收货地址。
+          </p>
+        </section>
 
-        <div class="third-party-item">
-          <strong>Firebase Cloud Messaging (FCM)</strong>
-          Purpose: push notifications outside mainland China.<br>
-          Shared data: device identifiers, push token, app version.<br>
-          Privacy: <a href="https://firebase.google.com/support/privacy" rel="noopener noreferrer" target="_blank">https://firebase.google.com/support/privacy</a>
-        </div>
+        <section id="zh-use">
+          <h2>二、我们如何使用信息</h2>
+          <ul>
+            <li>提供基础功能：例如数据同步、任务管理、提醒通知、统计分析等，以保证应用核心业务的正常运行。</li>
+            <li>提升产品体验：通过分析匿名的使用数据，优化功能设计和交互流程，改进性能和稳定性。</li>
+            <li>安全保障：用于身份验证、安全防护、反作弊、异常检测，保护您的账号和数据安全。</li>
+            <li>
+              消息通知：在获得您的授权后，我们可能通过极光推送（JPush）等通道向您发送与服务相关的通知。您可随时在系统或应用内关闭相关通知权限。
+            </li>
+          </ul>
+        </section>
 
-        <div class="third-party-item">
-          <strong>Google Sign-In SDK</strong>
-          Purpose: Google account sign-in (where available).<br>
-          Shared data: Google user ID, email, nickname, avatar, and other authorized profile fields.<br>
-          Privacy: <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">https://policies.google.com/privacy</a>
-        </div>
+        <section id="zh-storage">
+          <h2>三、信息的存储与保护</h2>
+          <p>
+            我们会依据法律法规的要求，将您的个人信息存储在具备安全保护能力的服务器中，并采取加密、访问控制等措施。我们仅在实现本政策所述目的所需的最短期间内保存您的个人信息；当超出必要期限或您申请注销账号后，我们会根据法律法规的要求进行删除或匿名化处理。我们也请您妥善保管账号和设备，避免账号被他人使用。
+          </p>
+        </section>
 
-        <div class="third-party-item">
-          <strong>Sign in with Apple</strong>
-          Purpose: Apple account sign-in on supported platforms (e.g. iOS).<br>
-          Shared data: Apple user ID, email, name, and other fields you authorize.<br>
-          Privacy: <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer" target="_blank">https://www.apple.com/legal/privacy/</a>
-        </div>
+        <section id="zh-sharing">
+          <h2>四、我们如何共享、转让和公开披露信息</h2>
+          <p>
+            除非获得您的明确同意或另有法律法规规定，我们不会与任何第三方共享您的个人信息。若确有必要与合作伙伴共享，我们会对信息进行去标识化处理，并与其签署严格的保密协议。第三方共享详情请参阅下方「第三方共享清单」。我们不会将您的个人信息转让给任何公司、组织或个人，除非取得您的授权，或发生合并、分立、重组等情形且信息接收方继续受本政策约束。除非依据法律法规或行政、司法机关的强制要求，我们不会公开披露您的个人信息。
+          </p>
+        </section>
 
-        <div class="third-party-item">
-          <strong>WeChat Open Platform SDK (optional)</strong>
-          Purpose: sharing to WeChat when you actively use share features and WeChat is installed.<br>
-          Shared data: device and network information related to the share action.<br>
-          Privacy: <a href="https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&amp;t=weixin_agreement&amp;s=privacy" rel="noopener noreferrer" target="_blank">WeChat Privacy Policy</a>
-        </div>
+        <section id="zh-rights">
+          <h2>五、您的权利</h2>
+          <p>在法律法规允许的范围内，您对自己的个人信息享有以下权利：</p>
+          <ul>
+            <li>访问和更正：您可以在应用内查看和修改个人资料、账号信息等。</li>
+            <li>删除：在符合法定条件的情况下，您可以请求我们删除特定的个人信息。</li>
+            <li>撤回授权：对于基于您的授权而处理的个人信息，您可以随时撤回授权，但撤回后可能会影响部分功能的使用。</li>
+            <li>注销账号：您可以通过应用内提供的方式或联系客服申请注销账号。账号注销后，我们将停止为您提供服务，并在法律规定的期限内删除或匿名化处理您的个人信息。</li>
+          </ul>
+        </section>
 
-        <p><strong>Sharing principles</strong></p>
-        <ul>
-          <li>We do not share identifiable sensitive personal information without your explicit consent, except as required by law.</li>
-          <li>We share only the minimum data needed for each feature.</li>
-          <li>Material changes to a third party's processing will be communicated in the app when appropriate.</li>
-        </ul>
-      </section>
+        <section id="zh-children">
+          <h2>六、未成年人保护</h2>
+          <p>
+            本应用主要面向成年人用户。若您是未满18周岁的未成年人，应在监护人同意和指导下使用本应用及相关服务。
+          </p>
+        </section>
+
+        <section id="zh-changes">
+          <h2>七、本政策的更新</h2>
+          <p>
+            我们可能会适时对本隐私政策进行修订。当条款发生重大变更时，我们会在应用内以显著方式提示您。若您继续使用本应用，即表示您接受更新后的政策。
+          </p>
+        </section>
+
+        <section id="zh-contact">
+          <h2>八、联系我们</h2>
+          <p>
+            如您对本隐私政策或个人信息保护有任何疑问、意见或建议，欢迎通过应用内「意见反馈」与我们联系，我们会尽快为您处理。
+          </p>
+        </section>
+
+        <section id="zh-info-list">
+          <h2>九、个人信息收集清单</h2>
+          <p>
+            本清单说明「一起做计划」在提供计划管理、提醒、统计等功能时，可能收集的个人信息类型、使用目的及收集方式。我们仅会在实现业务功能所必需的范围内收集信息。
+          </p>
+          <p><strong>账号与身份信息</strong></p>
+          <ul>
+            <li>微信授权信息（昵称、头像、OpenID、UnionID）：用于微信登录、识别用户身份及展示个人资料。</li>
+            <li>服务端用户标识：用于账号鉴权、计划与会员等业务数据同步。</li>
+          </ul>
+          <p><strong>业务功能数据</strong></p>
+          <ul>
+            <li>计划、任务、日程、纪念日、习惯打卡、专注记录等您主动创建的内容。</li>
+            <li>提醒时间、重复规则、通知偏好、语言与界面设置。</li>
+            <li>会员状态、订单与权益记录。</li>
+            <li>收货人姓名、联系电话、收货地址：用于盲盒公仔等实物奖品寄送（仅在您于「地址管理」或领取奖品时主动填写）。</li>
+          </ul>
+          <p><strong>设备与日志信息</strong></p>
+          <ul>
+            <li>设备型号、操作系统版本、应用版本号、网络状态。</li>
+            <li>崩溃日志、错误诊断信息，用于排查问题与提升稳定性。</li>
+            <li>本地通知、闹钟与桌面小组件相关配置，用于准时提醒与展示。</li>
+            <li>推送 Registration ID：用于极光推送（JPush）消息触达（仅在您授权通知权限后）。</li>
+          </ul>
+          <p><strong>图片与媒体</strong></p>
+          <ul>
+            <li>您主动上传的头像、计划配图、纪念册图片等。</li>
+            <li>
+              Android：通过系统相册选择器（Photo Picker）选取图片时，仅获取您当次选中的文件，不申请读取全部照片/媒体库权限；所选图片仅用于对应功能。将图片/视频保存到系统相册时，Android 10 及以上通过系统 MediaStore 写入，无需额外存储读权限；Android 9 及以下仅在保存到公共目录时使用写入存储权限。
+            </li>
+            <li>
+              iOS：在您授权照片图库相关权限后，仅访问您选择或保存所需的图片，用于头像、计划配图、纪念册等对应功能。
+            </li>
+          </ul>
+          <p><strong>我们不会主动收集的信息</strong></p>
+          <p>
+            我们不会主动收集您的通讯录、短信内容、通话记录、精确地理位置轨迹、生物识别信息等与本应用核心功能无关的敏感个人信息；若未来因新增功能需要收集，我们将另行征得您的明示同意。
+          </p>
+          <p><strong>信息收集方式</strong></p>
+          <ul>
+            <li>您主动填写或上传。</li>
+            <li>您使用相关功能时，经您授权后由系统自动获取（如通知权限等）；选取图片时通过系统相册选择器由您主动选择，不申请读取全部相册权限。</li>
+            <li>为保障服务安全与稳定运行所必需的技术日志。</li>
+          </ul>
+        </section>
+
+        <section id="zh-third-party">
+          <h2>十、第三方共享清单</h2>
+          <p>
+            为保障「一起做计划」相关功能的实现与安全稳定运行，我们可能会接入第三方 SDK 或与合作伙伴共享必要信息。我们仅会出于合法、正当、必要的目的共享信息，并督促第三方采取严格的数据保护措施。
+          </p>
+
+          <div class="third-party-item">
+            <strong>微信开放平台 SDK</strong>
+            使用目的：微信登录、微信分享、从微信内唤起 App。<br>
+            共享信息类型：设备信息、网络状态、微信授权的基本账号信息（昵称、头像、OpenID、UnionID）。<br>
+            官网/隐私说明：
+            <a href="https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&amp;t=weixin_agreement&amp;s=privacy" rel="noopener noreferrer" target="_blank">微信隐私保护指引</a>
+          </div>
+
+          <div class="third-party-item">
+            <strong>极光推送（JPush）</strong>
+            使用目的：中国大陆地区消息推送与服务通知触达。<br>
+            共享信息类型：设备标识、网络信息、推送 Registration ID、应用包名与版本。<br>
+            官网/隐私说明：
+            <a href="https://www.jiguang.cn/license/privacy" rel="noopener noreferrer" target="_blank">https://www.jiguang.cn/license/privacy</a>
+          </div>
+
+          <div class="third-party-item">
+            <strong>应用服务端（www.haloutongxue.com）</strong>
+            使用目的：微信登录鉴权、计划与会员等业务接口、计划共享、邀请、意见反馈提交等。<br>
+            共享信息类型：账号标识、业务请求数据、您主动提交的内容。<br>
+            官网/隐私说明：以应用内展示及官网公示为准。
+          </div>
+
+          <p><strong>共享原则</strong></p>
+          <ul>
+            <li>未经您的明示同意，我们不会向第三方共享可识别您个人身份的敏感信息，法律法规另有规定的除外。</li>
+            <li>我们仅共享实现对应功能所必需的最小范围信息。</li>
+            <li>若第三方处理目的、方式或信息类型发生重大变更，我们将通过应用内提示等方式告知您。</li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- English：海外版（Email / Google / Apple / FCM / Supabase） -->
+      <div class="lang-panel" id="panel-en" lang="en">
+        <p class="intro">
+          Welcome to Plan Together! We take your privacy seriously. This Privacy Policy explains how we collect,
+          use, store, and protect your personal information when you use Plan Together outside mainland China.
+          By using the app, you agree to the practices described in this policy. The English content on this page
+          applies to the global edition.
+        </p>
+
+        <section id="en-collect">
+          <h2>1. Information We Collect</h2>
+          <p><strong>1.1 Account information</strong></p>
+          <p>
+            When you register or sign in, we may collect your email address, nickname, avatar, and authorized
+            third-party account information from Google Sign-In or Sign in with Apple (where available on your device).
+            Guest identifiers may be used before you link an account.
+          </p>
+          <p><strong>1.2 Feature data</strong></p>
+          <p>
+            Plans, tasks, schedules, anniversaries, habits, focus sessions, reminders, statistics, preferences,
+            and other content you create or use in the app.
+          </p>
+          <p><strong>1.3 Device and log data</strong></p>
+          <p>
+            Device model, OS version, app version, network status, push token, and diagnostic logs used to secure
+            the service and improve stability.
+          </p>
+          <p><strong>1.4 Shipping information</strong></p>
+          <p>
+            Recipient name, phone number, and shipping address, only when you submit them for blind-box prizes or
+            delivery.
+          </p>
+        </section>
+
+        <section id="en-use">
+          <h2>2. How We Use Information</h2>
+          <ul>
+            <li>Provide core app services, including synchronization, reminders, and analytics.</li>
+            <li>Improve the product and user experience through analysis of non-identifiable usage data.</li>
+            <li>Security and compliance: to prevent abuse, detect anomalies, and protect accounts and data.</li>
+            <li>
+              Notifications: with your authorization, we may send service-related notifications through Firebase
+              Cloud Messaging (FCM).
+            </li>
+          </ul>
+        </section>
+
+        <section id="en-storage">
+          <h2>3. Storage and Protection</h2>
+          <p>
+            We store personal information with appropriate security measures such as encryption and access controls.
+            Data is primarily processed through our international cloud infrastructure (Supabase). We retain information
+            only for as long as necessary for the purposes described in this policy and as required by applicable law.
+          </p>
+        </section>
+
+        <section id="en-sharing">
+          <h2>4. Sharing</h2>
+          <p>
+            We do not sell your personal information. We may share information with trusted providers to operate the app
+            under lawful and necessary purposes. See Section 10 below for third-party details.
+          </p>
+        </section>
+
+        <section id="en-rights">
+          <h2>5. Your Rights</h2>
+          <p>
+            Depending on applicable law, you may have rights such as access, correction, deletion, data portability,
+            and withdrawing consent where applicable. Registered users may delete their account in
+            Profile → Settings → Delete Account, or on the Account page. You may also contact us via in-app
+            <strong>Feedback</strong>.
+          </p>
+        </section>
+
+        <section id="en-children">
+          <h2>6. Children</h2>
+          <p>
+            Plan Together is not directed to children under the age required in your jurisdiction to consent to online
+            services without parental approval.
+          </p>
+        </section>
+
+        <section id="en-changes">
+          <h2>7. Changes to This Policy</h2>
+          <p>
+            We may update this Privacy Policy from time to time. Material changes will be communicated in the app.
+            Continued use after an update constitutes acceptance.
+          </p>
+        </section>
+
+        <section id="en-contact">
+          <h2>8. Contact</h2>
+          <p>
+            If you have questions or concerns about this Privacy Policy, contact us via in-app <strong>Feedback</strong>
+            in Plan Together.
+          </p>
+        </section>
+
+        <section id="en-info-list">
+          <h2>9. Personal Information Collection List</h2>
+          <p>
+            This list describes the types of personal information that Plan Together may collect when providing planning,
+            reminders, statistics, and related features outside mainland China. We only collect information necessary for
+            our services.
+          </p>
+          <p><strong>Account &amp; identity</strong></p>
+          <ul>
+            <li>Email address: sign-in, verification, and account recovery.</li>
+            <li>Google / Apple account identifiers and authorized profile data (e.g. nickname, avatar, email): third-party sign-in and account linking.</li>
+            <li>Anonymous user identifier: guest identity and data association before you link email or a third-party account.</li>
+            <li>Server user identifier: authentication and cloud sync.</li>
+          </ul>
+          <p><strong>Feature data</strong></p>
+          <ul>
+            <li>Plans, tasks, schedules, anniversaries, habits, focus sessions, and other content you create.</li>
+            <li>Reminder rules, notification preferences, language and UI settings.</li>
+            <li>Membership status and entitlement records.</li>
+            <li>Recipient name, phone number, and shipping address: only when you submit them for blind-box prizes or delivery.</li>
+          </ul>
+          <p><strong>Device &amp; logs</strong></p>
+          <ul>
+            <li>Device model, OS version, app version, network status, and push token (FCM).</li>
+            <li>Crash and diagnostic logs to improve stability.</li>
+            <li>Local notification, alarm, and home-screen widget settings.</li>
+          </ul>
+          <p><strong>Images &amp; media</strong></p>
+          <ul>
+            <li>Avatars, plan images, and memorial-board photos you upload or pick from the gallery with your permission.</li>
+            <li>Android: photo selection uses the system Photo Picker when available; we do not request broad media-library read access for that flow.</li>
+            <li>iOS: photo-library access is requested only when you use features that need it (e.g. avatar or plan images).</li>
+          </ul>
+          <p><strong>Information we do not actively collect</strong></p>
+          <p>
+            We do not actively collect contacts, SMS, call logs, precise location trails, or biometrics unrelated to
+            core features unless we obtain your explicit consent for a new feature.
+          </p>
+          <p><strong>How information is collected</strong></p>
+          <ul>
+            <li>Information you enter or upload.</li>
+            <li>Data obtained after you grant permissions (e.g. photo library, notifications).</li>
+            <li>Technical logs required for secure and stable operation.</li>
+          </ul>
+        </section>
+
+        <section id="en-third-party">
+          <h2>10. Third-Party Data Sharing</h2>
+          <p>
+            To operate Plan Together securely and reliably outside mainland China, we may integrate third-party SDKs or
+            share necessary information with partners. We share data only for lawful, legitimate, and necessary purposes
+            and require third parties to protect it appropriately.
+          </p>
+
+          <div class="third-party-item">
+            <strong>Supabase</strong>
+            Purpose: account authentication (anonymous / email / Google / Apple), profile sync, and cloud data storage.<br>
+            Shared data: user identifiers, email, nickname, avatar, and business data you sync.<br>
+            Privacy: <a href="https://supabase.com/privacy" rel="noopener noreferrer" target="_blank">https://supabase.com/privacy</a>
+          </div>
+
+          <div class="third-party-item">
+            <strong>Firebase Cloud Messaging (FCM)</strong>
+            Purpose: push notifications outside mainland China.<br>
+            Shared data: device identifiers, push token, app version.<br>
+            Privacy: <a href="https://firebase.google.com/support/privacy" rel="noopener noreferrer" target="_blank">https://firebase.google.com/support/privacy</a>
+          </div>
+
+          <div class="third-party-item">
+            <strong>Google Sign-In SDK</strong>
+            Purpose: Google account sign-in (where available, typically Android and supported platforms).<br>
+            Shared data: Google user ID, email, nickname, avatar, and other authorized profile fields.<br>
+            Privacy: <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">https://policies.google.com/privacy</a>
+          </div>
+
+          <div class="third-party-item">
+            <strong>Sign in with Apple</strong>
+            Purpose: Apple account sign-in on supported platforms (primarily iOS; other Apple platforms where available).<br>
+            Shared data: Apple user ID, email, name, and other fields you authorize.<br>
+            Privacy: <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer" target="_blank">https://www.apple.com/legal/privacy/</a>
+          </div>
+
+          <div class="third-party-item">
+            <strong>WeChat Open Platform SDK (optional)</strong>
+            Purpose: sharing to WeChat when you actively use share features and WeChat is installed. Not used for primary sign-in in the global edition.<br>
+            Shared data: device and network information related to the share action.<br>
+            Privacy: <a href="https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&amp;t=weixin_agreement&amp;s=privacy" rel="noopener noreferrer" target="_blank">WeChat Privacy Policy</a>
+          </div>
+
+          <p><strong>Sharing principles</strong></p>
+          <ul>
+            <li>We do not share identifiable sensitive personal information without your explicit consent, except as required by law.</li>
+            <li>We share only the minimum data needed for each feature.</li>
+            <li>Material changes to a third party's processing will be communicated in the app when appropriate.</li>
+          </ul>
+        </section>
+      </div>
     </article>
 
     <footer>
-      &copy; Plan Together. All rights reserved.
+      <span id="footer-copy">&copy; 一起做计划. 保留所有权利。</span>
       &nbsp;&middot;&nbsp;
-      <a href="/terms">Terms of Use</a>
+      <a href="/terms" id="footer-terms">使用条款</a>
     </footer>
   </main>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = 'plan-together-privacy-lang';
+      var META = {
+        zh: {
+          htmlLang: 'zh-CN',
+          title: '隐私政策 – 一起做计划',
+          description: '「一起做计划」隐私政策：说明我们如何收集、使用、存储和保护您的个人信息。',
+          appName: '一起做计划',
+          pageTitle: '隐私政策',
+          metaHtml: '国内版 · 包名：com.haloutongxue.reminder<br>最近更新：2025年6月21日',
+          footerCopy: '© 一起做计划. 保留所有权利。',
+          footerTerms: '使用条款'
+        },
+        en: {
+          htmlLang: 'en',
+          title: 'Privacy Policy – Plan Together',
+          description: 'Privacy Policy for Plan Together (global edition). Learn how we collect, use, store, and protect your personal information.',
+          appName: 'Plan Together',
+          pageTitle: 'Privacy Policy',
+          metaHtml: 'Global edition · Package: com.haloutongxue.reminder<br>Last updated: June 21, 2025',
+          footerCopy: '© Plan Together. All rights reserved.',
+          footerTerms: 'Terms of Use'
+        }
+      };
+
+      function detectLang() {
+        var params = new URLSearchParams(window.location.search);
+        var queryLang = params.get('lang');
+        if (queryLang === 'zh' || queryLang === 'en') return queryLang;
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'zh' || saved === 'en') return saved;
+        return 'zh';
+      }
+
+      function setLang(lang) {
+        if (lang !== 'zh' && lang !== 'en') lang = 'zh';
+        var m = META[lang];
+
+        document.documentElement.lang = m.htmlLang;
+        document.body.setAttribute('data-lang', lang);
+        document.title = m.title;
+
+        var desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', m.description);
+
+        document.getElementById('app-name').textContent = m.appName;
+        document.getElementById('page-title').textContent = m.pageTitle;
+        document.getElementById('page-meta').innerHTML = m.metaHtml;
+        document.getElementById('footer-copy').textContent = m.footerCopy;
+        document.getElementById('footer-terms').textContent = m.footerTerms;
+
+        document.getElementById('panel-zh').classList.toggle('is-visible', lang === 'zh');
+        document.getElementById('panel-en').classList.toggle('is-visible', lang === 'en');
+
+        var buttons = document.querySelectorAll('.lang-btn');
+        for (var i = 0; i < buttons.length; i++) {
+          var btn = buttons[i];
+          var active = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        }
+
+        localStorage.setItem(STORAGE_KEY, lang);
+      }
+
+      setLang(detectLang());
+
+      document.querySelector('.lang-switch').addEventListener('click', function (e) {
+        var btn = e.target.closest('.lang-btn');
+        if (!btn) return;
+        setLang(btn.getAttribute('data-lang'));
+        window.scrollTo(0, 0);
+      });
+    })();
+  </script>
 </body>
 </html>

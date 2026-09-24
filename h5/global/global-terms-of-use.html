@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Terms of Use – Plan Together</title>
-  <meta name="description" content="Terms of Use (EULA) for Plan Together (global edition).">
+  <title>用户协议 – 一起做计划</title>
+  <meta name="description" content="「一起做计划」用户协议：说明您使用本应用及相关服务时应遵守的条款。">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://global.haloutongxue.com/terms">
+  <link rel="alternate" hreflang="zh-CN" href="https://global.haloutongxue.com/terms?lang=zh">
+  <link rel="alternate" hreflang="en" href="https://global.haloutongxue.com/terms?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://global.haloutongxue.com/terms">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -20,7 +23,8 @@
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.65;
@@ -35,6 +39,33 @@
       margin-bottom: 28px;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--border);
+    }
+    .lang-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      margin-bottom: 16px;
+      background: rgba(50, 171, 253, 0.1);
+      border-radius: 999px;
+    }
+    .lang-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.is-active {
+      background: var(--surface);
+      color: var(--accent);
+      box-shadow: 0 1px 4px rgba(45, 42, 50, 0.08);
     }
     .app-name {
       display: inline-block;
@@ -62,6 +93,8 @@
       padding: 28px 24px;
       box-shadow: 0 8px 32px rgba(45, 42, 50, 0.06);
     }
+    .lang-panel { display: none; }
+    .lang-panel.is-visible { display: block; }
     .intro {
       margin: 0 0 24px;
       font-size: 16px;
@@ -78,14 +111,20 @@
       font-weight: 700;
       color: var(--text);
     }
-    p {
+    p, li {
       font-size: 15px;
       color: var(--muted);
-      margin: 0 0 12px;
     }
+    p { margin: 0 0 12px; }
+    ul, ol {
+      margin: 0 0 12px;
+      padding-left: 1.25rem;
+    }
+    li + li { margin-top: 6px; }
     a {
       color: var(--accent);
       text-decoration: none;
+      word-break: break-all;
     }
     a:hover { text-decoration: underline; }
     footer {
@@ -96,85 +135,312 @@
       color: var(--muted);
       text-align: center;
     }
+    @media (max-width: 480px) {
+      .page { padding: 24px 16px 40px; }
+      .card { padding: 22px 18px; border-radius: 12px; }
+    }
   </style>
 </head>
-<body>
+<body data-lang="zh">
   <main class="page">
     <header>
-      <span class="app-name">Plan Together</span>
-      <h1>Terms of Use</h1>
-      <p class="meta">
-        Global edition &middot; Package: com.haloutongxue.reminder<br>
-        Last updated: July 13, 2026
+      <nav class="lang-switch" aria-label="Language">
+        <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">中文</button>
+        <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">English</button>
+      </nav>
+      <span class="app-name" id="app-name">一起做计划</span>
+      <h1 id="page-title">用户协议</h1>
+      <p class="meta" id="page-meta">
+        国内版 · 包名：com.haloutongxue.reminder<br>
+        最近更新：2026年7月13日
       </p>
     </header>
 
     <article class="card">
-      <p class="intro">
-        These Terms of Use ("Terms") are a legal agreement between you ("User") and the operator of
-        Plan Together regarding your access to and use of the app and related services outside mainland China.
-        By accessing or using Plan Together, you agree to read, understand, and comply with these Terms.
-      </p>
+      <!-- 中文：国内版（微信登录 / 适用中国法律） -->
+      <div class="lang-panel is-visible" id="panel-zh" lang="zh-CN">
+        <p class="intro">
+          欢迎使用「一起做计划」！本《用户协议》（以下简称「本协议」）是您（以下简称「用户」）与「一起做计划」运营方之间就使用本应用及相关服务所订立的协议。请您在注册、登录或使用前，仔细阅读并充分理解本协议全部内容。一旦您开始使用本应用，即视为您已阅读并同意本协议。本页中文内容适用于中国大陆地区产品与服务。
+        </p>
 
-      <section>
-        <h2>1. Account registration and use</h2>
-        <p>You may sign in using email, Google Sign-In, or Sign in with Apple (where available). Guest access may be offered before you link an email or third-party account.</p>
-        <p>You are responsible for keeping your account credentials secure. Your account is for your personal use only and must not be transferred, sold, or misused.</p>
-        <p>Registered users may delete their account in Account settings within the app. Deletion permanently removes associated cloud data after any legally required retention period.</p>
-      </section>
+        <section>
+          <h2>一、账号注册与使用</h2>
+          <p>1. 您可通过微信授权注册或登录本应用。您应保证所提供信息真实、准确、完整，如信息发生变更，请及时更新。</p>
+          <p>2. 账号仅限您本人使用，不得赠与、借用、出租、转让或售卖给他人。因您主动泄露或保管不善导致的账号丢失或被盗等风险，将由您自行承担。</p>
+          <p>3. 若我们发现您存在恶意注册、虚假信息、异常使用等情况，有权根据实际情况中止或终止向您提供部分或全部服务。</p>
+        </section>
 
-      <section>
-        <h2>2. Service scope</h2>
-        <p>Plan Together provides planning and productivity features, including tasks, schedules, reminders, habits, focus sessions, statistics, and related tools, as described in the app.</p>
-        <p>Some features may be offered for a fee. Pricing, subscription terms, and refund policies (if applicable) are disclosed on the relevant purchase pages.</p>
-      </section>
+        <section>
+          <h2>二、服务内容</h2>
+          <p>1. 本应用为您提供计划管理、待办事项、提醒、习惯打卡、专注统计等与效率工具相关的功能，具体以实际提供为准。</p>
+          <p>2. 我们有权根据业务发展对服务内容进行调整、优化或升级，并可能适时增加、变更或下线部分功能。如属重大变化，我们会以公告或站内提示等方式通知您。</p>
+          <p>3. 部分服务可能以付费方式提供，具体价格和规则以页面公示为准。付费后如非法律法规规定或我们承诺的情形，一般不支持退款。</p>
+        </section>
 
-      <section>
-        <h2>3. User conduct</h2>
-        <p>You agree not to use the app for unlawful activities, infringement, interference with systems, spam, or any harmful behavior. You are responsible for all actions taken under your account.</p>
-      </section>
+        <section>
+          <h2>三、用户行为规范</h2>
+          <p>1. 您在使用本应用及服务过程中，应遵守法律法规、社会公德和本协议，不得利用本应用从事任何违法或不当行为，包括但不限于：</p>
+          <ul>
+            <li>发布、传输或存储任何违反法律法规、侵犯他人合法权益或含有不良信息的内容；</li>
+            <li>对应用或服务器进行恶意攻击、反向工程、抓取或爬取数据等；</li>
+            <li>未经许可，向他人发送广告、推广信息或垃圾信息；</li>
+            <li>其他可能对网络安全、他人权益或公共秩序造成不良影响的行为。</li>
+          </ul>
+          <p>2. 您应对自己账号下发生的所有行为负责，包括您记录、发布或分享的内容。您保证对所上传或记录的内容享有合法权利，且不侵犯任何第三方的知识产权、隐私权、名誉权等合法权益。</p>
+        </section>
 
-      <section>
-        <h2>4. Data and content</h2>
-        <p>Content you create belongs to you. We provide storage, synchronization, and backup services to operate the app. When you delete data or close your account, we will delete or anonymize associated personal data after any legally required retention period.</p>
-      </section>
+        <section>
+          <h2>四、数据与内容</h2>
+          <p>1. 您在使用本应用过程中所创建的计划、任务、备注等数据，原则上归属于您本人。我们在合理范围内为您提供数据存储、同步和备份服务，但不保证绝对安全或不会丢失。</p>
+          <p>2. 为向您提供统计分析、功能优化等服务，您理解并同意我们在遵守隐私政策的前提下，对数据进行去标识化或匿名化处理后进行分析和使用。</p>
+          <p>3. 若您删除了相关数据或注销账号，相应数据在完成合法留存义务后将被删除或匿名化处理。</p>
+        </section>
 
-      <section>
-        <h2>5. Intellectual property</h2>
-        <p>All app content, UI elements, code, documents, and related materials are owned by us or other right holders and are protected by applicable laws.</p>
-      </section>
+        <section>
+          <h2>五、知识产权</h2>
+          <p>1. 本应用中展示的界面设计、图标、文字、代码、文档以及其他内容的知识产权均归本应用或相关权利人所有，受法律保护。</p>
+          <p>2. 未经我们或相关权利人事先书面同意，您不得以任何方式复制、修改、转让、出售、出租、传播或用于其他商业用途。</p>
+        </section>
 
-      <section>
-        <h2>6. Changes, suspension, and termination</h2>
-        <p>We may adjust, suspend, or terminate services in accordance with our operational needs and legal requirements. We may suspend or terminate your access if you materially violate these Terms or applicable laws.</p>
-      </section>
+        <section>
+          <h2>六、服务变更、中断与终止</h2>
+          <p>1. 鉴于互联网服务的特殊性，我们有权根据自身业务安排对服务进行调整、中断或终止。若属重大变更或影响您的重要权益，我们会提前以合理方式通知您。</p>
+          <p>2. 如您严重违反本协议约定或相关法律法规，我们有权在不另行通知的情况下中止或终止向您提供服务，并有权视情况注销您的账号。</p>
+        </section>
 
-      <section>
-        <h2>7. Disclaimer and limitation of liability</h2>
-        <p>To the maximum extent permitted by applicable law, we disclaim indirect damages and other liabilities arising from your use of the app, including interruptions caused by factors outside our reasonable control.</p>
-      </section>
+        <section>
+          <h2>七、免责与责任限制</h2>
+          <p>1. 因下列原因导致的服务中断或数据丢失等情形，我们在法律允许的范围内不承担相应责任：</p>
+          <ul>
+            <li>不可抗力因素（如自然灾害、战争、罢工等）；</li>
+            <li>电信运营商或网络服务提供商的原因；</li>
+            <li>您自身操作不当或设备原因；</li>
+            <li>其他非因我们主观过错造成的情形。</li>
+          </ul>
+          <p>2. 在适用法律允许的最大范围内，本应用对您因使用服务而产生的任何间接损失、预期收益损失等不承担责任。</p>
+        </section>
 
-      <section>
-        <h2>8. Children</h2>
-        <p>If you are under the age required in your jurisdiction to consent to online services, you may use the app only with the consent and supervision of a parent or legal guardian.</p>
-      </section>
+        <section>
+          <h2>八、未成年人使用条款</h2>
+          <p>如您为未满18周岁的未成年人用户，应在监护人知情和同意的前提下使用本应用，并在监护人的指导下正确理解和履行本协议及相关条款。</p>
+        </section>
 
-      <section>
-        <h2>9. Changes to these Terms</h2>
-        <p>We may revise these Terms from time to time. Updated Terms take effect when published in the app or on this page. Continued use after an update constitutes acceptance.</p>
-      </section>
+        <section>
+          <h2>九、协议的变更与生效</h2>
+          <p>1. 我们可能会根据业务发展或法律法规的变化对本协议进行修订。更新后的协议一旦在应用内发布，即构成对原协议的有效替代。</p>
+          <p>2. 若您不同意修改后的内容，应立即停止使用本应用；若您继续使用，即视为您接受更新后的协议。</p>
+        </section>
 
-      <section>
-        <h2>10. Contact</h2>
-        <p>If you have questions about these Terms, contact us via in-app <strong>Feedback</strong> or email <a href="mailto:login@haloutongxue.com">login@haloutongxue.com</a>.</p>
-      </section>
+        <section>
+          <h2>十、其他</h2>
+          <p>1. 本协议的签订地为本应用运营方所在地。</p>
+          <p>2. 本协议的解释、效力及争议的解决，适用中华人民共和国法律。因本协议产生的任何争议，双方应首先友好协商解决；协商不成的，任一方均可向本应用运营方所在地有管辖权的人民法院提起诉讼。</p>
+          <p>3. 如您对本协议内容有任何疑问，欢迎通过应用内「意见反馈」与我们联系。</p>
+        </section>
+      </div>
+
+      <!-- English：海外版（Email / Google / Apple） -->
+      <div class="lang-panel" id="panel-en" lang="en">
+        <p class="intro">
+          These Terms of Use ("Terms") are a legal agreement between you ("User") and the operator of
+          Plan Together regarding your access to and use of the app and related services outside mainland China.
+          By accessing or using Plan Together, you agree to read, understand, and comply with these Terms.
+          If you do not agree, please stop using the app. The English content on this page applies to the global edition.
+        </p>
+
+        <section>
+          <h2>1. Account registration and use</h2>
+          <p>
+            You may sign in using email, Google Sign-In, or Sign in with Apple (where available on your device).
+            Guest access may be offered before you link an email or third-party account.
+          </p>
+          <p>
+            You are responsible for keeping your account credentials secure. Your account is for your personal use only
+            and must not be transferred, sold, or misused.
+          </p>
+          <p>
+            We may suspend or terminate access if we detect fraudulent registration, abuse, or violations of these Terms.
+            Registered users may delete their account in Account settings within the app. Deletion permanently removes
+            associated cloud data after any legally required retention period.
+          </p>
+        </section>
+
+        <section>
+          <h2>2. Service scope</h2>
+          <p>
+            Plan Together provides planning and productivity features, including tasks, schedules, reminders, habits,
+            focus sessions, statistics, and related tools, as described in the app.
+          </p>
+          <p>
+            We may update, modify, or discontinue parts of the services as our business evolves. Material changes will
+            be communicated in the app or by other appropriate means.
+          </p>
+          <p>
+            Some features may be offered for a fee. Pricing, subscription terms, and refund policies (if applicable)
+            are disclosed on the relevant purchase pages.
+          </p>
+        </section>
+
+        <section>
+          <h2>3. User conduct</h2>
+          <p>
+            You agree not to use the app for unlawful activities, infringement, interference with systems, spam, or any
+            harmful behavior. You are responsible for all actions taken under your account and for content you create or share.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. Data and content</h2>
+          <p>
+            Content you create (such as plans, tasks, notes, and similar data) belongs to you. We provide storage,
+            synchronization, and backup services to operate the app.
+          </p>
+          <p>
+            To improve the services and perform analytics, we may process data in a de-identified or anonymized manner
+            where permitted by applicable law.
+          </p>
+          <p>
+            When you delete data or close your account, we will delete or anonymize associated personal data after any
+            legally required retention period.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Intellectual property</h2>
+          <p>
+            All app content, UI elements, code, documents, and related materials are owned by us or other right holders
+            and are protected by applicable laws. You may not copy, modify, distribute, or commercially exploit them
+            without prior written consent.
+          </p>
+        </section>
+
+        <section>
+          <h2>6. Changes, suspension, and termination</h2>
+          <p>
+            We may adjust, suspend, or terminate services in accordance with our operational needs and legal requirements.
+            If you materially violate these Terms or applicable laws, we may suspend or terminate your access when
+            permitted by law.
+          </p>
+        </section>
+
+        <section>
+          <h2>7. Disclaimer and limitation of liability</h2>
+          <p>
+            To the maximum extent permitted by applicable law, we disclaim indirect damages and other liabilities arising
+            from your use of the app, including interruptions caused by factors outside our reasonable control.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. Children</h2>
+          <p>
+            If you are under the age required in your jurisdiction to consent to online services, you may use the app
+            only with the consent and supervision of a parent or legal guardian.
+          </p>
+        </section>
+
+        <section>
+          <h2>9. Changes to these Terms</h2>
+          <p>
+            We may revise these Terms from time to time. Updated Terms take effect when published in the app or on this page.
+            Continued use after an update constitutes acceptance.
+          </p>
+        </section>
+
+        <section>
+          <h2>10. Contact</h2>
+          <p>
+            If you have questions about these Terms, contact us via in-app <strong>Feedback</strong> or email
+            <a href="mailto:login@haloutongxue.com">login@haloutongxue.com</a>.
+            You may also visit
+            <a href="https://global.haloutongxue.com/terms">https://global.haloutongxue.com/terms</a>.
+          </p>
+        </section>
+      </div>
     </article>
 
     <footer>
-      <a href="/privacy">Privacy Policy</a>
+      <a href="/privacy" id="footer-privacy">隐私政策</a>
       &nbsp;&middot;&nbsp;
-      <a href="mailto:server@haloutongxue.com">Contact</a>
+      <a href="mailto:server@haloutongxue.com" id="footer-contact">联系我们</a>
     </footer>
   </main>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = 'plan-together-terms-lang';
+      var META = {
+        zh: {
+          htmlLang: 'zh-CN',
+          title: '用户协议 – 一起做计划',
+          description: '「一起做计划」用户协议：说明您使用本应用及相关服务时应遵守的条款。',
+          appName: '一起做计划',
+          pageTitle: '用户协议',
+          metaHtml: '国内版 · 包名：com.haloutongxue.reminder<br>最近更新：2026年7月13日',
+          footerPrivacy: '隐私政策',
+          footerContact: '联系我们'
+        },
+        en: {
+          htmlLang: 'en',
+          title: 'Terms of Use – Plan Together',
+          description: 'Terms of Use (EULA) for Plan Together (global edition).',
+          appName: 'Plan Together',
+          pageTitle: 'Terms of Use',
+          metaHtml: 'Global edition · Package: com.haloutongxue.reminder<br>Last updated: July 13, 2026',
+          footerPrivacy: 'Privacy Policy',
+          footerContact: 'Contact'
+        }
+      };
+
+      function detectLang() {
+        var params = new URLSearchParams(window.location.search);
+        var queryLang = params.get('lang');
+        if (queryLang === 'zh' || queryLang === 'en') return queryLang;
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'zh' || saved === 'en') return saved;
+        return 'zh';
+      }
+
+      function setLang(lang) {
+        if (lang !== 'zh' && lang !== 'en') lang = 'zh';
+        var m = META[lang];
+
+        document.documentElement.lang = m.htmlLang;
+        document.body.setAttribute('data-lang', lang);
+        document.title = m.title;
+
+        var desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', m.description);
+
+        document.getElementById('app-name').textContent = m.appName;
+        document.getElementById('page-title').textContent = m.pageTitle;
+        document.getElementById('page-meta').innerHTML = m.metaHtml;
+        document.getElementById('footer-privacy').textContent = m.footerPrivacy;
+        document.getElementById('footer-contact').textContent = m.footerContact;
+
+        document.getElementById('panel-zh').classList.toggle('is-visible', lang === 'zh');
+        document.getElementById('panel-en').classList.toggle('is-visible', lang === 'en');
+
+        var buttons = document.querySelectorAll('.lang-btn');
+        for (var i = 0; i < buttons.length; i++) {
+          var btn = buttons[i];
+          var active = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        }
+
+        localStorage.setItem(STORAGE_KEY, lang);
+      }
+
+      setLang(detectLang());
+
+      document.querySelector('.lang-switch').addEventListener('click', function (e) {
+        var btn = e.target.closest('.lang-btn');
+        if (!btn) return;
+        setLang(btn.getAttribute('data-lang'));
+        window.scrollTo(0, 0);
+      });
+    })();
+  </script>
 </body>
 </html>
