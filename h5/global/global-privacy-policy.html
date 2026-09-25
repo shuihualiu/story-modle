@@ -160,7 +160,7 @@
       <h1 id="page-title">隐私政策</h1>
       <p class="meta" id="page-meta">
         国内版 · 包名：com.haloutongxue.reminder<br>
-        最近更新：2026年9月24日
+        最近更新：2026年9月25日
       </p>
     </header>
 
@@ -168,7 +168,7 @@
       <!-- 中文：国内版（微信登录 / 极光推送 / 中国大陆服务） -->
       <div class="lang-panel is-visible" id="panel-zh" lang="zh-CN">
         <p class="intro">
-          欢迎使用「一起做计划」！我们非常重视您的个人信息和隐私保护。本隐私政策由<strong>杭州哈喽同学网络科技有限公司</strong>（统一社会信用代码：91330105MACGJJ8L1T）制定，旨在向您说明我们如何收集、使用、存储和保护您的个人信息，以及您所享有的相关权利。请在使用本应用前，仔细阅读并充分理解本政策的全部内容。本页中文内容适用于中国大陆地区产品与服务。
+          欢迎使用「一起做计划」！我们非常重视您的个人信息和隐私保护。本隐私政策由<strong>杭州哈喽同学网络科技有限公司</strong>制定，旨在向您说明我们如何收集、使用、存储和保护您的个人信息，以及您所享有的相关权利。请在使用本应用前，仔细阅读并充分理解本政策的全部内容。本页中文内容适用于中国大陆地区产品与服务。
         </p>
 
         <section id="zh-collect">
@@ -179,19 +179,44 @@
           </p>
           <p><strong>2. 使用数据</strong></p>
           <p>
-            包括您在应用中的使用情况，如创建的计划、任务、日程、习惯打卡、专注记录、偏好设置、常用功能等，用于为您提供核心功能和个性化服务。
+            包括您在应用中的使用情况，如创建的计划、任务、日程、纪念日、习惯打卡、专注记录、偏好设置、常用功能等，用于为您提供核心功能和个性化服务。
           </p>
           <p><strong>3. 设备信息</strong></p>
           <p>
-            包括设备型号、操作系统版本、唯一设备标识符、网络状态、应用版本号等，用于保障服务安全、适配界面展示以及统计分析。
+            设备型号、操作系统版本、应用版本号、网络连接状态：用于界面适配、保障服务安全与稳定。
+          </p>
+          <p>
+            <strong>推送相关（按平台）：</strong>
+          </p>
+          <ul>
+            <li>
+              Android：极光推送 Registration ID、应用包名与版本——仅在您同意本隐私政策后由极光推送（JPush）SDK 生成/读取，用于远程推送通道；我们会将 Registration ID 上报至应用服务端。我们已关闭极光对 IMEI、IMSI、设备 MAC 地址、已安装应用列表、精确地理位置、基站信息、Wi‑Fi 列表（SSID/BSSID）等扩展采集。极光推送 SDK 为建立推送通道可能另行使用的设备标识，以其公示的隐私政策为准。
+            </li>
+            <li>
+              iOS：苹果推送 device token——在您授权通知相关能力后获取并上报至应用服务端，用于 APNs 远程消息触达。
+            </li>
+          </ul>
+          <p>
+            计划到点提醒由本机本地通知与闹钟实现，不通过上述远程推送通道。
           </p>
           <p><strong>4. 日志信息</strong></p>
           <p>
             当您使用本应用时，我们可能会记录相关日志信息，例如访问时间、错误崩溃信息等，用于优化产品和排查问题。
           </p>
-          <p><strong>5. 收货信息</strong></p>
+          <p><strong>5. 图片与媒体</strong></p>
           <p>
-            当您填写收货地址或领取实物奖品时，我们可能收集收货人姓名、联系电话、收货地址。
+            您主动上传的头像、计划配图、纪念册图片等。Android 选取图片时通过系统相册选择器仅获取您当次选中的文件，不申请读取全部照片/媒体库权限。
+          </p>
+          <p><strong>6. 收货信息</strong></p>
+          <p>
+            当您在「地址管理」或领取盲盒公仔等实物奖品时主动填写，我们可能收集收货人姓名、联系电话、收货地址。
+          </p>
+          <p><strong>7. 支付信息（Android 国内版）</strong></p>
+          <p>
+            当您通过微信支付购买会员、贯币等付费服务时，我们可能处理订单号、商品信息、支付金额与支付状态等信息；支付密码、银行卡号等敏感支付凭证由微信支付处理，我们不会收集。
+          </p>
+          <p>
+            <strong>重要提示（Android）：</strong>在您首次启动并点击「同意」本隐私政策之前，不会初始化极光推送（不调用 JPush init）。
           </p>
         </section>
 
@@ -202,8 +227,9 @@
             <li>提升产品体验：通过分析匿名的使用数据，优化功能设计和交互流程，改进性能和稳定性。</li>
             <li>安全保障：用于身份验证、安全防护、反作弊、异常检测，保护您的账号和数据安全。</li>
             <li>
-              消息通知：在获得您的授权后，我们可能通过极光推送（JPush）等通道向您发送与服务相关的通知。您可随时在系统或应用内关闭相关通知权限。
+              消息通知：计划到点提醒通过系统本地通知与闹钟实现。在获得您的授权后，Android 可能通过极光推送（JPush）、iOS 可能通过苹果推送服务（APNs）向您发送分享加入等远程服务通知。您可随时在系统设置中关闭通知权限；Android 也可在「我的 → 权限管理」中管理。
             </li>
+            <li>交易履约（Android 国内版）：用于完成会员、贯币等付费购买、订单查询与权益开通。</li>
           </ul>
         </section>
 
@@ -227,8 +253,8 @@
           <ul>
             <li>访问和更正：您可以在应用内查看和修改个人资料、账号信息等。</li>
             <li>删除：在符合法定条件的情况下，您可以请求我们删除特定的个人信息。</li>
-            <li>撤回授权：对于基于您的授权而处理的个人信息，您可以随时撤回授权，但撤回后可能会影响部分功能的使用。</li>
-            <li>注销账号：您可以通过应用内提供的方式或联系客服申请注销账号。账号注销后，我们将停止为您提供服务，并在法律规定的期限内删除或匿名化处理您的个人信息。</li>
+            <li>撤回授权：您可通过系统设置撤回通知等授权；Android 也可在「我的 → 权限管理」关闭相关权限。撤回后可能影响对应功能。</li>
+            <li>注销账号：您可在「我的 → 账户信息 → 注销账号」申请注销。确认后我们将删除云端账号及相关个人信息，并清除本机登录态；法律法规另有留存要求的除外。</li>
           </ul>
         </section>
 
@@ -265,10 +291,11 @@
           </ul>
           <p><strong>设备与日志信息</strong></p>
           <ul>
-            <li>设备型号、操作系统版本、应用版本号、网络状态。</li>
+            <li>设备型号、操作系统版本、应用版本号、网络连接状态。</li>
             <li>崩溃日志、错误诊断信息，用于排查问题与提升稳定性。</li>
-            <li>本地通知、闹钟与桌面小组件相关配置，用于准时提醒与展示。</li>
-            <li>推送 Registration ID：用于极光推送（JPush）消息触达（仅在您授权通知权限后）。</li>
+            <li>本地通知、闹钟与桌面小组件相关配置，用于准时提醒与展示（计划到点提醒走本机能力）。</li>
+            <li>Android：极光推送 Registration ID、应用包名与版本——用于远程推送通道（如分享加入通知）；仅在您同意隐私政策后由 SDK 初始化并生成/读取。</li>
+            <li>iOS：苹果推送 device token——用于 APNs 远程消息触达（如分享加入通知）。</li>
           </ul>
           <p><strong>图片与媒体</strong></p>
           <ul>
@@ -280,15 +307,20 @@
               iOS：在您授权照片图库相关权限后，仅访问您选择或保存所需的图片，用于头像、计划配图、纪念册等对应功能。
             </li>
           </ul>
+          <p><strong>支付订单信息（Android 国内版）</strong></p>
+          <ul>
+            <li>订单号、商品信息、支付金额、支付状态：用于微信支付购买会员、贯币等付费服务及权益开通。</li>
+          </ul>
           <p><strong>我们不会主动收集的信息</strong></p>
           <p>
-            我们不会主动收集您的通讯录、短信内容、通话记录、精确地理位置轨迹、生物识别信息等与本应用核心功能无关的敏感个人信息；若未来因新增功能需要收集，我们将另行征得您的明示同意。
+            我们不会主动收集您的通讯录、短信内容、通话记录、精确地理位置轨迹、生物识别信息、银行卡号、微信支付密码等与本应用核心功能无关的敏感个人信息；若未来因新增功能需要收集，我们将另行征得您的明示同意。
           </p>
           <p><strong>信息收集方式</strong></p>
           <ul>
             <li>您主动填写或上传。</li>
             <li>您使用相关功能时，经您授权后由系统自动获取（如通知权限等）；选取图片时通过系统相册选择器由您主动选择，不申请读取全部相册权限。</li>
             <li>为保障服务安全与稳定运行所必需的技术日志。</li>
+            <li>Android：极光推送仅在您同意《隐私政策》之后初始化；同意前不调用 JPush init。</li>
           </ul>
         </section>
 
@@ -299,25 +331,39 @@
           </p>
 
           <div class="third-party-item">
-            <strong>微信开放平台 SDK</strong>
-            使用目的：微信登录、微信分享、从微信内唤起 App。<br>
-            共享信息类型：设备信息、网络状态、微信授权的基本账号信息（昵称、头像、OpenID、UnionID）。<br>
-            官网/隐私说明：
-            <a href="https://weixin.qq.com/cgi-bin/readtemplate?lang=zh_CN&amp;t=weixin_agreement&amp;s=privacy" rel="noopener noreferrer" target="_blank">微信隐私保护指引</a>
+            <strong>微信OpenSDK Android（Android 国内版）</strong><br>
+            SDK 名称：微信OpenSDK Android<br>
+            开发者：深圳市腾讯计算机系统有限公司<br>
+            使用目的：实现微信登录、微信分享、从微信内唤起 App、微信支付（会员、贯币等付费服务）。<br>
+            收集信息范围（依据微信 Open SDK 个人信息处理规则及本应用实际使用能力）：用户主动选择的分享图片或内容；经用户授权后的微信头像、昵称；微信支付订单标识及支付是否成功的状态信息；为确认能否调起微信能力而验证设备是否已安装微信 App。<br>
+            收集时机：您主动使用微信登录/分享/支付相关功能，且已同意本应用隐私政策之后。<br>
+            SDK 隐私政策链接：
+            <a href="https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8" rel="noopener noreferrer" target="_blank">https://support.weixin.qq.com/cgi-bin/mmsupportacctnodeweb-bin/pages/RYiYJkLOrQwu0nb8</a>
           </div>
 
           <div class="third-party-item">
-            <strong>极光推送（JPush）</strong>
-            使用目的：中国大陆地区消息推送与服务通知触达。<br>
-            共享信息类型：设备标识、网络信息、推送 Registration ID、应用包名与版本。<br>
-            官网/隐私说明：
+            <strong>极光推送 - JPush SDK - Android（Android 国内版）</strong><br>
+            SDK 名称：极光推送 - JPush SDK - Android<br>
+            开发者：深圳市和讯华谷信息技术有限公司<br>
+            使用目的：国内 Android 远程消息推送（如他人加入您分享的计划时的通知）。计划到点提醒由本机本地通知与闹钟实现，不通过本 SDK。<br>
+            收集信息范围：推送 Registration ID、应用包名与版本、网络连接状态，以及为建立推送通道所必需的设备标识与网络信息（以极光公示为准）。Registration ID 由 SDK 生成，我们会上报至应用服务端。<br>
+            收集方式：您同意本应用隐私政策后由 SDK 初始化（JPush init）；同意前不调用 init。我们已关闭 IMEI、IMSI、MAC、已安装应用列表、精确位置、基站、Wi‑Fi 列表等扩展采集。<br>
+            SDK 隐私政策链接：
             <a href="https://www.jiguang.cn/license/privacy" rel="noopener noreferrer" target="_blank">https://www.jiguang.cn/license/privacy</a>
           </div>
 
           <div class="third-party-item">
+            <strong>苹果推送服务（APNs）（iOS 国内版）</strong>
+            使用目的：国内 iOS 远程消息推送（如分享加入通知）。计划到点提醒通过系统本地通知实现，不经过本项。<br>
+            共享信息类型：设备推送令牌（device token）、应用标识等。<br>
+            官网/隐私说明：
+            <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer" target="_blank">https://www.apple.com/legal/privacy/</a>
+          </div>
+
+          <div class="third-party-item">
             <strong>应用服务端（www.haloutongxue.com）</strong>
-            使用目的：微信登录鉴权、计划与会员等业务接口、计划共享、邀请、意见反馈提交等。<br>
-            共享信息类型：账号标识、业务请求数据、您主动提交的内容。<br>
+            使用目的：微信登录鉴权、计划与会员等业务接口、计划共享、邀请、意见反馈提交、账号注销申请等；Android 另含微信支付订单与权益同步。<br>
+            共享信息类型：账号标识、业务请求数据、订单与支付状态（如有）、您主动提交的内容。<br>
             官网/隐私说明：以应用内展示及官网公示为准。
           </div>
 
@@ -366,8 +412,8 @@
           </p>
           <p><strong>1.3 Device and log data</strong></p>
           <p>
-            Device model, OS version, app version, network status, push token, and diagnostic logs used to secure
-            the service and improve stability.
+            Device model, OS version, app version, network status, push token (FCM on Android / APNs device token on iOS),
+            and diagnostic logs used to secure the service and improve stability.
           </p>
           <p><strong>1.4 Shipping information</strong></p>
           <p>
@@ -383,8 +429,9 @@
             <li>Improve the product and user experience through analysis of non-identifiable usage data.</li>
             <li>Security and compliance: to prevent abuse, detect anomalies, and protect accounts and data.</li>
             <li>
-              Notifications: with your authorization, we may send service-related notifications through Firebase
-              Cloud Messaging (FCM).
+              Notifications: plan due reminders use on-device local notifications and alarms. With your authorization,
+              we may send remote service notifications (for example, when someone joins a plan you shared) via
+              Firebase Cloud Messaging (FCM) on Android and Apple Push Notification service (APNs) on iOS.
             </li>
           </ul>
         </section>
@@ -455,9 +502,10 @@
           </ul>
           <p><strong>Device &amp; logs</strong></p>
           <ul>
-            <li>Device model, OS version, app version, network status, and push token (FCM).</li>
+            <li>Device model, OS version, app version, and network status.</li>
+            <li>Push token: FCM token on Android; APNs device token on iOS — used for remote notifications (e.g. share-join alerts).</li>
             <li>Crash and diagnostic logs to improve stability.</li>
-            <li>Local notification, alarm, and home-screen widget settings.</li>
+            <li>Local notification, alarm, and home-screen widget settings for on-device plan reminders.</li>
           </ul>
           <p><strong>Images &amp; media</strong></p>
           <ul>
@@ -495,9 +543,16 @@
 
           <div class="third-party-item">
             <strong>Firebase Cloud Messaging (FCM)</strong>
-            Purpose: push notifications outside mainland China.<br>
-            Shared data: device identifiers, push token, app version.<br>
+            Purpose: remote push notifications on Android outside mainland China (e.g. share-join alerts). Plan due reminders use on-device local notifications, not FCM.<br>
+            Shared data: device identifiers as required by FCM, push token, app version.<br>
             Privacy: <a href="https://firebase.google.com/support/privacy" rel="noopener noreferrer" target="_blank">https://firebase.google.com/support/privacy</a>
+          </div>
+
+          <div class="third-party-item">
+            <strong>Apple Push Notification service (APNs)</strong>
+            Purpose: remote push notifications on iOS outside mainland China (e.g. share-join alerts). Plan due reminders use on-device local notifications.<br>
+            Shared data: APNs device token and app identifiers needed for delivery.<br>
+            Privacy: <a href="https://www.apple.com/legal/privacy/" rel="noopener noreferrer" target="_blank">https://www.apple.com/legal/privacy/</a>
           </div>
 
           <div class="third-party-item">
