@@ -15,11 +15,11 @@
   "rewrites": [
     {
       "source": "/android/privacy",
-      "destination": "/h5/global/android-privacy-policy.html"
+      "destination": "/h5/global/global-privacy-policy.html"
     },
     {
       "source": "/android/privacy/",
-      "destination": "/h5/global/android-privacy-policy.html"
+      "destination": "/h5/global/global-privacy-policy.html"
     },
     {
       "source": "/android/terms",
@@ -31,11 +31,11 @@
     },
     {
       "source": "/privacy",
-      "destination": "/h5/global/global-privacy-policy.html"
+      "destination": "/h5/global/android-privacy-policy.html"
     },
     {
       "source": "/privacy/",
-      "destination": "/h5/global/global-privacy-policy.html"
+      "destination": "/h5/global/android-privacy-policy.html"
     },
     {
       "source": "/terms",
