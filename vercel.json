@@ -14,6 +14,22 @@
   ],
   "rewrites": [
     {
+      "source": "/android/privacy",
+      "destination": "/h5/global/android-privacy-policy.html"
+    },
+    {
+      "source": "/android/privacy/",
+      "destination": "/h5/global/android-privacy-policy.html"
+    },
+    {
+      "source": "/android/terms",
+      "destination": "/h5/global/android-terms-of-use.html"
+    },
+    {
+      "source": "/android/terms/",
+      "destination": "/h5/global/android-terms-of-use.html"
+    },
+    {
       "source": "/privacy",
       "destination": "/h5/global/global-privacy-policy.html"
     },
@@ -28,6 +44,14 @@
     {
       "source": "/terms/",
       "destination": "/h5/global/global-terms-of-use.html"
+    },
+    {
+      "source": "/account-deletion",
+      "destination": "/h5/global/global-account-deletion.html"
+    },
+    {
+      "source": "/account-deletion/",
+      "destination": "/h5/global/global-account-deletion.html"
     },
     {
       "source": "/company.html",

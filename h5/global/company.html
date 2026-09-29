@@ -764,8 +764,9 @@
   <footer>
     <span data-i18n="footer_copy">&copy; 2026 Plan Together. All rights reserved.</span>
     <div class="footer-links">
-      <a href="/privacy" data-i18n="footer_privacy">Privacy Policy</a>
-      <a href="/terms" data-i18n="footer_terms">Terms of Use</a>
+      <a href="/android/privacy" id="footerPrivacyLink" data-i18n="footer_privacy">Privacy Policy</a>
+      <a href="/android/privacy" id="footerAndroidPrivacyLink" data-i18n="footer_android_privacy">Android Privacy</a>
+      <a href="/android/terms" id="footerTermsLink" data-i18n="footer_terms">Terms of Use</a>
       <a href="mailto:login@haloutongxue.com" data-i18n="footer_contact">Contact us</a>
     </div>
   </footer>
@@ -831,6 +832,7 @@
           download_sub: 'Available on iOS and Android. Free to download.',
           footer_copy: '© 2026 Plan Together. All rights reserved.',
           footer_privacy: 'Privacy Policy',
+          footer_android_privacy: 'Android Privacy',
           footer_terms: 'Terms of Use',
           footer_contact: 'Contact us',
           page_title: 'Plan Together – Plan life, together',
@@ -887,6 +889,7 @@
           download_sub: '支持 iOS 与 Android，免费下载。',
           footer_copy: '© 2026 Plan Together. 保留所有权利。',
           footer_privacy: '隐私政策',
+          footer_android_privacy: 'Android隐私',
           footer_terms: '使用条款',
           footer_contact: '联系我们',
           page_title: 'Plan Together – 一起计划，一起生活',
@@ -967,6 +970,22 @@
           btn.classList.toggle('is-active', active);
           btn.setAttribute('aria-pressed', active ? 'true' : 'false');
         });
+
+        // English → Google Play Android legal pages; Chinese keeps legacy /privacy,/terms aliases.
+        // Android Privacy always points to the overseas Google Play privacy page.
+        var privacy = document.getElementById('footerPrivacyLink');
+        var androidPrivacy = document.getElementById('footerAndroidPrivacyLink');
+        var terms = document.getElementById('footerTermsLink');
+        if (lang === 'en') {
+          if (privacy) privacy.setAttribute('href', '/android/privacy?lang=en');
+          if (terms) terms.setAttribute('href', '/android/terms?lang=en');
+        } else {
+          if (privacy) privacy.setAttribute('href', '/privacy?lang=zh');
+          if (terms) terms.setAttribute('href', '/terms?lang=zh');
+        }
+        if (androidPrivacy) {
+          androidPrivacy.setAttribute('href', '/android/privacy?lang=' + lang);
+        }
 
         try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
       }

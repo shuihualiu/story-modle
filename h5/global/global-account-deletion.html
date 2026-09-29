@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Delete Account – Plan Together</title>
+  <meta name="description" content="Request deletion of your Plan Together (global) account and associated data. Available without reinstalling the app.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://global.haloutongxue.com/account-deletion">
+  <link rel="alternate" hreflang="zh-CN" href="https://global.haloutongxue.com/account-deletion?lang=zh">
+  <link rel="alternate" hreflang="en" href="https://global.haloutongxue.com/account-deletion?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://global.haloutongxue.com/account-deletion">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f2ee;
+      --surface: #ffffff;
+      --text: #2d2a32;
+      --muted: #61596a;
+      --accent: #32abfd;
+      --danger: #e53935;
+      --border: rgba(97, 89, 106, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+    header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+    .lang-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      margin-bottom: 16px;
+      background: rgba(50, 171, 253, 0.1);
+      border-radius: 999px;
+    }
+    .lang-btn {
+      appearance: none;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-btn:hover { color: var(--text); }
+    .lang-btn.is-active {
+      background: var(--surface);
+      color: var(--accent);
+      box-shadow: 0 1px 4px rgba(45, 42, 50, 0.08);
+    }
+    .app-name {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 6vw, 36px);
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 8px 32px rgba(45, 42, 50, 0.06);
+    }
+    .lang-panel { display: none; }
+    .lang-panel.is-visible { display: block; }
+    .intro {
+      margin: 0 0 24px;
+      font-size: 16px;
+      color: var(--muted);
+    }
+    .highlight {
+      margin: 0 0 24px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      background: rgba(50, 171, 253, 0.08);
+      border: 1px solid rgba(50, 171, 253, 0.18);
+    }
+    .highlight strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 15px;
+    }
+    .highlight p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0 20px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      background: var(--danger);
+      color: #fff !important;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none !important;
+    }
+    .cta:hover { opacity: 0.92; }
+    section + section {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+    h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    p, li {
+      font-size: 15px;
+      color: var(--muted);
+    }
+    p { margin: 0 0 12px; }
+    ul, ol {
+      margin: 0 0 12px;
+      padding-left: 1.25rem;
+    }
+    li + li { margin-top: 6px; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      word-break: break-all;
+    }
+    a:hover { text-decoration: underline; }
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      background: rgba(97, 89, 106, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--text);
+    }
+    footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 480px) {
+      .page { padding: 24px 16px 40px; }
+      .card { padding: 22px 18px; border-radius: 12px; }
+    }
+  </style>
+</head>
+<body data-lang="en">
+  <main class="page">
+    <header>
+      <nav class="lang-switch" aria-label="Language">
+        <button type="button" class="lang-btn" data-lang="zh" aria-pressed="false">中文</button>
+        <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">English</button>
+      </nav>
+      <span class="app-name" id="app-name">Plan Together</span>
+      <h1 id="page-title">Delete Account</h1>
+      <p class="meta" id="page-meta">
+        Plan Together (global) · Package: com.haloutongxue.reminder<br>
+        Last updated: September 29, 2026
+      </p>
+    </header>
+
+    <article class="card">
+      <div class="lang-panel" id="panel-zh" lang="zh-CN">
+        <p class="intro">
+          本页用于申请删除 <strong>Plan Together / 一起做计划（海外版）</strong> 的应用账号及相关个人数据。
+          即使您已卸载 App，也可通过本页提交申请。开发者：杭州哈喽同学网络科技有限公司。
+        </p>
+
+        <div class="highlight">
+          <strong>推荐：在 App 内直接删除（即时）</strong>
+          <p>
+            已安装 App 且已登录正式账号时：打开「我的 → 删除账号」，或「我的 → 账户信息 → 删除账号」，
+            或「我的 → 关于我们 → 删除账号」，按提示确认即可。游客账号请先绑定邮箱 / Google / Apple。
+          </p>
+        </div>
+
+        <section id="zh-web">
+          <h2>一、站外申请删除（无需安装 App）</h2>
+          <p>请使用您注册时使用的邮箱，向我们发送删除请求：</p>
+          <a class="cta" id="zh-mailto" href="mailto:server@haloutongxue.com?subject=Account%20deletion%20request%20-%20Plan%20Together&amp;body=Please%20delete%20my%20Plan%20Together%20(global)%20account%20and%20associated%20data.%0A%0AAccount%20email%20%2F%20sign-in%20method%3A%0AGoogle%20%2F%20Apple%20account%20email%20(if%20any)%3A%0AAdditional%20notes%3A%0A">
+            发送删除申请邮件
+          </a>
+          <p>
+            收件邮箱：
+            <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a><br>
+            邮件主题建议：<span class="code">Account deletion request - Plan Together</span>
+          </p>
+          <p>请在邮件正文中尽量提供：</p>
+          <ul>
+            <li>用于登录的邮箱地址</li>
+            <li>登录方式（邮箱 / Google / Apple）</li>
+            <li>便于我们核验身份的其他信息（可选）</li>
+          </ul>
+        </section>
+
+        <section id="zh-scope">
+          <h2>二、删除范围与时效</h2>
+          <ul>
+            <li>我们将删除您的应用账号及关联云端个人数据（计划、资料、同步数据等），而不是仅停用账号。</li>
+            <li>因安全、防欺诈或法律法规要求需留存的数据除外；留存规则见
+              <a href="/android/privacy?lang=zh">隐私政策</a>。</li>
+            <li>我们会在核实身份后尽快处理，通常在收到有效请求后 <strong>30 天内</strong>完成。</li>
+            <li>若您有生效中的订阅，删除账号不会自动取消商店订阅；请先在 Google Play / App Store 取消订阅。</li>
+          </ul>
+        </section>
+
+        <section id="zh-contact">
+          <h2>三、联系我们</h2>
+          <p>
+            问题可发送至
+            <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>，
+            或通过 App 内「意见反馈」联系。
+          </p>
+        </section>
+      </div>
+
+      <div class="lang-panel is-visible" id="panel-en" lang="en">
+        <p class="intro">
+          Use this page to request deletion of your <strong>Plan Together</strong> (global edition) app account
+          and associated personal data. You can submit a request even if you have uninstalled the app.
+          Developer: Hangzhou Halou Tongxue Network Technology Co., Ltd.
+        </p>
+
+        <div class="highlight">
+          <strong>Preferred: delete in the app (immediate)</strong>
+          <p>
+            If the app is installed and you are signed in with a registered account: go to
+            <strong>Profile → Delete Account</strong>, or <strong>Profile → Account → Delete Account</strong>,
+            or <strong>Profile → About → Delete Account</strong>, then confirm.
+            Guest users must first link email / Google / Apple.
+          </p>
+        </div>
+
+        <section id="en-web">
+          <h2>1. Request deletion without the app</h2>
+          <p>Email us from the address associated with your account:</p>
+          <a class="cta" id="en-mailto" href="mailto:server@haloutongxue.com?subject=Account%20deletion%20request%20-%20Plan%20Together&amp;body=Please%20delete%20my%20Plan%20Together%20(global)%20account%20and%20associated%20data.%0A%0AAccount%20email%20%2F%20sign-in%20method%3A%0AGoogle%20%2F%20Apple%20account%20email%20(if%20any)%3A%0AAdditional%20notes%3A%0A">
+            Email deletion request
+          </a>
+          <p>
+            To:
+            <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a><br>
+            Suggested subject: <span class="code">Account deletion request - Plan Together</span>
+          </p>
+          <p>Please include:</p>
+          <ul>
+            <li>The email address used to sign in</li>
+            <li>Sign-in method (email / Google / Apple)</li>
+            <li>Any other details that help us verify ownership (optional)</li>
+          </ul>
+        </section>
+
+        <section id="en-scope">
+          <h2>2. What we delete and how long it takes</h2>
+          <ul>
+            <li>We delete your app account and associated cloud personal data (plans, profile, synced content, etc.), not merely freeze the account.</li>
+            <li>Data retained for security, fraud prevention, or legal compliance is described in our
+              <a href="/android/privacy?lang=en">Privacy Policy</a>.</li>
+            <li>After we verify your request, we aim to complete deletion within <strong>30 days</strong>.</li>
+            <li>Active subscriptions are not canceled by account deletion. Cancel them in Google Play or the App Store first if needed.</li>
+          </ul>
+        </section>
+
+        <section id="en-contact">
+          <h2>3. Contact</h2>
+          <p>
+            Questions:
+            <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>
+            or in-app <strong>Feedback</strong>.
+          </p>
+        </section>
+      </div>
+    </article>
+
+    <footer>
+      <span id="footer-copy">&copy; Plan Together. All rights reserved.</span>
+      &nbsp;&middot;&nbsp;
+      <a href="/android/privacy" id="footer-privacy">Privacy Policy</a>
+      &nbsp;&middot;&nbsp;
+      <a href="/android/terms" id="footer-terms">Terms of Use</a>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = 'plan-together-account-deletion-lang';
+      var META = {
+        zh: {
+          htmlLang: 'zh-CN',
+          title: '删除账号 – Plan Together',
+          description: '申请删除 Plan Together（海外版）账号及相关个人数据。无需重新安装 App。',
+          appName: 'Plan Together',
+          pageTitle: '删除账号',
+          metaHtml: 'Plan Together（海外版）· 包名：com.haloutongxue.reminder<br>最近更新：2026年9月29日',
+          footerCopy: '© Plan Together. 保留所有权利。',
+          footerPrivacy: '隐私政策',
+          footerTerms: '使用条款'
+        },
+        en: {
+          htmlLang: 'en',
+          title: 'Delete Account – Plan Together',
+          description: 'Request deletion of your Plan Together (global) account and associated data. Available without reinstalling the app.',
+          appName: 'Plan Together',
+          pageTitle: 'Delete Account',
+          metaHtml: 'Plan Together (global) · Package: com.haloutongxue.reminder<br>Last updated: September 29, 2026',
+          footerCopy: '© Plan Together. All rights reserved.',
+          footerPrivacy: 'Privacy Policy',
+          footerTerms: 'Terms of Use'
+        }
+      };
+
+      function detectLang() {
+        var params = new URLSearchParams(window.location.search);
+        var queryLang = params.get('lang');
+        if (queryLang === 'zh' || queryLang === 'en') return queryLang;
+        var saved = localStorage.getItem(STORAGE_KEY);
+        if (saved === 'zh' || saved === 'en') return saved;
+        var nav = (navigator.language || 'en').toLowerCase();
+        return nav.indexOf('zh') === 0 ? 'zh' : 'en';
+      }
+
+      function setLang(lang) {
+        if (lang !== 'zh' && lang !== 'en') lang = 'en';
+        var m = META[lang];
+
+        document.documentElement.lang = m.htmlLang;
+        document.body.setAttribute('data-lang', lang);
+        document.title = m.title;
+
+        var desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', m.description);
+
+        document.getElementById('app-name').textContent = m.appName;
+        document.getElementById('page-title').textContent = m.pageTitle;
+        document.getElementById('page-meta').innerHTML = m.metaHtml;
+        document.getElementById('footer-copy').textContent = m.footerCopy;
+        document.getElementById('footer-privacy').textContent = m.footerPrivacy;
+        document.getElementById('footer-terms').textContent = m.footerTerms;
+        document.getElementById('footer-privacy').setAttribute('href', '/android/privacy?lang=' + lang);
+        document.getElementById('footer-terms').setAttribute('href', '/android/terms?lang=' + lang);
+
+        document.getElementById('panel-zh').classList.toggle('is-visible', lang === 'zh');
+        document.getElementById('panel-en').classList.toggle('is-visible', lang === 'en');
+
+        var buttons = document.querySelectorAll('.lang-btn');
+        for (var i = 0; i < buttons.length; i++) {
+          var btn = buttons[i];
+          var active = btn.getAttribute('data-lang') === lang;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        }
+
+        localStorage.setItem(STORAGE_KEY, lang);
+      }
+
+      setLang(detectLang());
+
+      document.querySelector('.lang-switch').addEventListener('click', function (e) {
+        var btn = e.target.closest('.lang-btn');
+        if (!btn) return;
+        setLang(btn.getAttribute('data-lang'));
+      });
+    })();
+  </script>
+</body>
+</html>
