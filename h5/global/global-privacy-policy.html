@@ -100,6 +100,38 @@
       font-size: 16px;
       color: var(--muted);
     }
+    .highlight {
+      margin: 0 0 24px;
+      padding: 16px 18px;
+      border-radius: 12px;
+      background: rgba(50, 171, 253, 0.08);
+      border: 1px solid rgba(50, 171, 253, 0.18);
+    }
+    .highlight strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 15px;
+    }
+    .highlight p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin: 8px 0 4px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      background: #e53935;
+      color: #fff !important;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none !important;
+    }
+    .cta:hover { opacity: 0.92; }
     section + section {
       margin-top: 28px;
       padding-top: 28px;
@@ -176,6 +208,15 @@
           It explains what personal information we collect, how we use and share it, and the choices you have.
           By using the App, you agree to this Policy. If you do not agree, please stop using the App.
         </p>
+
+        <div class="highlight" id="account-deletion">
+          <strong>Account / data deletion (without reinstalling the app)</strong>
+          <p>
+            In-app: Profile → Delete Account, or Profile → Account → Delete Account.
+            Web request (email): dedicated page with how to apply, what we delete, and the 30-day timeline.
+          </p>
+          <a class="cta" href="https://global.haloutongxue.com/account-deletion?lang=en">Open account deletion page</a>
+        </div>
 
         <section id="en-scope">
           <h2>1. Scope</h2>
@@ -285,7 +326,7 @@
           </p>
           <p><strong>Account and data deletion</strong></p>
           <ul>
-            <li>In-app: Profile → Delete Account (or Account / About → Delete Account).</li>
+            <li>In-app: Profile → Delete Account, or Profile → Account → Delete Account.</li>
             <li>
               Without installing the App:
               <a href="https://global.haloutongxue.com/account-deletion">https://global.haloutongxue.com/account-deletion</a>
@@ -390,6 +431,15 @@
           <strong>本页不适用于中国大陆国内版应用。</strong>
         </p>
 
+        <div class="highlight" id="account-deletion-zh">
+          <strong>账号 / 数据删除（无需重新安装 App）</strong>
+          <p>
+            应用内：我的 → 删除账号，或 我的 → 账户信息 → 删除账号。
+            站外邮件申请：见独立删除页（申请方式、删除范围、通常 30 天内处理）。
+          </p>
+          <a class="cta" href="https://global.haloutongxue.com/account-deletion?lang=zh">打开账号删除页</a>
+        </div>
+
         <section id="zh-scope">
           <h2>一、适用范围</h2>
           <p>
@@ -468,7 +518,7 @@
           </p>
           <p><strong>账号与数据删除</strong></p>
           <ul>
-            <li>应用内：个人中心 → 删除账号（或账户/关于中的删除入口）；</li>
+            <li>应用内：我的 → 删除账号，或 我的 → 账户信息 → 删除账号；</li>
             <li>
               无需安装应用：
               <a href="https://global.haloutongxue.com/account-deletion">https://global.haloutongxue.com/account-deletion</a>

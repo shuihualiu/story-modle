@@ -207,15 +207,16 @@
         <div class="highlight">
           <strong>推荐：在 App 内直接删除（即时）</strong>
           <p>
-            已安装 App 且已登录正式账号时：打开「我的 → 删除账号」，或「我的 → 账户信息 → 删除账号」，
-            或「我的 → 关于我们 → 删除账号」，按提示确认即可。游客账号请先绑定邮箱 / Google / Apple。
+            已安装 App 且已登录正式账号（非游客）时：打开「我的 → 删除账号」，
+            或「我的 → 账户信息 → 删除账号」，按提示确认即可。
+            游客账号请先绑定邮箱 / Google 后再删除。
           </p>
         </div>
 
         <section id="zh-web">
           <h2>一、站外申请删除（无需安装 App）</h2>
           <p>请使用您注册时使用的邮箱，向我们发送删除请求：</p>
-          <a class="cta" id="zh-mailto" href="mailto:server@haloutongxue.com?subject=Account%20deletion%20request%20-%20Plan%20Together&amp;body=Please%20delete%20my%20Plan%20Together%20(global)%20account%20and%20associated%20data.%0A%0AAccount%20email%20%2F%20sign-in%20method%3A%0AGoogle%20%2F%20Apple%20account%20email%20(if%20any)%3A%0AAdditional%20notes%3A%0A">
+          <a class="cta" id="zh-mailto" href="mailto:server@haloutongxue.com?subject=Account%20deletion%20request%20-%20Plan%20Together&amp;body=Please%20delete%20my%20Plan%20Together%20(global)%20account%20and%20associated%20data.%0A%0AAccount%20email%20%2F%20sign-in%20method%20(email%20or%20Google)%3A%0AAdditional%20notes%3A%0A">
             发送删除申请邮件
           </a>
           <p>
@@ -226,7 +227,7 @@
           <p>请在邮件正文中尽量提供：</p>
           <ul>
             <li>用于登录的邮箱地址</li>
-            <li>登录方式（邮箱 / Google / Apple）</li>
+            <li>登录方式（邮箱 / Google）</li>
             <li>便于我们核验身份的其他信息（可选）</li>
           </ul>
         </section>
@@ -262,17 +263,17 @@
         <div class="highlight">
           <strong>Preferred: delete in the app (immediate)</strong>
           <p>
-            If the app is installed and you are signed in with a registered account: go to
-            <strong>Profile → Delete Account</strong>, or <strong>Profile → Account → Delete Account</strong>,
-            or <strong>Profile → About → Delete Account</strong>, then confirm.
-            Guest users must first link email / Google / Apple.
+            If the app is installed and you are signed in with a registered (non-guest) account: go to
+            <strong>Profile → Delete Account</strong>, or
+            <strong>Profile → Account → Delete Account</strong>, then confirm.
+            Guest users must first link email / Google.
           </p>
         </div>
 
         <section id="en-web">
           <h2>1. Request deletion without the app</h2>
           <p>Email us from the address associated with your account:</p>
-          <a class="cta" id="en-mailto" href="mailto:server@haloutongxue.com?subject=Account%20deletion%20request%20-%20Plan%20Together&amp;body=Please%20delete%20my%20Plan%20Together%20(global)%20account%20and%20associated%20data.%0A%0AAccount%20email%20%2F%20sign-in%20method%3A%0AGoogle%20%2F%20Apple%20account%20email%20(if%20any)%3A%0AAdditional%20notes%3A%0A">
+          <a class="cta" id="en-mailto" href="mailto:server@haloutongxue.com?subject=Account%20deletion%20request%20-%20Plan%20Together&amp;body=Please%20delete%20my%20Plan%20Together%20(global)%20account%20and%20associated%20data.%0A%0AAccount%20email%20%2F%20sign-in%20method%20(email%20or%20Google)%3A%0AAdditional%20notes%3A%0A">
             Email deletion request
           </a>
           <p>
@@ -283,7 +284,7 @@
           <p>Please include:</p>
           <ul>
             <li>The email address used to sign in</li>
-            <li>Sign-in method (email / Google / Apple)</li>
+            <li>Sign-in method (email / Google)</li>
             <li>Any other details that help us verify ownership (optional)</li>
           </ul>
         </section>
@@ -353,8 +354,8 @@
         if (queryLang === 'zh' || queryLang === 'en') return queryLang;
         var saved = localStorage.getItem(STORAGE_KEY);
         if (saved === 'zh' || saved === 'en') return saved;
-        var nav = (navigator.language || 'en').toLowerCase();
-        return nav.indexOf('zh') === 0 ? 'zh' : 'en';
+        // Play Data Safety / store reviewers: default English (matches overseas stack disclosure).
+        return 'en';
       }
 
       function setLang(lang) {
