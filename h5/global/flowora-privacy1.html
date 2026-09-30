@@ -123,6 +123,35 @@
       font-size: 0.975rem;
     }
 
+    /* 始终可见：满足应用商店对「明示开发者信息」的审核（不依赖语言切换/JS） */
+    .developer-info {
+      margin: 0 0 28px;
+      padding: 16px 18px;
+      background: #f0f5fb;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .developer-info h2 {
+      margin: 0 0 10px;
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .developer-info ul {
+      margin: 0;
+      padding-left: 1.25em;
+    }
+
+    .developer-info li {
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .developer-info li:last-child { margin-bottom: 0; }
+
     section { margin-bottom: 28px; }
     section:last-child { margin-bottom: 0; }
 
@@ -168,11 +197,24 @@
     </nav>
     <h1 id="page-title">Privacy Policy</h1>
     <p class="subtitle" id="page-subtitle">手机限时锁 (Flowora)</p>
-    <p class="updated" id="page-updated">Last updated: September 22, 2026</p>
+    <p class="updated" id="page-updated">Last updated: September 26, 2026</p>
   </header>
 
   <main>
     <article class="card">
+      <!-- 应用与开发者信息：始终展示，供小米等应用商店审核识别 -->
+      <section class="developer-info" aria-label="应用与开发者信息">
+        <h2>应用与开发者信息 / App &amp; Developer</h2>
+        <ul>
+          <li>应用名称 / App Name：手机限时锁（Flowora）</li>
+          <li>应用包名 / Package Name：com.haloutongxue.offly</li>
+          <li>开发者名称 / Developer：杭州哈喽同学网络科技有限公司</li>
+          <li>开发者联系方式 / Contact：<a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>（或应用内「设置 → 反馈」）</li>
+          <li>官方网站 / Website：<a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a></li>
+          <li>ICP 备案号：<a href="https://beian.miit.gov.cn/" rel="noopener noreferrer">浙ICP备2023044934号-4A</a></li>
+        </ul>
+      </section>
+
       <!-- 中文 -->
       <div class="lang-panel" id="panel-zh" lang="zh-CN">
         <p class="intro">
@@ -182,7 +224,9 @@
         <section>
           <h2>1. 我们是谁</h2>
           <p>
-            本应用与 Flowora 服务相关运营。官方网站为
+            本应用「手机限时锁」（包名：com.haloutongxue.offly）由
+            <strong>杭州哈喽同学网络科技有限公司</strong>
+            开发并运营。官方网站为
             <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>。
             如您有隐私相关问题，可通过应用内「反馈」功能联系我们，发送邮件至
             <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>，或访问我们的官方网站。
@@ -372,7 +416,7 @@
         <section>
           <h2>15. 联系方式</h2>
           <p>
-            隐私咨询：请使用应用内「设置 → 反馈」，发送邮件至
+            开发者：杭州哈喽同学网络科技有限公司。隐私咨询：请使用应用内「设置 → 反馈」，或发送邮件至
             <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>，或访问
             <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>。
             请提供足以识别您请求的信息（请勿发送不必要的敏感内容）。
@@ -389,7 +433,9 @@
         <section>
           <h2>1. Who We Are</h2>
           <p>
-            The App is operated in connection with the Flowora service. Our official website is
+            The App「手机限时锁」(package name: com.haloutongxue.offly) is developed and operated by
+            <strong>Hangzhou Halou Tongxue Network Technology Co., Ltd. (杭州哈喽同学网络科技有限公司)</strong>.
+            Our official website is
             <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>.
             If you have privacy questions, contact us through the in-app Feedback feature, email
             <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>, or visit our official website.
@@ -579,6 +625,7 @@
         <section>
           <h2>15. Contact</h2>
           <p>
+            Developer: Hangzhou Halou Tongxue Network Technology Co., Ltd. (杭州哈喽同学网络科技有限公司).
             For privacy inquiries: use Settings → Feedback in the App, email
             <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>, or visit
             <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>.
@@ -606,8 +653,8 @@
           description: '手机限时锁（Flowora）隐私政策 — 说明我们如何收集、使用、存储与共享您的信息。',
           pageTitle: '隐私政策',
           subtitle: '手机限时锁（Flowora）',
-          updated: '最近更新：2026年9月22日',
-          footerCopy: '© 手机限时锁（Flowora）· 自律与监督工具',
+          updated: '最近更新：2026年9月26日',
+          footerCopy: '© 手机限时锁（Flowora）· 杭州哈喽同学网络科技有限公司',
           footerLink: '官方网站'
         },
         en: {
@@ -616,8 +663,8 @@
           description: 'Privacy Policy for 手机限时锁 (Flowora) — how we collect, use, store, and share your information.',
           pageTitle: 'Privacy Policy',
           subtitle: '手机限时锁 (Flowora)',
-          updated: 'Last updated: September 22, 2026',
-          footerCopy: '© Flowora · Self-discipline & supervision tool',
+          updated: 'Last updated: September 26, 2026',
+          footerCopy: '© Flowora · Hangzhou Halou Tongxue Network Technology Co., Ltd.',
           footerLink: 'Official website'
         }
       };
@@ -625,6 +672,8 @@
       function detectLang() {
         var saved = localStorage.getItem(STORAGE_KEY);
         if (saved === 'zh' || saved === 'en') return saved;
+        var nav = (navigator.language || navigator.userLanguage || '').toLowerCase();
+        if (nav.indexOf('zh') === 0) return 'zh';
         return 'en';
       }
 

@@ -613,10 +613,22 @@
     .footer-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 18px;
+      gap: 12px 18px;
+      align-items: center;
     }
     .footer-links a { color: var(--muted); font-weight: 600; }
     .footer-links a:hover { color: var(--blue); }
+    .footer-privacy {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      align-items: center;
+    }
+    .footer-privacy-label {
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .footer-privacy a { font-weight: 600; }
 
     @keyframes rise {
       from { opacity: 0; transform: translateY(16px); }
@@ -894,7 +906,12 @@
   <footer>
     <span data-i18n="footer_copy">© 2026 手机限时锁. 保留所有权利。</span>
     <div class="footer-links">
-      <a href="/flowora-privacy" data-i18n="footer_privacy">隐私政策</a>
+      <div class="footer-privacy" aria-label="Privacy policies">
+        <span class="footer-privacy-label" data-i18n="footer_privacy_label">隐私：</span>
+        <a href="/privacy-ios.html" data-i18n="footer_privacy_ios">iOS 隐私</a>
+        <a href="/privacy-android-cn.html" data-i18n="footer_privacy_android_cn">国内 Android 隐私</a>
+        <a href="/flowora-privacy" data-i18n="footer_privacy_android_global">海外 Android 隐私</a>
+      </div>
       <a href="/terms" data-i18n="footer_terms">使用条款</a>
       <a href="mailto:server@haloutongxue.com" data-i18n="footer_contact">联系我们</a>
     </div>
@@ -973,7 +990,10 @@
           download_title: '开始锁住娱乐，找回专注',
           download_sub: '支持 iOS 与 Android，免费下载。',
           footer_copy: '© 2026 手机限时锁. 保留所有权利。',
-          footer_privacy: '隐私政策',
+          footer_privacy_label: '隐私：',
+          footer_privacy_ios: 'iOS 隐私',
+          footer_privacy_android_cn: '国内 Android 隐私',
+          footer_privacy_android_global: '海外 Android 隐私',
           footer_terms: '使用条款',
           footer_contact: '联系我们',
           page_title: '手机限时锁 – 熬夜玩手机就用手机限时锁',
@@ -1045,7 +1065,10 @@
           download_title: 'Lock distractions. Regain focus.',
           download_sub: 'Available on iOS and Android. Free to download.',
           footer_copy: '© 2026 手机限时锁. All rights reserved.',
-          footer_privacy: 'Privacy Policy',
+          footer_privacy_label: 'Privacy:',
+          footer_privacy_ios: 'iOS Privacy',
+          footer_privacy_android_cn: 'Android Privacy (CN)',
+          footer_privacy_android_global: 'Android Privacy (Global)',
           footer_terms: 'Terms of Use',
           footer_contact: 'Contact us',
           page_title: '手机限时锁 – Lock apps. Stay disciplined.',

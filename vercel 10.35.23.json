@@ -62,6 +62,14 @@
       "destination": "/h5/global/discipline.html"
     },
     {
+      "source": "/privacy-ios.html",
+      "destination": "/h5/global/privacy-ios.html"
+    },
+    {
+      "source": "/privacy-android-cn.html",
+      "destination": "/h5/global/privacy-android-cn.html"
+    },
+    {
       "source": "/flowora-privacy",
       "destination": "/h5/global/flowora-privacy.html"
     },
