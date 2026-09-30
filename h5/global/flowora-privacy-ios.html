@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Privacy Policy for 手机限时锁 (Flowora) on iOS — Path B: no ATT / no cross-app tracking.">
+  <meta name="description" content="Privacy Policy for 手机限时锁 (Flowora) on iOS — Path A: ATT requested before rewarded ads.">
   <title>Privacy Policy (iOS) — Flowora</title>
   <style>
     :root {
@@ -98,89 +98,81 @@
     .card {
       background: var(--surface);
       border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(10, 57, 165, 0.08);
-      padding: 32px 28px;
-    }
-    @media (max-width: 480px) {
-      .card { padding: 24px 20px; }
+      box-shadow: 0 8px 30px rgba(26, 35, 50, 0.08);
+      padding: 28px 24px 36px;
     }
 
     .lang-panel { display: none; }
     .lang-panel.is-visible { display: block; }
 
     .intro {
-      margin: 0 0 32px;
-      color: var(--text-muted);
-      font-size: 0.975rem;
-    }
-
-    .developer-info {
-      margin: 0 0 28px;
-      padding: 16px 18px;
-      background: #f0f5fb;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-    }
-    .developer-info h2 {
-      margin: 0 0 10px;
-      font-size: 1.0625rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-    .developer-info ul { margin: 0; padding-left: 1.25em; }
-    .developer-info li {
-      margin-bottom: 6px;
+      margin: 0 0 24px;
       color: var(--text);
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
-    .developer-info li:last-child { margin-bottom: 0; }
 
-    section { margin-bottom: 28px; }
+    section { margin: 0 0 28px; }
     section:last-child { margin-bottom: 0; }
 
     h2 {
       margin: 0 0 12px;
       font-size: 1.125rem;
-      font-weight: 600;
+      font-weight: 700;
       color: var(--accent);
+      letter-spacing: 0.01em;
     }
     h3 {
-      margin: 18px 0 10px;
+      margin: 0 0 10px;
       font-size: 1.05rem;
-      font-weight: 600;
+      font-weight: 650;
       color: var(--text);
     }
     h4 {
-      margin: 14px 0 8px;
+      margin: 0 0 8px;
       font-size: 1rem;
       font-weight: 600;
       color: var(--text);
     }
 
-    p { margin: 0 0 12px; color: var(--text); }
+    p { margin: 0 0 12px; }
     p:last-child { margin-bottom: 0; }
 
-    ul { margin: 8px 0 0; padding-left: 1.25em; }
-    li { margin-bottom: 8px; color: var(--text); }
+    ul {
+      margin: 0 0 12px;
+      padding-left: 1.25em;
+    }
+    li { margin-bottom: 8px; }
     li:last-child { margin-bottom: 0; }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      word-break: break-all;
+    a { color: var(--accent); word-break: break-all; }
+    a:hover { color: var(--accent-light); }
+
+    .developer-info {
+      margin-bottom: 28px;
+      padding: 16px 18px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
     }
-    a:hover { text-decoration: underline; }
+    .developer-info h2 { margin-bottom: 10px; }
+    .developer-info ul { margin-bottom: 0; }
+
+    .callout {
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      background: #eef6ff;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      font-size: 0.9375rem;
+    }
 
     .footer {
-      max-width: var(--max-width);
-      margin: 0 auto 32px;
-      padding: 0 16px;
       text-align: center;
+      padding: 0 16px 40px;
       font-size: 0.8125rem;
       color: var(--text-muted);
     }
     .footer a { color: var(--text-muted); }
-
   </style>
 </head>
 <body data-lang="en">
@@ -191,19 +183,20 @@
     </nav>
     <h1 id="page-title">Privacy Policy</h1>
     <p class="subtitle" id="page-subtitle">手机限时锁 (Flowora) · iOS</p>
-    <p class="scope" id="page-scope">This page applies to the iOS App only. Content matches the in-app iOS privacy policy after IosPrivacyPolicyAdapter (Path B: no ATT / no cross-app tracking).</p>
-    <p class="updated" id="page-updated">Last updated: September 11, 2026</p>
+    <p class="scope" id="page-scope">This page applies to the iOS App only. Content matches the in-app iOS privacy policy after IosPrivacyPolicyAdapter (Path A: App Tracking Transparency is requested when you enter a rewarded-ad flow). Android-only practices are not described here.</p>
+    <p class="updated" id="page-updated">Last updated: September 30, 2026</p>
   </header>
 
   <main>
     <article class="card">
       <div class="lang-panel" id="panel-zh" lang="zh-CN">
-        <p class="intro">本隐私政策说明手机限时锁（亦称「Flowora」「本应用」「我们」）在您使用我们的移动应用程序及相关服务时，如何收集、使用、存储与共享信息。Flowora 定位为自律与亲友/伴侣监督工具。我们仅收集实现核心功能所必需的信息，并就平台权限保持透明。</p>
+        <p class="intro">本隐私政策说明手机限时锁 iOS 版（亦称「Flowora」「本应用」「我们」）在您使用我们的 iOS 应用程序及相关服务时，如何收集、使用、存储与共享信息。Flowora 定位为自律与亲友/伴侣监督工具。我们仅收集实现核心功能所必需的信息，并就平台权限保持透明。</p>
+
         <section class="developer-info" aria-label="应用与开发者信息">
           <h2>应用与开发者信息 / App &amp; Developer</h2>
           <ul>
             <li>应用名称 / App Name：手机限时锁（Flowora）</li>
-            <li>应用包名 / Package Name：com.haloutongxue.offly</li>
+            <li>Bundle ID：com.haloutongxue.offly</li>
             <li>开发者名称 / Developer：杭州哈喽同学网络科技有限公司</li>
             <li>开发者联系方式 / Contact：<a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>（或应用内「设置 → 反馈」）</li>
             <li>官方网站 / Website：<a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a></li>
@@ -213,37 +206,38 @@
 
         <section>
           <h2>1. 我们是谁</h2>
-          <p>本应用「手机限时锁」（包名：com.haloutongxue.offly）由杭州哈喽同学网络科技有限公司开发并运营。官方网站为 <a href="https://global.haloutongxue.com/discipline.html。如您有隐私相关问题，可通过应用内「反馈」功能联系我们，发送邮件至" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html。如您有隐私相关问题，可通过应用内「反馈」功能联系我们，发送邮件至</a> <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>，或访问我们的官方网站。</p>
+          <p>本应用「手机限时锁」（Bundle ID：com.haloutongxue.offly）由杭州哈喽同学网络科技有限公司开发并运营。官方网站为 <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>。如您有隐私相关问题，可通过应用内「反馈」功能联系我们，发送邮件至 <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>，或访问我们的官方网站。</p>
         </section>
 
         <section>
           <h2>2. 我们收集的信息</h2>
           <p>视您使用 Flowora 的方式，我们可能处理下列类别的信息。我们不会出售您的个人信息。</p>
-          <p><strong>您首次启动并点击「同意」本政策前，本应用及第三方 SDK 不会收集软件安装列表、Android ID、OAID、IMEI、IMSI、设备 MAC 地址、位置等个人信息；同意后亦仅在实现对应功能所必需时收集。</strong></p>
+          <p class="callout">您首次启动并同意本政策前，本应用及第三方 SDK 不会为广告或画像目的收集设备标识或使用数据；同意后亦仅在实现对应功能所必需时处理信息。激励广告相关 SDK 仅在您主动进入激励广告流程时初始化，并会按系统要求申请 App Tracking Transparency；拒绝跟踪不影响核心锁定功能。</p>
           <ul>
-            <li>账号与身份：微信登录标识、昵称、头像 URL，以及维持登录状态所需的会话令牌。</li>
+            <li>账号与身份：您选择的登录方式对应的标识与资料（例如微信登录标识、昵称、头像；或通过「通过 Apple 登录」由 Apple 提供的 Apple 用户标识及您授权的邮箱/姓名），以及维持登录状态所需的会话令牌。</li>
             <li>监督关系数据：您的 6 位监督码、邀请、您为监督人设置的昵称/头像，以及关系状态（「监督我的人」/「我监督的人」）。</li>
             <li>应用锁定配置：锁定规则、时间表、时长限制、所选应用令牌/标识符、您选择的解锁密码或验证输入，以及执行状态。</li>
-            <li>软件安装列表：在您使用「选择应用 / 应用锁」功能时，通过系统 PackageManager 查询本机可启动应用列表（含应用名称、包名与图标），用于配置锁定目标；不会在您同意本政策前读取。</li>
-            <li>本机安装标识（installId）：应用在同意本政策后于本机生成的随机标识，用于匿名建户与会话恢复；非 IMEI / IMSI / MAC 地址。</li>
+            <li>本机安装标识（installId）：应用在同意本政策后于本机生成的随机标识，用于匿名建户与会话恢复；并非硬件设备序列号或广告跟踪标识。</li>
             <li>您创建的 Safebox 内容：私人笔记、私人联系人（您输入的姓名/电话/邮箱），以及您导入的私人照片/视频。上述内容主要为您使用 Safebox 功能而存储。</li>
-            <li>锁定所需的使用与设备信号：在 iOS 上，Screen Time / FamilyControls、DeviceActivity 与 ManagedSettings 授权及相关令牌；在 Android 上，无障碍服务事件与使用情况访问（PACKAGE_USAGE_STATS），用于检测前台应用并施加屏蔽。前述使用情况访问仅在您开启相关权限且使用锁定功能时发生。</li>
-            <li>会员与商业数据：VIP/会员状态、到期时间，以及通过应用内支付流程处理的购买相关记录。</li>
-            <li>广告互动数据：当您通过广告聚合合作伙伴（GroMore / Pangle 技术栈）观看激励广告（例如免费锁定时长奖励）时，可能处理广告投放所需的设备与广告事件信号。本应用不请求 App Tracking Transparency，亦不将数据用于跨其他公司的 App 或网站跟踪用户。</li>
+            <li>锁定所需的使用与设备信号：Screen Time / FamilyControls、DeviceActivity 与 ManagedSettings 授权及相关令牌，用于选择应用/类别并施加屏蔽。</li>
+            <li>会员与商业数据：VIP/会员状态、到期时间，以及通过 App Store 应用内购买处理的购买相关记录（含自动续订状态；付款明细由 Apple 按其政策处理）。</li>
+            <li>广告互动数据：当您通过广告聚合合作伙伴（GroMore / Pangle 技术栈）观看激励广告（例如免费锁定时长奖励）时，可能在适用的同意框架下处理广告标识符与广告事件信号，包括在必要情况下于 iOS 适用的 App Tracking Transparency。</li>
             <li>您提交的反馈：消息内容、可选联系方式与时间戳。</li>
-            <li>本地偏好：语言、小组件配置等存储于设备本地的设置（例如通过本地数据库 / SharedPreferences）。</li>
+            <li>本地偏好：语言、小组件配置等存储于设备本地的设置（例如通过本地数据库 / UserDefaults）。</li>
             <li>技术日志：有助于保障服务稳定的基本诊断信息，例如 API 错误或执行失败。此类信息不会用于广告画像。</li>
           </ul>
         </section>
 
         <section>
           <h2>3. 我们申请的权限</h2>
-          <p>Flowora 仅在功能需要时申请系统权限。您可在系统设置中拒绝或撤销权限；部分功能届时将不可用。</p>
+          <p>Flowora 仅在功能需要时申请系统权限。您可在 iOS「设置」中拒绝或撤销权限；部分功能届时将不可用。</p>
           <ul>
             <li>Screen Time / FamilyControls（iOS）：选择应用/类别，并为时间限制与锁定施加屏蔽。</li>
-            <li>照片与视频图库：选择个人头像与监督人头像；为意见反馈添加图片。</li>
+            <li>照片与视频图库：选择个人头像与监督人头像；为意见反馈添加图片；将您选择的照片/视频导入 Safebox（不会从图库删除原件）。</li>
+            <li>通知：提醒您锁定状态，并帮助打开解锁流程。</li>
+            <li>跟踪（iOS ATT，如适用）：在激励广告功能中展示更相关的广告。拒绝跟踪不会移除核心锁定功能。</li>
             <li>网络访问：登录、数据同步与激励广告等联网功能。</li>
-            <li>主屏幕小组件 / App Groups：使用共享本地数据展示小组件内容（系统刷新小组件时可能短暂拉起本应用进程，详见「自启动与关联启动」）。</li>
+            <li>主屏幕小组件 / App Groups：使用共享本地数据展示小组件内容。</li>
           </ul>
         </section>
 
@@ -263,9 +257,9 @@
 
         <section>
           <h2>5. 本地处理与云端同步</h2>
-          <p>Flowora 的许多敏感功能依赖端侧机制：iOS 上的 Screen Time 框架、Android 上的无障碍/使用情况统计，以及用于规则与 Safebox 内容的本地 SQLite 存储。</p>
+          <p>Flowora 的许多敏感功能依赖端侧机制：iOS 上的 Screen Time / FamilyControls 框架，以及用于规则与 Safebox 内容的本地存储。</p>
           <p>账号、监督关系、会员状态及其他服务功能可能与我们的后端服务器同步，以便在与您登录关联的会话与设备间正常工作。我们仅传输上述功能所需的信息。产品信息发布于 <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>。</p>
-          <p>我们不会声称读取您锁定的第三方应用内容。锁定使用平台令牌/软件包标识符与系统 API，而非截屏或完整抓取其他应用内容。</p>
+          <p>我们不会声称读取您锁定的第三方应用内容。锁定使用平台应用令牌与系统 API，而非截屏或完整抓取其他应用内容。</p>
         </section>
 
         <section>
@@ -274,6 +268,7 @@
           <ul>
             <li>服务提供商：托管、支付处理，以及在合同约束下代表我们处理数据的广告合作伙伴。</li>
             <li>微信：若您使用微信登录，微信将依据其条款与隐私政策提供身份验证数据。</li>
+            <li>Apple：若您使用「通过 Apple 登录」，Apple 将依据其条款与隐私政策向我们提供身份验证数据；会员购买通过 App Store 扣款，付款明细由 Apple 处理。</li>
             <li>您邀请的监督人：通过监督码连接的人员，可看到监督/解锁流程所需的关系信息与参与情况。请谨慎选择监督人。</li>
             <li>法律要求：在适用法律、法规、法律程序要求下，或为保护权利与安全，我们可能披露信息。</li>
           </ul>
@@ -281,16 +276,11 @@
 
         <section>
           <h2>7. 第三方 SDK 清单</h2>
-          <p>为实现登录、分享与激励广告等功能，本应用在 iOS 端集成下列第三方 SDK。广告相关 SDK 仅在您主动进入激励广告流程时初始化。本应用不请求 App Tracking Transparency，亦不将广告相关数据用于跨其他公司的 App 或网站跟踪用户；核心锁定功能不依赖跟踪授权。</p>
+          <p>为实现登录、分享与激励广告等功能，本应用在 iOS 端集成下列第三方 SDK。广告相关 SDK 仅在您主动进入激励广告流程时初始化，并按系统要求申请 App Tracking Transparency。拒绝跟踪不影响核心锁定功能。</p>
         </section>
 
         <section>
-          <h3>7.B iOS 端</h3>
-          <p>iOS 端广告相关 SDK 仅在您主动进入激励广告流程时初始化。本应用不请求 App Tracking Transparency，亦不将广告相关数据用于跨其他公司的 App 或网站跟踪用户；核心锁定功能不依赖跟踪授权。iOS 端不集成抖音 Android SDK。</p>
-        </section>
-
-        <section>
-          <h4>7.B.1 微信 Open SDK for iOS</h4>
+          <h3>7.1 微信 Open SDK for iOS</h3>
           <ul>
             <li>SDK名称：微信 Open SDK for iOS</li>
             <li>开发者：深圳市腾讯计算机系统有限公司</li>
@@ -302,12 +292,12 @@
         </section>
 
         <section>
-          <h4>7.B.2 穿山甲广告 SDK（GroMore / Pangle，iOS）</h4>
+          <h3>7.2 穿山甲广告 SDK（GroMore / Pangle，iOS）</h3>
           <ul>
             <li>SDK名称：穿山甲广告 SDK（含 GroMore 聚合）</li>
             <li>开发者：北京巨量引擎网络技术有限公司</li>
-            <li>收集信息范围：设备标识符（如 IDFV；本应用不请求 ATT / 不获取用于跨 App 跟踪的 IDFA），IP 地址，设备品牌/型号/系统版本，屏幕信息，设备语言与时区，网络与运营商相关信息，应用包名/版本与前后台状态，以及广告投放、SKAdNetwork 等归因与反作弊所需的其他设备与使用信号（具体以该 SDK 隐私政策为准）</li>
-            <li>使用目的：激励广告投放、反作弊、统计分析、保障广告服务稳定（不用于跨其他公司 App/网站跟踪用户）</li>
+            <li>收集信息范围：设备标识符（如 IDFV、经用户授权后的 IDFA），IP 地址，设备品牌/型号/系统版本，屏幕信息，设备语言与时区，网络与运营商相关信息，应用包名/版本与前后台状态，以及广告投放、监测归因、SKAdNetwork、反作弊所需的其他设备与使用信号（具体以该 SDK 隐私政策为准）</li>
+            <li>使用目的：激励广告投放、监测归因、反作弊、统计分析、保障广告服务稳定</li>
             <li>SDK隐私政策链接：<a href="https://www.csjplatform.com/privacy" rel="noopener noreferrer">https://www.csjplatform.com/privacy</a></li>
           </ul>
         </section>
@@ -315,7 +305,7 @@
         <section>
           <h2>8. Safebox、媒体与敏感内容</h2>
           <p>Safebox 用于存放个人私密内容。您自行决定导入内容。请勿存储您无权合法持有的内容。</p>
-          <p>Safebox 密码保护是产品安全功能，并不能保证在设备被入侵、越狱/Root、取证提取，或他人已知您的解锁方式时仍绝对安全。</p>
+          <p>Safebox 密码保护是产品安全功能，并不能保证在设备被入侵、越狱、取证提取，或他人已知您的解锁方式时仍绝对安全。</p>
         </section>
 
         <section>
@@ -334,12 +324,12 @@
           <h2>11. 您的选择与权利</h2>
           <p>您可以：</p>
           <ul>
-            <li>在 iOS/Android 设置中撤销平台权限。</li>
-            <li>在「设置 → 关于」撤回隐私政策同意（撤回后需重新同意方可继续使用；建议在 4 步内完成）。</li>
+            <li>在 iOS「设置」中撤销平台权限。</li>
             <li>在应用内断开监督关系。</li>
             <li>编辑您控制的个人资料昵称/头像与 Safebox 内容。</li>
             <li>通过「反馈」提交请求或问题。</li>
             <li>停止使用本应用，并在法律要求且技术可行时请求协助进行与账号相关的删除。</li>
+            <li>管理 App Store 订阅：打开「设置」→ Apple ID →「订阅」，取消自动续订。</li>
           </ul>
         </section>
 
@@ -360,42 +350,44 @@
 
         <section>
           <h2>15. 联系方式</h2>
-          <p>开发者：杭州哈喽同学网络科技有限公司。隐私咨询：请使用应用内「设置 → 反馈」，或发送邮件至 <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>，或访问 <a href="https://global.haloutongxue.com/discipline.html。请提供足以识别您请求的信息（请勿发送不必要的敏感内容" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html。请提供足以识别您请求的信息（请勿发送不必要的敏感内容</a>）。</p>
+          <p>开发者：杭州哈喽同学网络科技有限公司。隐私咨询：请使用应用内「设置 → 反馈」，或发送邮件至 <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>，或访问 <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>。请提供足以识别您请求的信息（请勿发送不必要的敏感内容）。</p>
         </section>
-
       </div>
 
       <div class="lang-panel is-visible" id="panel-en" lang="en">
-        <p class="intro">This Privacy Policy explains how 手机限时锁 (also referred to as “Flowora”, “the App”, “we”, “us”, or “our”) collects, uses, stores, and shares information when you use our mobile application and related services. We designed Flowora as a self-discipline and parental/partner supervision tool. We aim to collect only what is needed to operate core features and to be transparent about platform permissions.</p>
+        <p class="intro">This Privacy Policy explains how 手机限时锁 (also referred to as “Flowora”, “the App”, “we”, “us”, or “our”) collects, uses, stores, and shares information when you use our iOS mobile application and related services. We designed Flowora as a self-discipline and parental/partner supervision tool. We aim to collect only what is needed to operate core features and to be transparent about platform permissions.</p>
+
         <section>
           <h2>1. Who We Are</h2>
-          <p>The App is operated in connection with the Flowora / Discipline Lock service. Our official website is <a href="https://global.haloutongxue.com/discipline.html." rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html.</a> If you have privacy questions, contact us through the in-app Feedback feature, email <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>, or visit our official website.</p>
+          <p>The App is operated in connection with the Flowora / Discipline Lock service. Our official website is <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>. If you have privacy questions, contact us through the in-app Feedback feature, email <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>, or visit our official website.</p>
         </section>
 
         <section>
           <h2>2. Information We Collect</h2>
           <p>Depending on how you use Flowora, we may process the categories below. We do not sell your personal information.</p>
+          <p class="callout">Ad-related SDKs initialize only when you enter a rewarded-ad flow, and we request App Tracking Transparency as required by the system before ad SDK initialization. Declining tracking does not disable core locking features.</p>
           <ul>
-            <li>Account &amp; identity: WeChat login identifiers, nickname, avatar URL, and session tokens needed to keep you signed in.</li>
+            <li>Account &amp; identity: identifiers and profile data from the sign-in method you choose (for example WeChat login identifiers, nickname, and avatar; or an Apple user identifier and any email/name you authorize via Sign in with Apple), plus session tokens needed to keep you signed in.</li>
             <li>Supervisor relationship data: your 6-digit supervise code, invitations, nicknames/avatars you set for supervisors, and relationship status (“people supervising me” / “people I supervise”).</li>
             <li>App-lock configuration: lock rules, schedules, duration limits, selected app tokens/identifiers, unlock passwords or verification inputs you choose, and enforcement status.</li>
             <li>Safebox content you create: private notes, private contacts (name/phone/email you enter), and private photos/videos you import. These are stored primarily for your use of the Safebox feature.</li>
-            <li>Usage &amp; device signals needed for locking: on iOS, Screen Time / FamilyControls, DeviceActivity, and ManagedSettings authorizations and related tokens; on Android, Accessibility Service events and Usage Access (PACKAGE_USAGE_STATS) needed to detect foreground apps and apply shields.</li>
-            <li>Membership &amp; commercial data: VIP/membership status, expiry, and purchase-related records processed through the App’s payment flow.</li>
-            <li>Advertising interaction data: when you watch rewarded ads (for example, free lock-time rewards) via our ad mediation partner (GroMore / Pangle stack), advertising identifiers and ad event signals may be processed under applicable consent frameworks. This app does not request App Tracking Transparency and does not use data to track users across other companies’ apps or websites.</li>
+            <li>Usage &amp; device signals needed for locking: Screen Time / FamilyControls, DeviceActivity, and ManagedSettings authorizations and related tokens used to select apps/categories and apply shields.</li>
+            <li>Membership &amp; commercial data: VIP/membership status, expiry, and purchase-related records processed through App Store In-App Purchase (including auto-renewable subscription status; payment details are handled by Apple under its policies).</li>
+            <li>Advertising interaction data: when you watch rewarded ads (for example, free lock-time rewards) via our ad mediation partner (GroMore / Pangle stack), advertising identifiers and ad event signals may be processed under applicable consent frameworks, including App Tracking Transparency on iOS when required.</li>
             <li>Feedback you submit: message content, optional contact details, and timestamps.</li>
-            <li>Local preferences: language, widget configuration, and similar settings stored on device (for example via local database / SharedPreferences).</li>
+            <li>Local preferences: language, widget configuration, and similar settings stored on device (for example via local database / UserDefaults).</li>
             <li>Technical logs: basic diagnostics such as API errors or enforcement failures that help us keep the service reliable. These are not used for advertising profiling.</li>
           </ul>
         </section>
 
         <section>
           <h2>3. Permissions We Request</h2>
-          <p>Flowora requests system permissions only when a feature needs them. You can deny or revoke permissions in system settings; some features will then be unavailable.</p>
+          <p>Flowora requests system permissions only when a feature needs them. You can deny or revoke permissions in iOS Settings; some features will then be unavailable.</p>
           <ul>
             <li>Screen Time / FamilyControls (iOS): select apps/categories and apply shields for time limits and locks.</li>
-            <li>Photo Library: choose a profile or supervisor avatar; attach images to feedback.</li>
+            <li>Photo Library: choose a profile or supervisor avatar; attach images to feedback; import photos/videos into Safebox (this app does not delete originals from the system library).</li>
             <li>Notifications: remind you about lock state and help open the unlock flow.</li>
+            <li>Tracking (iOS ATT, where applicable): show more relevant ads in rewarded-ad features. Declining tracking does not remove core locking features.</li>
             <li>Home-screen widgets / App Groups: show Flowora widget content using shared local data.</li>
           </ul>
         </section>
@@ -416,9 +408,9 @@
 
         <section>
           <h2>5. Local Processing vs. Cloud Sync</h2>
-          <p>Much of Flowora’s sensitive functionality relies on on-device mechanisms: Screen Time frameworks on iOS, Accessibility/Usage Stats on Android, and local SQLite storage for rules and Safebox content.</p>
-          <p>Account, supervisor relationships, membership status, and other service features may sync with our backend servers so they work across sessions and devices associated with your login. We transmit only what those features require. Product information is published at <a href="https://global.haloutongxue.com/discipline.html." rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html.</a></p>
-          <p>We do not claim to read the contents of third-party apps you lock. Locking uses platform tokens/package identifiers and system APIs, not screenshots or full content capture of other apps.</p>
+          <p>Much of Flowora’s sensitive functionality relies on on-device mechanisms: Screen Time / FamilyControls frameworks on iOS, and local storage for rules and Safebox content.</p>
+          <p>Account, supervisor relationships, membership status, and other service features may sync with our backend servers so they work across sessions and devices associated with your login. We transmit only what those features require. Product information is published at <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>.</p>
+          <p>We do not claim to read the contents of third-party apps you lock. Locking uses platform application tokens and system APIs, not screenshots or full content capture of other apps.</p>
         </section>
 
         <section>
@@ -427,6 +419,7 @@
           <ul>
             <li>Service providers: hosting, payment processing, crash/diagnostic tooling, and ad mediation partners that process data on our behalf under contractual controls.</li>
             <li>WeChat: if you sign in with WeChat, WeChat provides authentication data according to WeChat’s terms and privacy policy.</li>
+            <li>Apple: if you use Sign in with Apple, Apple provides authentication data according to Apple’s terms and privacy policy. Membership purchases are charged through the App Store; payment details are handled by Apple.</li>
             <li>Supervisors you invite: people you connect via supervise codes can see relationship information and participation needed for supervision/unlock flows you enable. Choose supervisors carefully.</li>
             <li>Legal requirements: we may disclose information if required by applicable law, regulation, legal process, or to protect rights and safety.</li>
           </ul>
@@ -434,7 +427,7 @@
 
         <section>
           <h2>7. Third-Party SDK List</h2>
-          <p>To provide login, sharing, and rewarded ads, the iOS app integrates the third-party SDKs below. Ad-related SDKs initialize only when you enter a rewarded-ad flow. This app does not request App Tracking Transparency and does not use ad-related data to track users across other companies’ apps or websites; core locking features do not depend on tracking authorization.</p>
+          <p>To provide login, sharing, and rewarded ads, the iOS app integrates the third-party SDKs below. Ad-related SDKs initialize only when you enter a rewarded-ad flow, and we request App Tracking Transparency as required by the system. Declining tracking does not disable core locking features.</p>
         </section>
 
         <section>
@@ -454,8 +447,8 @@
           <ul>
             <li>SDK name: Pangle Ads SDK (including GroMore mediation)</li>
             <li>Developer: Beijing Ocean Engine Network Technology Co., Ltd. (as registered for Pangle/CSJ)</li>
-            <li>Data processed: device identifiers (such as IDFV; this app does not request ATT / does not obtain IDFA for cross-app tracking), IP address, device brand/model/OS version, screen information, device language and time zone, network/carrier-related signals, app package/version and foreground/background state, and other device/usage signals needed for ad delivery, SKAdNetwork-style attribution, and anti-fraud (details per the SDK privacy policy)</li>
-            <li>Purpose: rewarded-ad delivery, anti-fraud, analytics, and stable ad service (not used to track users across other companies’ apps or websites)</li>
+            <li>Data processed: device identifiers (such as IDFV and IDFA after user authorization), IP address, device brand/model/OS version, screen information, device language and time zone, network/carrier-related signals, app package/version and foreground/background state, and other device/usage signals needed for ad delivery, attribution, SKAdNetwork, and anti-fraud (details per the SDK privacy policy)</li>
+            <li>Purpose: rewarded-ad delivery, attribution, anti-fraud, analytics, and stable ad service</li>
             <li>SDK privacy policy: <a href="https://www.csjplatform.com/privacy" rel="noopener noreferrer">https://www.csjplatform.com/privacy</a></li>
           </ul>
         </section>
@@ -463,7 +456,7 @@
         <section>
           <h2>8. Safebox, Media &amp; Sensitive Content</h2>
           <p>Safebox is intended for personal private content. You control what you import. Do not store content you are not legally allowed to possess.</p>
-          <p>Safebox password protection is a product security feature, not a guarantee against a compromised device, jailbreak/root, forensic extraction, or someone who already knows your unlock method.</p>
+          <p>Safebox password protection is a product security feature, not a guarantee against a compromised device, jailbreak, forensic extraction, or someone who already knows your unlock method.</p>
         </section>
 
         <section>
@@ -482,11 +475,12 @@
           <h2>11. Your Choices &amp; Rights</h2>
           <p>You may:</p>
           <ul>
-            <li>Revoke platform permissions in iOS/Android settings.</li>
+            <li>Revoke platform permissions in iOS Settings.</li>
             <li>Disconnect supervisor relationships in the App.</li>
             <li>Edit profile nickname/avatar and Safebox content you control.</li>
             <li>Submit requests or questions through Feedback.</li>
             <li>Stop using the App and request account-related deletion assistance where legally required and technically feasible.</li>
+            <li>Manage App Store subscriptions: Settings → Apple ID → Subscriptions, then turn off auto-renew.</li>
           </ul>
         </section>
 
@@ -507,9 +501,8 @@
 
         <section>
           <h2>15. Contact</h2>
-          <p>For privacy inquiries: use Settings → Feedback in the App, email <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>, or visit <a href="https://global.haloutongxue.com/discipline.html." rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html.</a> Please include enough detail for us to identify your request (without sending unnecessary sensitive content).</p>
+          <p>For privacy inquiries: use Settings → Feedback in the App, email <a href="mailto:server@haloutongxue.com">server@haloutongxue.com</a>, or visit <a href="https://global.haloutongxue.com/discipline.html" rel="noopener noreferrer">https://global.haloutongxue.com/discipline.html</a>. Please include enough detail for us to identify your request (without sending unnecessary sensitive content).</p>
         </section>
-
       </div>
     </article>
   </main>
@@ -528,10 +521,10 @@
         zh: {
           htmlLang: 'zh-CN',
           title: '隐私政策（iOS）— 手机限时锁',
-          description: '手机限时锁（Flowora）iOS 版隐私政策 — 仅适用于 iOS；不请求 ATT，不用于跨 App 跟踪。',
+          description: '手机限时锁（Flowora）iOS 版隐私政策 — 仅适用于 iOS；激励广告流程中按系统要求申请 ATT。',
           pageTitle: '隐私政策',
           subtitle: '手机限时锁（Flowora）· iOS',
-          scope: '本页仅适用于 iOS 客户端，内容与应用内 IosPrivacyPolicyAdapter 适配后的隐私政策一致（路径 B：不请求 App Tracking Transparency，亦不用于跨其他公司 App/网站跟踪用户）。',
+          scope: '本页仅适用于 iOS 客户端，内容与应用内 IosPrivacyPolicyAdapter 适配后的隐私政策一致（路径 A：进入激励广告流程时按系统要求申请 App Tracking Transparency；拒绝跟踪不影响核心锁定）。不描述 Android 专用做法。',
           updated: '最近更新：2026年9月30日',
           footerCopy: '© 手机限时锁（Flowora）· 杭州哈喽同学网络科技有限公司',
           footerLink: '官方网站'
@@ -539,11 +532,11 @@
         en: {
           htmlLang: 'en',
           title: 'Privacy Policy (iOS) — Flowora',
-          description: 'Privacy Policy for 手机限时锁 (Flowora) on iOS — Path B: no ATT / no cross-app tracking.',
+          description: 'Privacy Policy for 手机限时锁 (Flowora) on iOS — Path A: ATT requested before rewarded ads.',
           pageTitle: 'Privacy Policy',
           subtitle: '手机限时锁 (Flowora) · iOS',
-          scope: 'This page applies to the iOS App only. Content matches the in-app iOS privacy policy after IosPrivacyPolicyAdapter (Path B: no ATT / no cross-app tracking).',
-          updated: 'Last updated: September 11, 2026',
+          scope: 'This page applies to the iOS App only. Content matches the in-app iOS privacy policy after IosPrivacyPolicyAdapter (Path A: App Tracking Transparency is requested when you enter a rewarded-ad flow). Android-only practices are not described here.',
+          updated: 'Last updated: September 30, 2026',
           footerCopy: '© Flowora · Hangzhou Halou Tongxue Network Technology Co., Ltd.',
           footerLink: 'Official website'
         }
@@ -580,19 +573,16 @@
           btn.classList.toggle('is-active', active);
           btn.setAttribute('aria-pressed', active ? 'true' : 'false');
         }
-        localStorage.setItem(STORAGE_KEY, lang);
-        window.scrollTo(0, 0);
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
       }
 
+      var buttons = document.querySelectorAll('.lang-btn');
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', function (ev) {
+          setLang(ev.currentTarget.getAttribute('data-lang'));
+        });
+      }
       setLang(detectLang());
-      document.querySelector('.lang-switch').addEventListener('click', function (e) {
-        var btn = e.target.closest('.lang-btn');
-        if (!btn) return;
-        setLang(btn.getAttribute('data-lang'));
-      });
-      var params = new URLSearchParams(window.location.search);
-      var queryLang = params.get('lang');
-      if (queryLang === 'zh' || queryLang === 'en') setLang(queryLang);
     })();
   </script>
 </body>
