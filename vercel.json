@@ -10,6 +10,16 @@
       "source": "/company",
       "destination": "/company.html",
       "permanent": true
+    },
+    {
+      "source": "/privacy-ios.html",
+      "destination": "/flowora-privacy-ios",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-android-cn.html",
+      "destination": "/flowora-privacy-android-cn",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -62,20 +72,40 @@
       "destination": "/h5/global/discipline.html"
     },
     {
-      "source": "/privacy-ios.html",
-      "destination": "/h5/global/privacy-ios.html"
-    },
-    {
-      "source": "/privacy-android-cn.html",
-      "destination": "/h5/global/privacy-android-cn.html"
-    },
-    {
       "source": "/flowora-privacy",
       "destination": "/h5/global/flowora-privacy.html"
     },
     {
       "source": "/flowora-privacy/",
       "destination": "/h5/global/flowora-privacy.html"
+    },
+    {
+      "source": "/flowora-privacy.html",
+      "destination": "/h5/global/flowora-privacy.html"
+    },
+    {
+      "source": "/flowora-privacy-ios",
+      "destination": "/h5/global/flowora-privacy-ios.html"
+    },
+    {
+      "source": "/flowora-privacy-ios/",
+      "destination": "/h5/global/flowora-privacy-ios.html"
+    },
+    {
+      "source": "/flowora-privacy-ios.html",
+      "destination": "/h5/global/flowora-privacy-ios.html"
+    },
+    {
+      "source": "/flowora-privacy-android-cn",
+      "destination": "/h5/global/flowora-privacy-android-cn.html"
+    },
+    {
+      "source": "/flowora-privacy-android-cn/",
+      "destination": "/h5/global/flowora-privacy-android-cn.html"
+    },
+    {
+      "source": "/flowora-privacy-android-cn.html",
+      "destination": "/h5/global/flowora-privacy-android-cn.html"
     },
     {
       "source": "/functions/v1/global-share-og",
