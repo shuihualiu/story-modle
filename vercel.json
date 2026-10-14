@@ -20,6 +20,26 @@
       "source": "/privacy-android-cn.html",
       "destination": "/flowora-privacy-android-cn",
       "permanent": true
+    },
+    {
+      "source": "/flowora-privacy.html",
+      "destination": "/ticklock-privacy",
+      "permanent": true
+    },
+    {
+      "source": "/flowora-privacy/",
+      "destination": "/ticklock-privacy",
+      "permanent": true
+    },
+    {
+      "source": "/flowora-privacy",
+      "destination": "/ticklock-privacy",
+      "permanent": true
+    },
+    {
+      "source": "/h5/global/flowora-privacy.html",
+      "destination": "/ticklock-privacy",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -72,16 +92,16 @@
       "destination": "/h5/global/discipline.html"
     },
     {
-      "source": "/flowora-privacy",
-      "destination": "/h5/global/flowora-privacy.html"
+      "source": "/ticklock-privacy",
+      "destination": "/h5/global/ticklock-privacy.html"
     },
     {
-      "source": "/flowora-privacy/",
-      "destination": "/h5/global/flowora-privacy.html"
+      "source": "/ticklock-privacy/",
+      "destination": "/h5/global/ticklock-privacy.html"
     },
     {
-      "source": "/flowora-privacy.html",
-      "destination": "/h5/global/flowora-privacy.html"
+      "source": "/ticklock-privacy.html",
+      "destination": "/h5/global/ticklock-privacy.html"
     },
     {
       "source": "/flowora-privacy-ios",
